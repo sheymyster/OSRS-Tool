@@ -2,33 +2,37 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Image from 'react-image-resizer';
-import Select from 'react-select';
+import Select from 'select-react-redux';
 import {changeMonster} from '../actions/npcInfoBoxActions';
+import allMonsterImageLinks from '../JSONraw/allMonsterImageLinks.json';
 import allMonsterData from '../JSONraw/allMonsterData.json';
+
+
 
 class NPCInfoBox extends Component {
 
-  handleChange(event) {
-    this.props.changeMonster(event.target.value);
-  }
+  testFunction(input) {
+    console.log(input);
+  };
 
    render() {
-     let monsterLinkObject = {
-       "vorkath": "9/9a/Vorkath",
-       "fire giant": "1/16/Fire_giant",
-       "chaos druid": "0/0e/Chaos_druid"
+
+     let imageLink = "https://oldschool.runescape.wiki/images/" + allMonsterImageLinks[this.props.chosenMonster] + ".png"
+     let selectionOptions = {};
+
+     Object.entries(allMonsterImageLinks).forEach(entry => {
+       let selectionObject = {};
+       selectionOptions[entry[0]] = decodeURIComponent(entry[0].split('_').join(' '))
+     });
+
+     const onChange = (val) => {
+      this.props.changeMonster(val);
      };
 
-     let monsterNames = [
-       { value: 'vorkath', label: 'Vorkath'},
-       { value: 'fire giant', label: 'Fire Giant'},
-       { value: 'chaos druid', label: 'Chaos Druid'}
-     ]
-
-     let imageLink = "https://oldschool.runescape.wiki/images/" + monsterLinkObject[this.props.chosenMonster] + ".png"
      return (
+
        <div>
-          {allMonsterData.attributes[0].name}
+          {this.props.chosenMonster.split('_').join(' ')}
           <Image
             src={imageLink}
             width={300}
@@ -43,11 +47,10 @@ class NPCInfoBox extends Component {
             <div> Magic Level: {allMonsterData.attributes[0].magiclvl}   Magic Attack: {allMonsterData.attributes[0].magicattack}</div>
             <div> Range Level: {allMonsterData.attributes[0].rangelvl}   Range Attack: {allMonsterData.attributes[0].rangeattack}</div>
           </div>
-          <select onChange={event => this.handleChange(event)} >
-            <option value="vorkath">Vorkath</option>
-            <option value="fire giant">Fire Giant</option>
-            <option value="chaos druid">Chaos Druid</option>
-          </select>
+            <Select
+            onChange={onChange}
+            items={selectionOptions}
+            />
         </div>
      );
    }

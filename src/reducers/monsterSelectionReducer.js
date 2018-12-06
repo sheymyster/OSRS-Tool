@@ -1,7 +1,6 @@
-export default function (state="vorkath", action) {
+export default function (state="Vorkath", action) {
   switch(action.type) {
     case "MONSTER_CHANGED":
-      console.log(action.payload);
       return action.payload
       break;
   }
