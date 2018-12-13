@@ -1,6 +1,6 @@
 const initialState = {
   potions: {
-    strength: false,
+    'strength': 'false',
     attack: false,
     superstrength: false,
     superattack: false,
@@ -32,12 +32,32 @@ const initialState = {
 };
 
 export default function (state = initialState, action) {
-  let newBoosts = Object.assign({}, state);
-  switch(action.type) {
-    case "BOOST_CHANGED":
-      newBoosts[action.payload.category][action.payload.name] = action.payload.value
-      return newBoosts;
-      break;
+  switch (action.type) {
+    case "POTION_CHANGED":
+      return {
+        ...state,
+          potions: {
+            ...state.potions,
+            ...action.payload
+          }
+      };
+    case "PRAYER_CHANGED":
+      return {
+        ...state,
+          prayers: {
+            ...state.prayers,
+            ...action.payload
+          }
+      };
+    case "OTHER_BOOST_CHANGED":
+      return {
+        ...state,
+          other: {
+            ...state.other,
+            ...action.payload
+          }
+      };
+    default:
+      return state;
   }
-  return state;
 };

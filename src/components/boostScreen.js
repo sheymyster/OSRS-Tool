@@ -1,24 +1,40 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {changeBoost} from '../actions/boostSelectionBoxActions';
+import {changePrayer, changePotion, changeOtherBoost} from '../actions/boostSelectionBoxActions';
 import '../index.css';
 
 class BoostSelectionBox extends Component {
 
+  handleBoostChange(category, name) {
+    let newValue;
+    if (this.props.currentBoosts[category][name] == 'false') {
+      newValue = 'true'
+    } else {
+      newValue = 'false'
+    };
+    switch (category) {
+      case 'potions':
+       return this.props.changePotion(name, newValue)
+    }
+  };
+  
    render() {
+
      return (
        <div className="boostScreen">
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.strengthpotion} /> Strength Potion </div>
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.attackpotion} /> Attack Potion </div>
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.superstrengthpotion} /> Super Strength Potion </div>
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.superattackpotion} /> Super Attack Potion </div>
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.combatpotion} /> Combat Potion </div>
-          <div> <input type="checkbox" value = {this.props.currentBoosts.potions.supercombatpotion} /> Super Combat Potion </div>
+          <div> <input type="checkbox" onChange={() => {this.handleBoostChange('potions', 'strengthpotion')}}/> Strength Potion </div>
+          <div> <input type="checkbox" /> Attack Potion </div>
+          <div> <input type="checkbox" /> Super Strength Potion </div>
+          <div> <input type="checkbox" /> Super Attack Potion </div>
+          <div> <input type="checkbox" /> Combat Potion </div>
+          <div> <input type="checkbox" /> Super Combat Potion </div>
+          {this.props.currentBoosts.potions.strength}
        </div>
      );
    }
 };
+
 
 function mapStateToProps(state) {
   return {
@@ -27,7 +43,11 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch){
-  return bindActionCreators({changeBoost: changeBoost}, dispatch)
+  return bindActionCreators({
+    changePotion: changePotion,
+    changePrayer: changePrayer,
+    changeOtherBoost: changeOtherBoost
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(BoostSelectionBox);
