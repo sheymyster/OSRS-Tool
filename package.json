@@ -9,7 +9,8 @@
     "react-scripts": "2.1.1",
     "react-select": "^2.1.2",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "select-react-redux": "^1.7.1"
   },
   "scripts": {
     "start": "react-scripts start",
