@@ -1,6 +1,6 @@
 const initialState = {
   potions: {
-    'strength': 'false',
+    strength: false,
     attack: false,
     superstrength: false,
     superattack: false,
@@ -12,15 +12,18 @@ const initialState = {
     superrange: false
   },
   prayers: {
-    strength5: false,
-    strength10: false,
+    burstofstrength: false,
+    superhumanstrength: false,
     ultimatestrength: false,
+    clarityofthought: false,
+    improvedreflexes: false,
+    incrediblereflexes: false,
     sharpeye: false,
     hawkeye: false,
     eagleeye: false,
-    magic5: false,
-    magic10: false,
-    magic15: false,
+    mysticwill: false,
+    mysticlore: false,
+    mysticmight: false,
     chivalry: false,
     piety: false,
     rigour: false,

@@ -3,9 +3,9 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Image from 'react-image-resizer';
 import Select from 'select-react-redux';
-import {changeMonster} from '../actions/npcInfoBoxActions';
-import allMonsterImageLinks from '../JSONraw/allMonsterImageLinks.json';
-import allMonsterData from '../JSONraw/allMonsterData.json';
+import {changeMonster} from './npcInfoActions';
+import allMonsterImageLinks from '../../JSONraw/allMonsterImageLinks.json';
+import allMonsterData from '../../JSONraw/allMonsterData.json';
 
 
 
@@ -21,7 +21,6 @@ class NPCInfoBox extends Component {
      let selectionOptions = {};
 
      Object.entries(allMonsterImageLinks).forEach(entry => {
-       let selectionObject = {};
        selectionOptions[entry[0]] = decodeURIComponent(entry[0].split('_').join(' '))
      });
 
