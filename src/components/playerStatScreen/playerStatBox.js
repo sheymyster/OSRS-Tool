@@ -12,8 +12,9 @@ class PlayerStatBox extends Component {
 
 
   testHiScores() {
-    let url = 'http://services.runescape.com/m=hiscore_oldschool/index_lite.ws?player=Hess'
-      request.get({url:url, mode:"nocors"}, function(error, response, body) {
+    let proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    let url = 'https://secure.runescape.com/m=hiscore_oldschool/index_lite.ws?player=lp lul lr le';
+      request(proxyurl + url, function(error, response, body) {
         let stats = JSON.stringify(body);
         console.log(stats);
       })

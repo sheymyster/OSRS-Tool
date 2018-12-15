@@ -97,6 +97,16 @@ class OutputInformationBox extends Component {
   }
 
   calculateEffectiveStrength() {
+    let effectiveStrengthLevel;
+    let potionBonus = this.calculateBonusLevels('strength');
+    let prayerBonus = this.calculatePrayerBonuses('strength');
+    let otherBonus = 1;
+    let styleBonus = 0;
+    effectiveStrengthLevel = Math.floor((+this.props.playerStats.strength + potionBonus)*prayerBonus*otherBonus)+styleBonus;
+    return effectiveStrengthLevel;
+  }
+
+  calculateEffectiveAttack() {
 
   }
 
@@ -112,8 +122,8 @@ class OutputInformationBox extends Component {
           <div>Attack multiplier is {this.calculatePrayerBonuses('attack')}</div>
           <div>Range attack multiplier is {this.calculatePrayerBonuses('range')}</div>
           <div>Magic attack multiplier is {this.calculatePrayerBonuses('magic')}</div>
-          <div>Effective Strength: </div>
-          <div>Effective Attack: </div>
+          <div>Effective Strength: {this.calculateEffectiveStrength()}</div>
+          <div>Effective Attack: {this.props.playerStats.strength}</div>
        </div>
      );
    }
