@@ -24,10 +24,6 @@ class NPCInfoBox extends Component {
        selectionOptions[entry[0]] = decodeURIComponent(entry[0].split('_').join(' '))
      });
 
-     const onChange = (val) => {
-      this.props.changeMonster(val);
-     };
-
      return (
 
        <div>
@@ -47,7 +43,7 @@ class NPCInfoBox extends Component {
             <div> Range Level: {allMonsterData.attributes[0].rangelvl}   Range Attack: {allMonsterData.attributes[0].rangeattack}</div>
           </div>
             <Select
-            onChange={onChange}
+            onChange={(value) => this.props.changeMonster(value)}
             items={selectionOptions}
             />
         </div>
