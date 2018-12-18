@@ -3,24 +3,37 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {changePlayerGear} from './gearSelectionActions';
 import Select from 'select-react-redux';
+import {Dropdown} from 'semantic-ui-react';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
 
 class GearSelectionBox extends Component {
 
   findEquipmentNames (slot) {
-    let listOfNames = {};
+    let listOfNames = [];
+    let i=0;
     Object.entries(allEquipmentData[slot]).forEach(entry => {
-      listOfNames[entry[0]] = decodeURIComponent(entry[0]);
+      let equipmentObject = {};
+      equipmentObject.key = i;
+      equipmentObject.value = entry[0];
+      equipmentObject.text = entry[0];
+      listOfNames.push(equipmentObject);
+      i++;
     });
     return listOfNames;
   }
 
    render() {
-     console.log(this.findEquipmentNames('head'));
+     const {value} = '';
      return (
        <div>
-       <Select name='Head' simpleValue controlShouldRenderValue={true} onChange={(value) => this.props.changePlayerGear('head', value)} items={this.findEquipmentNames('head')}/>
-       {this.props.playerGear.head}
+        <Dropdown
+        placeholder='Select Monster'
+        value={value}
+        onChange={(e, {value}) => this.props.changePlayerGear('head', {value})}
+        fluid
+        search
+        selection
+        options={this.findEquipmentNames('head')} />
        </div>
      );
    }
