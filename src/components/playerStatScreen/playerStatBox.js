@@ -20,6 +20,7 @@ class PlayerStatBox extends Component {
       })
   }
    render() {
+  
      return (
        <div>
           <div><button onClick={() => this.testHiScores()}>test</button></div>

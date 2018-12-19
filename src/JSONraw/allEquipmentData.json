@@ -29625,7 +29625,7 @@
       "prayerbonus": "+12"
     }
   },
-  "oneHandedWeapon": {
+  "weapon": {
     "Crossbow": {
       "name": "Crossbow",
       "members": false,
@@ -38350,11 +38350,11 @@
       "crushatt": "+0",
       "magicatt": "-10",
       "rangeatt": "-5",
-      "stabdef": "+",
-      "slashdef": "+",
-      "crushdef": "+",
-      "magicdef": "+",
-      "rangedef": "+",
+      "stabdef": "+20",
+      "slashdef": "+25",
+      "crushdef": "+22",
+      "magicdef": "+10",
+      "rangedef": "+22",
       "strengthbonus": "+7",
       "rangestrengthbonus": "+0",
       "magicdamage": "+0",
@@ -40564,11 +40564,11 @@
       "crushatt": "-10",
       "magicatt": "-10",
       "rangeatt": "+15",
-      "stabdef": "+",
-      "slashdef": "+",
-      "crushdef": "+",
+      "stabdef": "-25",
+      "slashdef": "-20",
+      "crushdef": "-22",
       "magicdef": "+28",
-      "rangedef": "+",
+      "rangedef": "+18",
       "strengthbonus": "-2",
       "rangestrengthbonus": "+0",
       "magicdamage": "+0",

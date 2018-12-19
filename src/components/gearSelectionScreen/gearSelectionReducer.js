@@ -2,19 +2,31 @@ const initialState = {
   head: '',
   neck: '',
   chest: '',
-  legs: '',
+  leg: '',
   feet: '',
   cape: '',
   ammo: '',
-  mainhand: '',
-  offhand: '',
+  weapon: '',
+  shield: '',
   ring: '',
-  hands: ''
+  hand: '',
+  attackstance: 'aggressive',
+  attackstyle: 'slash'
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case "PLAYER_GEAR_CHANGED":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "ATTACK_STYLE_CHANGED":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "ATTACK_STANCE_CHANGED":
       return {
         ...state,
         ...action.payload

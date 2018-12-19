@@ -11,12 +11,9 @@ import allMonsterData from '../../JSONraw/allMonsterData.json';
 
 class NPCInfoBox extends Component {
 
-  testFunction(input) {
-    console.log(input);
-  };
-
    render() {
-
+     console.log(this.props.chosenMonster);
+     console.log(allMonsterData.Vorkath.attributes[0].combatlvl)
      let imageLink = "https://oldschool.runescape.wiki/images/" + allMonsterImageLinks[this.props.chosenMonster] + ".png"
      let selectionOptions = {};
 
@@ -34,13 +31,13 @@ class NPCInfoBox extends Component {
             height={300}
           />
           <div>
-            <div> Combat Level: {allMonsterData.attributes[0].combatlvl}   Hitpoints: {allMonsterData.attributes[0].hitpoints}</div>
-            <div> Immune to Poison?: {allMonsterData.attributes[0].immunepoison}   Immunte to Venom?: {allMonsterData.attributes[0].immunevenom}</div>
-            <div> Attack Level: {allMonsterData.attributes[0].attacklvl}   Stab Attack: {allMonsterData.attributes[0].stabattack}</div>
-            <div> Strength Level: {allMonsterData.attributes[0].strengthlvl}   Slash Attack: {allMonsterData.attributes[0].slashattack}</div>
-            <div> Defense Level: {allMonsterData.attributes[0].defenselvl}   Crush Attack: {allMonsterData.attributes[0].crushattack}</div>
-            <div> Magic Level: {allMonsterData.attributes[0].magiclvl}   Magic Attack: {allMonsterData.attributes[0].magicattack}</div>
-            <div> Range Level: {allMonsterData.attributes[0].rangelvl}   Range Attack: {allMonsterData.attributes[0].rangeattack}</div>
+            <div> Combat Level: {allMonsterData[this.props.chosenMonster].attributes[0].combatlvl}   Hitpoints: {allMonsterData[this.props.chosenMonster].attributes[0].hitpoints}</div>
+            <div> Immune to Poison?: {allMonsterData[this.props.chosenMonster].attributes[0].immunepoison}   Immunte to Venom?: {allMonsterData[this.props.chosenMonster].attributes[0].immunevenom}</div>
+            <div> Attack Level: {allMonsterData[this.props.chosenMonster].attributes[0].attacklvl}   Stab Attack: {allMonsterData[this.props.chosenMonster].attributes[0].stabattack}</div>
+            <div> Strength Level: {allMonsterData[this.props.chosenMonster].attributes[0].strengthlvl}   Slash Attack: {allMonsterData[this.props.chosenMonster].attributes[0].slashattack}</div>
+            <div> Defense Level: {allMonsterData[this.props.chosenMonster].attributes[0].defenselvl}   Crush Attack: {allMonsterData[this.props.chosenMonster].attributes[0].crushattack}</div>
+            <div> Magic Level: {allMonsterData[this.props.chosenMonster].attributes[0].magiclvl}   Magic Attack: {allMonsterData[this.props.chosenMonster].attributes[0].magicattack}</div>
+            <div> Range Level: {allMonsterData[this.props.chosenMonster].attributes[0].rangelvl}   Range Attack: {allMonsterData[this.props.chosenMonster].attributes[0].rangeattack}</div>
           </div>
             <Select
             onChange={(value) => this.props.changeMonster(value)}

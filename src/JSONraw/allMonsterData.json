@@ -1,4 +1,6 @@
 {
+  "Vorkath":
+{
   "drops": {
     "guaranteed": [
       {
@@ -362,4 +364,5 @@
       "raredroptable": true
     }
   ]
+}
 }
