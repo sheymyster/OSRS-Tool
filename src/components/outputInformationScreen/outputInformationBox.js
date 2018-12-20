@@ -188,10 +188,28 @@ class OutputInformationBox extends Component {
     return maxHit;
   }
 
+  calculateAttackSpeed() {
+    let attackspeed;
+    if (this.props.playerGear.weapon !== '') {
+      attackspeed = allEquipmentData.weapon[this.props.playerGear.weapon].attackspeed;
+    }
+    let secondsPerAttack = attackspeed*0.6;
+    return secondsPerAttack;
+  }
+
   calculateDPS() {
     let maxHit = this.calculateMaxMeleeHit();
     let accuracy = this.calculateChanceToHit();
-    let weaponAttackSpeed = null;
+    let weaponAttackSpeed = this.calculateAttackSpeed();
+    let dps = (1/weaponAttackSpeed)*accuracy*(maxHit/2);
+    return dps;
+  }
+
+  calculateKillsPerHour() {
+    let dps = this.calculateDPS();
+    let monsterHP = allMonsterData[this.props.chosenMonster].attributes[0].hitpoints;
+    let killsPerHour = dps*3600/monsterHP;
+    return killsPerHour;
   }
 
    render() {
@@ -226,7 +244,9 @@ class OutputInformationBox extends Component {
           <div>Enemy Defense Roll: {this.calculateEnemyDefenseRoll()}</div>
           <div>Chance to Hit: {(this.calculateChanceToHit()*100).toFixed(2)}%</div>
           <div>Max Melee Hit: {this.calculateMaxMeleeHit()}</div>
-          <div>DPS before OK: {this.calculateDPS()}</div>
+          <div>DPS before OK: {this.calculateDPS().toFixed(3)}</div>
+          <div>Attack Speed: {this.calculateAttackSpeed().toFixed(1)} seconds</div>
+          <div>Kills Per Hour: {this.calculateKillsPerHour().toFixed(2)}</div>
        </div>
      );
    }

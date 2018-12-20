@@ -26,7 +26,7 @@ class GearSelectionBox extends Component {
     let dropdownBoxes = [];
     for (let i=0; i<slotNames.length; i++) {
       let placeholderText = slotNames[i];
-      let {value} = '';
+      let {value} = {value: this.props.playerGear[slotNames[i]]};
       dropdownBoxes.push(
         <div>
           {placeholderText + ': '}

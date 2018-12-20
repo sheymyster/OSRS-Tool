@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {changePlayerStat} from './playerStatActions';
+import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
 
 const request = require('request');
 
@@ -10,6 +11,20 @@ const request = require('request');
 
 class PlayerStatBox extends Component {
 
+
+  mockGear() {
+    this.props.changePlayerGear('head', {value:'Dragon full helm'});
+    this.props.changePlayerGear('neck', {value:'Amulet of torture'});
+    this.props.changePlayerGear('chest', {value:'Bandos chestplate'});
+    this.props.changePlayerGear('leg', {value:'Bandos tassets'});
+    this.props.changePlayerGear('feet', {value:'Primordial boots'});
+    this.props.changePlayerGear('cape', {value:'Infernal cape'});
+    this.props.changePlayerGear('ammo', {value:'Peaceful blessing'});
+    this.props.changePlayerGear('weapon', {value:'Abyssal whip'});
+    this.props.changePlayerGear('shield', {value:'Dragonfire shield'});
+    this.props.changePlayerGear('hand', {value:'Barrows gloves'});
+    this.props.changePlayerGear('ring', {value:'Berserker ring (i)'});
+  }
 
   testHiScores() {
     let proxyurl = 'https://cors-anywhere.herokuapp.com/';
@@ -20,7 +35,7 @@ class PlayerStatBox extends Component {
       })
   }
    render() {
-  
+
      return (
        <div>
           <div><button onClick={() => this.testHiScores()}>test</button></div>
@@ -28,6 +43,7 @@ class PlayerStatBox extends Component {
           <div>Attack Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/></div>
           <div>Range Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/></div>
           <div>Magic Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('magic', e.target.value)}/></div>
+          <button onClick={() => this.mockGear()}>Mock Gear</button>
        </div>
      );
    }
@@ -36,13 +52,15 @@ class PlayerStatBox extends Component {
 
 function mapStateToProps(state) {
   return {
-    playerStats: state.playerStats
+    playerStats: state.playerStats,
+    playerGear: state.playerGear
   }
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    changePlayerStat: changePlayerStat
+    changePlayerStat: changePlayerStat,
+    changePlayerGear: changePlayerGear
   }, dispatch)
 }
 
