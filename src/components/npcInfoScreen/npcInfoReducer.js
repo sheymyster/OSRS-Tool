@@ -1,7 +1,15 @@
-export default function (state="Vorkath", action) {
+export default function (state= {name: "Vorkath", version: "Post-quest"}, action) {
   switch(action.type) {
     case "MONSTER_CHANGED":
-      return action.payload;
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "MONSTER_VERSION_CHANGED":
+      return {
+        ...state,
+        ...action.payload
+      };
     default:
       return state;
   }

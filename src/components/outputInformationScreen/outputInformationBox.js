@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
-import allMonsterData from '../../JSONraw/allMonsterData.json';
+import allMonsterData from '../../JSONraw/allNPCdata.json';
 
 class OutputInformationBox extends Component {
 
@@ -142,13 +142,13 @@ class OutputInformationBox extends Component {
   calculateEnemyDefenseRoll() {
     let defenseStyle;
     if (this.props.playerGear.attackstyle === 'slash') {
-      defenseStyle = 'slashdefense'
+      defenseStyle = 'dslash'
     } else if (this.props.playerGear.attackstyle === 'stab') {
-      defenseStyle = 'stabdefense'
+      defenseStyle = 'dstab'
     } else {
-      defenseStyle = 'crushdefense'
+      defenseStyle = 'dcrush'
     };
-    let defenseLevel = (allMonsterData[this.props.chosenMonster].attributes[0][defenseStyle]);
+    let defenseLevel = (allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version][defenseStyle]);
     let maxDefenseRoll = defenseLevel*64
     return maxDefenseRoll;
   }
@@ -207,7 +207,7 @@ class OutputInformationBox extends Component {
 
   calculateKillsPerHour() {
     let dps = this.calculateDPS();
-    let monsterHP = allMonsterData[this.props.chosenMonster].attributes[0].hitpoints;
+    let monsterHP = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints;
     let killsPerHour = dps*3600/monsterHP;
     return killsPerHour;
   }
