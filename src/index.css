@@ -1,5 +1,24 @@
-.boostScreen {
+.App {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: yellow;
+  height: 100%;
+  width: 100%;
+}
+
+.Left-Container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 80%;
+  height: 100%;
+}
+
+.Top-Left-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  height: 80%;
 }

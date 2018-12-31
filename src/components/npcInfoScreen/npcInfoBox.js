@@ -6,6 +6,7 @@ import Select from 'select-react-redux';
 import {changeMonster, changeMonsterVersion} from './npcInfoActions';
 import allMonsterImageLinks from '../../JSONraw/allMonsterImageLinks.json';
 import allMonsterData from '../../JSONraw/allNPCdata.json';
+import './npc.css';
 
 
 
@@ -47,8 +48,8 @@ class NPCInfoBox extends Component {
           />
           <div>
             <div> Combat Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].combat}   Hitpoints: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints}</div>
-            <div> Immune to Poison?: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunepoison}</div>
-            <div> Immune to Venom?: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunevenom}</div>
+            <div> Immune to Poison: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunepoison}</div>
+            <div> Immune to Venom: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunevenom}</div>
             <div> Attack Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].att}   Stab Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].astab}</div>
             <div> Strength Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].str}   Slash Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].aslash}</div>
             <div> Defense Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def}   Crush Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].acrush}</div>
@@ -62,7 +63,7 @@ class NPCInfoBox extends Component {
             onChange={(value) => this.changeMonsterAndVersion(value.replace('%28', '(').replace('%29', ')'))}
             items={selectionOptions}
             />
-          <div>
+          <div className="Version-Buttons">
             {this.generateVersionButtons(this.props.chosenMonster.name)}
           </div>
         </div>

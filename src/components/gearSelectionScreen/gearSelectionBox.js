@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {changePlayerGear, changeAttackStyle, changeAttackStance} from './gearSelectionActions';
-import {Dropdown} from 'semantic-ui-react';
+import {Dropdown, Image} from 'semantic-ui-react';
+import './gear.css';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
 
 class GearSelectionBox extends Component {
@@ -21,55 +22,65 @@ class GearSelectionBox extends Component {
     return listOfNames;
   };
 
+
   generateEquipmentSearchboxes() {
     let slotNames = ['head', 'neck', 'chest', 'leg', 'feet', 'cape', 'ammo', 'weapon', 'shield', 'hand', 'ring'];
     let dropdownBoxes = [];
     for (let i=0; i<slotNames.length; i++) {
       let placeholderText = slotNames[i];
+      let imageLink = require('../../assets/'+slotNames[i]+'_slot.png');
       let {value} = {value: this.props.playerGear[slotNames[i]]};
+      let height = 100;
       dropdownBoxes.push(
-        <div>
-          {placeholderText + ': '}
+        <div className="Equipment-Selection-Row">
           <Dropdown
           placeholder={placeholderText}
           value={value}
           onChange={(e, {value}) => this.props.changePlayerGear(slotNames[i], {value})}
           fluid
+          clearable
           search
           selection
           options={this.findEquipmentNames(slotNames[i])} />
         </div>
       )
-    }
+    };
+    let attackStanceOptions = [{key: 'agg', value: 'aggressive', text: 'aggressive'},
+                              {key: 'acc', value: 'accurate', text: 'accurate'},
+                              {key: 'def', value: 'defensive', text: 'defensive'},
+                              {key: 'con', value: 'controlled', text: 'controlled'}]
+    let attackStyleOptions = [{key: 'stab', value: 'stab', text: 'stab'},
+                              {key: 'slash', value: 'slash', text: 'slash'},
+                              {key: 'crush', value: 'crush', text: 'crush'}];
+    dropdownBoxes.push(
+      <div>
+        <Dropdown
+        placeholder="stance"
+        value={this.props.playerGear.attackstance}
+        onChange={(e, data) => this.props.changeAttackStance(data.value)}
+        fluid
+        selection
+        options={attackStanceOptions}
+        />
+      </div>);
+    dropdownBoxes.push(
+      <div>
+        <Dropdown
+        placeholder="style"
+        value={this.props.playerGear.attackstyle}
+        onChange={(e, data) => this.props.changeAttackStyle(data.value)}
+        fluid
+        selection
+        options={attackStyleOptions} />
+      </div>);
     return dropdownBoxes
   };
 
    render() {
      let dropdowns = this.generateEquipmentSearchboxes();
-     let attackStanceOptions = [{key: 'agg', value: 'aggressive', text: 'aggressive'},
-                               {key: 'acc', value: 'accurate', text: 'accurate'},
-                               {key: 'def', value: 'defensive', text: 'defensive'},
-                               {key: 'con', value: 'controlled', text: 'controlled'}]
-     let attackStyleOptions = [{key: 'stab', value: 'stab', text: 'stab'},
-                               {key: 'slash', value: 'slash', text: 'slash'},
-                               {key: 'crush', value: 'crush', text: 'crush'}];
      return (
-       <div>
+       <div className="Gear-Selection-Screen">
           <div>{dropdowns}</div>
-          <div>Attack Stance: <Dropdown
-          value={this.props.playerGear.attackstance}
-          onChange={(e, data) => this.props.changeAttackStance(data.value)}
-          fluid
-          selection
-          options={attackStanceOptions} />
-          </div>
-          <div>Attack Style: <Dropdown
-          value={this.props.playerGear.attackstyle}
-          onChange={(e, data) => this.props.changeAttackStyle(data.value)}
-          fluid
-          selection
-          options={attackStyleOptions} />
-          </div>
       </div>
      )
    }

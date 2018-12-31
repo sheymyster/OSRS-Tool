@@ -8,33 +8,52 @@ class BoostSelectionBox extends Component {
 
    render() {
      return (
-       <div className="boostScreen">
-          <div> POTION SELECTION </div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}/> Strength Potion   {this.props.activePotions.strength.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('attack', !this.props.activePotions.attack)}}/> Attack Potion   {this.props.activePotions.attack.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('superstrength', !this.props.activePotions.superstrength)}}/> Super Strength Potion   {this.props.activePotions.superstrength.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('superattack', !this.props.activePotions.superattack)}}/> Super Attack Potion   {this.props.activePotions.superattack.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('combat', !this.props.activePotions.combat)}}/> Combat Potion   {this.props.activePotions.combat.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('supercombat', !this.props.activePotions.supercombat)}}/> Super Combat Potion   {this.props.activePotions.supercombat.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('ranging', !this.props.activePotions.ranging)}}/> Ranging Potion   {this.props.activePotions.ranging.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePotion('magic', !this.props.activePotions.magic)}}/> Magic Potion   {this.props.activePotions.magic.toString()}</div>
-          <div> PRAYER SELECTION </div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('burstofstrength', !this.props.activePrayers.burstofstrength)}}/> Burst Of Strength   {this.props.activePrayers.burstofstrength.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('superhumanstrength', !this.props.activePrayers.superhumanstrength)}}/> Superhuman Strength   {this.props.activePrayers.superhumanstrength.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('ultimatestrength', !this.props.activePrayers.ultimatestrength)}}/> Ultimate Strength  {this.props.activePrayers.ultimatestrength.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('clarityofthought', !this.props.activePrayers.clarityofthought)}}/> Clarity Of Thought   {this.props.activePrayers.clarityofthought.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('improvedreflexes', !this.props.activePrayers.improvedreflexes)}}/> Improved Reflexes   {this.props.activePrayers.improvedreflexes.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('incrediblereflexes', !this.props.activePrayers.incrediblereflexes)}}/> Incredible Reflexes   {this.props.activePrayers.incrediblereflexes.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('sharpeye', !this.props.activePrayers.sharpeye)}}/> Sharp Eye  {this.props.activePrayers.sharpeye.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('hawkeye', !this.props.activePrayers.hawkeye)}}/> Hawk Eye   {this.props.activePrayers.hawkeye.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('eagleeye', !this.props.activePrayers.eagleeye)}}/> Eagle Eye   {this.props.activePrayers.eagleeye.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticwill', !this.props.activePrayers.mysticwill)}}/> Mysic Will  {this.props.activePrayers.mysticwill.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticlore', !this.props.activePrayers.mysticlore)}}/> Mystic Lore   {this.props.activePrayers.mysticlore.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticmight', !this.props.activePrayers.mysticmight)}}/> Mystic Might   {this.props.activePrayers.mysticmight.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('chivalry', !this.props.activePrayers.chivalry)}}/> Chivalry   {this.props.activePrayers.chivalry.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('piety', !this.props.activePrayers.piety)}}/> Piety   {this.props.activePrayers.piety.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('rigour', !this.props.activePrayers.rigour)}}/> Rigour   {this.props.activePrayers.rigour.toString()}</div>
-          <div> <input type="checkbox" onChange={() => {this.props.changePrayer('augury', !this.props.activePrayers.augury)}}/> Augury   {this.props.activePrayers.augury.toString()}</div>
+       <div className="Boost-Screen">
+        <div className="Selection-Field">
+            <div className="Selection-Title">
+              <span>POTIONS</span>
+            </div>
+            <div className="Selection-Checkboxes">
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}/> Strength Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('attack', !this.props.activePotions.attack)}}/> Attack Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('superstrength', !this.props.activePotions.superstrength)}}/> Super Strength Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('superattack', !this.props.activePotions.superattack)}}/> Super Attack Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('combat', !this.props.activePotions.combat)}}/> Combat Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('supercombat', !this.props.activePotions.supercombat)}}/> Super Combat Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('ranging', !this.props.activePotions.ranging)}}/> Ranging Potion</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePotion('magic', !this.props.activePotions.magic)}}/> Magic Potion</div>
+            </div>
+        </div>
+        <div className="Selection-Field">
+            <div className="Selection-Title">
+              <span>PRAYERS</span>
+            </div>
+            <div className="Selection-Checkboxes">
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('burstofstrength', !this.props.activePrayers.burstofstrength)}}/> Burst Of Strength</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('superhumanstrength', !this.props.activePrayers.superhumanstrength)}}/> Superhuman Strength</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('ultimatestrength', !this.props.activePrayers.ultimatestrength)}}/> Ultimate Strength</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('clarityofthought', !this.props.activePrayers.clarityofthought)}}/> Clarity Of Thought</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('improvedreflexes', !this.props.activePrayers.improvedreflexes)}}/> Improved Reflexes</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('incrediblereflexes', !this.props.activePrayers.incrediblereflexes)}}/> Incredible Reflexes</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('sharpeye', !this.props.activePrayers.sharpeye)}}/> Sharp Eye</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('hawkeye', !this.props.activePrayers.hawkeye)}}/> Hawk Eye</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('eagleeye', !this.props.activePrayers.eagleeye)}}/> Eagle Eye</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticwill', !this.props.activePrayers.mysticwill)}}/> Mysic Will</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticlore', !this.props.activePrayers.mysticlore)}}/> Mystic Lore</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticmight', !this.props.activePrayers.mysticmight)}}/> Mystic Might</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('chivalry', !this.props.activePrayers.chivalry)}}/> Chivalry</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('piety', !this.props.activePrayers.piety)}}/> Piety</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('rigour', !this.props.activePrayers.rigour)}}/> Rigour</div>
+              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('augury', !this.props.activePrayers.augury)}}/> Augury</div>
+            </div>
+        </div>
+        <div className="Selection-Field">
+            <div className="Selection-Title">
+              <span>OTHER</span>
+            </div>
+            <div className="Selection-Checkboxes">
+            </div>
+          </div>
        </div>
      );
    }

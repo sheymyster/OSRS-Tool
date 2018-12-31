@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
 import allMonsterData from '../../JSONraw/allNPCdata.json';
+import './output.css';
 
 class OutputInformationBox extends Component {
 
@@ -214,7 +215,7 @@ class OutputInformationBox extends Component {
 
    render() {
      return (
-       <div>
+       <div className="Output-Screen">
           <div>Potion Bonuses</div>
           <div>+ {this.calculateBonusLevels('strength')} strength levels</div>
           <div>+ {this.calculateBonusLevels('attack')} attack levels</div>
