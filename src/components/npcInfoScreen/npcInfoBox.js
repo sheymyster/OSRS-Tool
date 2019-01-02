@@ -16,7 +16,7 @@ class NPCInfoBox extends Component {
     let versions = Object.keys(allMonsterData[this.props.chosenMonster.name].versions);
     let buttons = [];
     for (let i=0; i<versions.length; i++) {
-      buttons.push(<div><button onClick={() => this.props.changeMonsterVersion(versions[i])}>{versions[i]}</button></div>)
+      buttons.push(<div><button className="Version-Button" style={this.highlightVersionButton(versions[i])} onClick={() => this.props.changeMonsterVersion(versions[i])}>{versions[i]}</button></div>)
     }
     return buttons;
   }
@@ -26,6 +26,16 @@ class NPCInfoBox extends Component {
     let newMonsterKeys = Object.keys(allMonsterData[monster].versions);
     let initialVersion = newMonsterKeys[0];
     this.props.changeMonsterVersion(initialVersion);
+  }
+
+  highlightVersionButton(version) {
+    if (this.props.chosenMonster.version === version) {
+      return {
+        backgroundColor: 'green'
+      }
+    } else {
+      return
+    }
   }
 
    render() {
@@ -40,7 +50,7 @@ class NPCInfoBox extends Component {
      npcSelectorValue[this.props.chosenMonster.name] = this.props.chosenMonster.name.split("_").join(" ");
      return (
 
-       <div>
+       <div className="NPC-Info-Screen">
           <div className="NPC-Name">{this.props.chosenMonster.name.split('_').join(' ')}</div>
           <Image
             src={imageLink}

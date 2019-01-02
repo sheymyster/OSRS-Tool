@@ -1,3 +1,8 @@
+.NPC-Info-Name {
+  display: flex;
+  flex-grow: 1;
+}
+
 .NPC-Name {
   font-size: 2em;
   line-height: 1.5em;
@@ -11,6 +16,14 @@
   flex-direction: row;
   align-items: stretch;
   justify-content: center;
+}
+
+.Version-Button {
+  border: none;
+}
+
+.Version-Button:focus {
+  outline: none;
 }
 
 .NPC-Stats-Title-Row {

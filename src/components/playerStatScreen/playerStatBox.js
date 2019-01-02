@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import Image from 'react-image-resizer';
+
 import {changePlayerStat} from './playerStatActions';
 import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
+import './playerStats.css';
 
 const request = require('request');
 
@@ -37,12 +40,26 @@ class PlayerStatBox extends Component {
    render() {
 
      return (
-       <div>
-          <div>Strength Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('strength', e.target.value)}/></div>
-          <div>Attack Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/></div>
-          <div>Range Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/></div>
-          <div>Magic Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('magic', e.target.value)}/></div>
-          <button onClick={() => this.mockGear()}>Mock Gear</button>
+       <div className="Player-Stat-Screen">
+          <div className="Player-Stat-Row">
+            <Image src={require('../../assets/attack_icon.png')} width={50} height={50} />
+            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/>
+          </div>
+          <div className="Player-Stat-Row">
+            <Image src={require('../../assets/strength_icon.png')} width={50} height={50} />
+            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('strength', e.target.value)}/>
+          </div>
+          <div className="Player-Stat-Row">
+            <Image src={require('../../assets/ranged_icon.png')} width={50} height={50} />
+            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/>
+          </div>
+          <div className="Player-Stat-Row">
+            <Image src={require('../../assets/magic_icon.png')} width={50} height={50} />
+            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('magic', e.target.value)}/>
+          </div>
+          <div className="Mock-Gear-Button-Div">
+            <button className="Mock-Gear-Button" onClick={() => this.mockGear()}>Mock Gear</button>
+          </div>
        </div>
      );
    }

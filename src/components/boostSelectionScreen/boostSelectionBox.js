@@ -7,18 +7,58 @@ import './boost.css';
 
 class BoostSelectionBox extends Component {
 
-   hightlightButton(property) {
+   highlightPotion(property) {
      if (this.props.activePotions[property]) {
        return {
-         borderColor: 'green',
-         borderStyle: 'solid',
-         borderWidth: '4px',
-         width: '55px',
-         height: '55px'
+         backgroundColor: 'rgba(0, 128, 0, 0.5)',
+         borderRadius: '50%'
        }
      } else {
        return
      }
+   }
+
+   highlightPrayer(name) {
+     if (this.props.activePrayers[name]) {
+       return {
+         backgroundColor: 'rgba(255, 255, 0, 0.3)',
+         borderRadius: '50%'
+       }
+     } else {
+       return
+     }
+   }
+
+   generatePotionButtons() {
+     let listOfPotions = Object.keys(this.props.activePotions);
+     let potionButtons = [];
+     let i;
+     let n = listOfPotions.length;
+     for (i=0; i<n; i++) {
+       let potionName = listOfPotions[i];
+       potionButtons.push(
+         <div className="Potion-Image" title={listOfPotions[i]} style={this.highlightPotion(listOfPotions[i])} onClick={() => {this.props.changePotion(potionName, !this.props.activePotions[potionName])}}>
+           <Image src={require('../../assets/'+listOfPotions[i]+'_potion.png')} height={50} width={50}/>
+         </div>
+       )
+     }
+     return potionButtons
+   }
+
+   generatePrayerButtons() {
+     let listOfPrayers = Object.keys(this.props.activePrayers);
+     let prayerButtons = [];
+     let i;
+     let n = listOfPrayers.length;
+     for (i=0; i<n; i++) {
+       let prayerName = listOfPrayers[i];
+       prayerButtons.push(
+         <div className="Prayer-Image" title={listOfPrayers[i]} style={this.highlightPrayer(listOfPrayers[i])} onClick={() => {this.props.changePrayer(prayerName, !this.props.activePrayers[prayerName])}}>
+           <Image src={require('../../assets/'+listOfPrayers[i]+'.png')} height={40} width={40}/>
+         </div>
+       )
+     }
+     return prayerButtons
    }
 
    render() {
@@ -26,76 +66,25 @@ class BoostSelectionBox extends Component {
      return (
        <div className="Boost-Screen">
         <div className="Selection-Field">
-            <div className="Selection-Title">
-              <span>POTIONS</span>
-            </div>
-            <div className="Potion-Selection-Images">
-              <div className="Potion-Image" style={this.hightlightButton('strength')} onClick={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}>
-                <Image src={require('../../assets/strength_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('attack')} onClick={() => {this.props.changePotion('attack', !this.props.activePotions.attack)}}>
-                <Image src={require('../../assets/attack_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('superstrength')} onClick={() => {this.props.changePotion('superstrength', !this.props.activePotions.superstrength)}}>
-                <Image src={require('../../assets/super_strength_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('superattack')} onClick={() => {this.props.changePotion('superattack', !this.props.activePotions.superattack)}}>
-                <Image src={require('../../assets/super_attack_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('combat')} onClick={() => {this.props.changePotion('combat', !this.props.activePotions.combat)}}>
-                <Image src={require('../../assets/combat_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('supercombat')} onClick={() => {this.props.changePotion('supercombat', !this.props.activePotions.supercombat)}}>
-                <Image src={require('../../assets/super_combat_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('magic')} onClick={() => {this.props.changePotion('magic', !this.props.activePotions.range)}}>
-                <Image src={require('../../assets/magic_potion.png')} height={50} width={50}/>
-              </div>
-              <div style={this.hightlightButton('range')} onClick={() => {this.props.changePotion('range', !this.props.activePotions.magic)}}>
-                <Image src={require('../../assets/ranging_potion.png')} height={50} width={50}/>
-              </div>
-            </div>
-            <div className="Selection-Checkboxes">
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}/> Strength Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('attack', !this.props.activePotions.attack)}}/> Attack Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('superstrength', !this.props.activePotions.superstrength)}}/> Super Strength Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('superattack', !this.props.activePotions.superattack)}}/> Super Attack Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('combat', !this.props.activePotions.combat)}}/> Combat Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('supercombat', !this.props.activePotions.supercombat)}}/> Super Combat Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('ranging', !this.props.activePotions.ranging)}}/> Ranging Potion</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePotion('magic', !this.props.activePotions.magic)}}/> Magic Potion</div>
+            <div className="Selection-Images">
+              {this.generatePotionButtons()}
             </div>
         </div>
         <div className="Selection-Field">
-            <div className="Selection-Title">
-              <span>PRAYERS</span>
-            </div>
-            <div className="Selection-Checkboxes">
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('burstofstrength', !this.props.activePrayers.burstofstrength)}}/> Burst Of Strength</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('superhumanstrength', !this.props.activePrayers.superhumanstrength)}}/> Superhuman Strength</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('ultimatestrength', !this.props.activePrayers.ultimatestrength)}}/> Ultimate Strength</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('clarityofthought', !this.props.activePrayers.clarityofthought)}}/> Clarity Of Thought</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('improvedreflexes', !this.props.activePrayers.improvedreflexes)}}/> Improved Reflexes</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('incrediblereflexes', !this.props.activePrayers.incrediblereflexes)}}/> Incredible Reflexes</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('sharpeye', !this.props.activePrayers.sharpeye)}}/> Sharp Eye</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('hawkeye', !this.props.activePrayers.hawkeye)}}/> Hawk Eye</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('eagleeye', !this.props.activePrayers.eagleeye)}}/> Eagle Eye</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticwill', !this.props.activePrayers.mysticwill)}}/> Mysic Will</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticlore', !this.props.activePrayers.mysticlore)}}/> Mystic Lore</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('mysticmight', !this.props.activePrayers.mysticmight)}}/> Mystic Might</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('chivalry', !this.props.activePrayers.chivalry)}}/> Chivalry</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('piety', !this.props.activePrayers.piety)}}/> Piety</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('rigour', !this.props.activePrayers.rigour)}}/> Rigour</div>
-              <div> <input type="checkbox" onChange={() => {this.props.changePrayer('augury', !this.props.activePrayers.augury)}}/> Augury</div>
+            <div className="Selection-Images">
+              {this.generatePrayerButtons()}
             </div>
         </div>
         <div className="Selection-Field">
-            <div className="Selection-Title">
-              <span>OTHER</span>
+            <div className="Selection-Images">
+              <div className="Other-Boost-Image">
+                <Image src={require('../../assets/slayer_icon.png')} height={50} width={50}/>
+              </div>
+              <div className="Other-Boost-Image">
+                <Image src={require('../../assets/undead.png')} height={50} width={50}/>
+              </div>
             </div>
-            <div className="Selection-Checkboxes">
-            </div>
-          </div>
+        </div>
        </div>
      );
    }

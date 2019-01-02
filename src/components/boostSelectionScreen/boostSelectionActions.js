@@ -9,6 +9,7 @@ export const changePrayer = (name, value) => {
 
 export const changePotion = (name, value) => {
   let newPotionObject = {};
+  console.log(name);
   newPotionObject[name] = value;
   return {
     type: "POTION_CHANGED",

@@ -53,7 +53,6 @@ class GearSelectionBox extends Component {
     dropdownBoxes.push(
       <div className="Equipment-Selection-Row">
         <Dropdown
-        placeholder="stance"
         value={this.props.playerGear.attackstance}
         onChange={(e, data) => this.props.changeAttackStance(data.value)}
         fluid
@@ -64,7 +63,6 @@ class GearSelectionBox extends Component {
     dropdownBoxes.push(
       <div className="Equipment-Selection-Row">
         <Dropdown
-        placeholder="style"
         value={this.props.playerGear.attackstyle}
         onChange={(e, data) => this.props.changeAttackStyle(data.value)}
         fluid
@@ -75,11 +73,10 @@ class GearSelectionBox extends Component {
   };
 
    render() {
-     let dropdowns = this.generateEquipmentSearchboxes();
      return (
        <div className="Gear-Selection-Screen">
           <div className="Equipment-Selection-Dropdowns">
-            {dropdowns}
+            {this.generateEquipmentSearchboxes()}
           </div>
           <div className="Full-Equipment-Image-Div">
           </div>

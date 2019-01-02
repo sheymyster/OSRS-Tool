@@ -216,45 +216,38 @@ class OutputInformationBox extends Component {
    render() {
      return (
        <div className="Output-Screen">
-          <div>Potion Bonuses</div>
-          <div>+ {this.calculateBonusLevels('strength')} strength levels</div>
-          <div>+ {this.calculateBonusLevels('attack')} attack levels</div>
-          <div>+ {this.calculateBonusLevels('range')} range levels</div>
-          <div>+ {this.calculateBonusLevels('magic')} magic levels</div>
-          <div>Strength multiplier is {this.calculatePrayerBonuses('strength')}</div>
-          <div>Attack multiplier is {this.calculatePrayerBonuses('attack')}</div>
-          <div>Range attack multiplier is {this.calculatePrayerBonuses('range')}</div>
-          <div>Magic attack multiplier is {this.calculatePrayerBonuses('magic')}</div>
-          <div>Stab Attack: {this.calculatePlayerStat('stabatt')}</div>
-          <div>Crush Attack: {this.calculatePlayerStat('crushatt')}</div>
-          <div>Slash Attack: {this.calculatePlayerStat('slashatt')}</div>
-          <div>Magic Attack: {this.calculatePlayerStat('magicatt')}</div>
-          <div>Range Attack: {this.calculatePlayerStat('rangeatt')}</div>
-          <div>Stab Defense: {this.calculatePlayerStat('stabdef')}</div>
-          <div>Crush Defense: {this.calculatePlayerStat('crushdef')}</div>
-          <div>Slash Defense: {this.calculatePlayerStat('slashdef')}</div>
-          <div>Magic Defense: {this.calculatePlayerStat('magicdef')}</div>
-          <div>Range Defense: {this.calculatePlayerStat('rangedef')}</div>
-          <div>Strength Bonus: {this.calculatePlayerStat('strengthbonus')}</div>
-          <div>Ranged Strength Bonus: {this.calculatePlayerStat('rangestrengthbonus')}</div>
-          <div>Magic Damage: {this.calculatePlayerStat('magicdamage')}</div>
-          <div>Prayer Bonus: {this.calculatePlayerStat('prayerbonus')}</div>
-          <div>Effective Strength: {this.calculateEffectiveStrength()}</div>
-          <div>Effective Attack: {this.calculateEffectiveAttack()}</div>
-          <div>Max Attack Roll: {this.calculateMaxAttackRoll()}</div>
-          <div>Enemy Defense Roll: {this.calculateEnemyDefenseRoll()}</div>
+        <div className="Player-Stats">
+          <div className="Player-Stats-Title">Attack Bonuses</div>
+          <div className="Player-Stats-Row">Stab: {this.calculatePlayerStat('stabatt')}</div>
+          <div className="Player-Stats-Row">Crush: {this.calculatePlayerStat('crushatt')}</div>
+          <div className="Player-Stats-Row">Slash: {this.calculatePlayerStat('slashatt')}</div>
+          <div className="Player-Stats-Row" className="Player-Stats-Row">Magic: {this.calculatePlayerStat('magicatt')}</div>
+          <div className="Player-Stats-Row">Range: {this.calculatePlayerStat('rangeatt')}</div>
+          <div className="Player-Stats-Title">Defense Bonuses</div>
+          <div className="Player-Stats-Row">Stab: {this.calculatePlayerStat('stabdef')}</div>
+          <div className="Player-Stats-Row">Crush: {this.calculatePlayerStat('crushdef')}</div>
+          <div className="Player-Stats-Row" className="Player-Stats-Row">Slash: {this.calculatePlayerStat('slashdef')}</div>
+          <div className="Player-Stats-Row">Magic: {this.calculatePlayerStat('magicdef')}</div>
+          <div className="Player-Stats-Row">Range: {this.calculatePlayerStat('rangedef')}</div>
+          <div className="Player-Stats-Title">Other Bonuses</div>
+          <div className="Player-Stats-Row">Melee Strength: +{this.calculatePlayerStat('strengthbonus')}</div>
+          <div className="Player-Stats-Row">Ranged Strength: +{this.calculatePlayerStat('rangestrengthbonus')}</div>
+          <div className="Player-Stats-Row">Magic Damage: +{this.calculatePlayerStat('magicdamage')}%</div>
+          <div className="Player-Stats-Row">Prayer: +{this.calculatePlayerStat('prayerbonus')}</div>
+        </div>
+        <div className="Calculated-Output">
           <div>Chance to Hit: {(this.calculateChanceToHit()*100).toFixed(2)}%</div>
           <div>Max Melee Hit: {this.calculateMaxMeleeHit()}</div>
           <div>DPS before OK: {this.calculateDPS().toFixed(3)}</div>
-          <div>Attack Speed: {this.calculateAttackSpeed().toFixed(1)} seconds</div>
           <div>Kills Per Hour: {this.calculateKillsPerHour().toFixed(2)}</div>
+        </div>
        </div>
      );
    }
 };
 
 function mapStateToProps(state) {
-  return{
+  return {
     activePotions: state.currentBoosts.potions,
     activePrayers: state.currentBoosts.prayers,
     otherActiveBoosts: state.currentBoosts.other,

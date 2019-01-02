@@ -7,9 +7,7 @@ const initialState = {
     combat: false,
     supercombat: false,
     magic: false,
-    ranging: false,
-    overload: false,
-    superrange: false
+    ranging: false
   },
   prayers: {
     burstofstrength: false,

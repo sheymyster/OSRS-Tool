@@ -14,10 +14,12 @@ class App extends Component {
         <div className="Left-Container">
           <div className="Top-Left-Container">
             <NPCInfoBox />
-            <GearSelectionBox />
+            <div className="Stat-And-Gear-Container">
+              <PlayerStatBox />
+              <GearSelectionBox />
+            </div>
             <BoostSelectionBox />
           </div>
-          <PlayerStatBox />
         </div>
         <OutputInformationBox />
       </div>
