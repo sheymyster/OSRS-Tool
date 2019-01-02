@@ -3,9 +3,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: flex-start;
-  height: 20%;
+  height: 100%;
   width: 100%;
-  background-color: cyan;
   padding-left: 5px;
 }
 
@@ -14,6 +13,19 @@
   flex-direction: column;
   height: 100%;
   flex-grow: 1;
+}
+
+.Potion-Selection-Images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  height: 60px;
+
+}
+
+.Potion-Image {
+  width: 60px;
+  height: 100%;
 }
 
 .Selection-Title {

@@ -1,17 +1,59 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
+import Image from 'react-image-resizer';
 import {changePrayer, changePotion, changeOtherBoost} from './boostSelectionActions';
 import './boost.css';
 
 class BoostSelectionBox extends Component {
 
+   hightlightButton(property) {
+     if (this.props.activePotions[property]) {
+       return {
+         borderColor: 'green',
+         borderStyle: 'solid',
+         borderWidth: '4px',
+         width: '55px',
+         height: '55px'
+       }
+     } else {
+       return
+     }
+   }
+
    render() {
+
      return (
        <div className="Boost-Screen">
         <div className="Selection-Field">
             <div className="Selection-Title">
               <span>POTIONS</span>
+            </div>
+            <div className="Potion-Selection-Images">
+              <div className="Potion-Image" style={this.hightlightButton('strength')} onClick={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}>
+                <Image src={require('../../assets/strength_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('attack')} onClick={() => {this.props.changePotion('attack', !this.props.activePotions.attack)}}>
+                <Image src={require('../../assets/attack_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('superstrength')} onClick={() => {this.props.changePotion('superstrength', !this.props.activePotions.superstrength)}}>
+                <Image src={require('../../assets/super_strength_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('superattack')} onClick={() => {this.props.changePotion('superattack', !this.props.activePotions.superattack)}}>
+                <Image src={require('../../assets/super_attack_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('combat')} onClick={() => {this.props.changePotion('combat', !this.props.activePotions.combat)}}>
+                <Image src={require('../../assets/combat_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('supercombat')} onClick={() => {this.props.changePotion('supercombat', !this.props.activePotions.supercombat)}}>
+                <Image src={require('../../assets/super_combat_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('magic')} onClick={() => {this.props.changePotion('magic', !this.props.activePotions.range)}}>
+                <Image src={require('../../assets/magic_potion.png')} height={50} width={50}/>
+              </div>
+              <div style={this.hightlightButton('range')} onClick={() => {this.props.changePotion('range', !this.props.activePotions.magic)}}>
+                <Image src={require('../../assets/ranging_potion.png')} height={50} width={50}/>
+              </div>
             </div>
             <div className="Selection-Checkboxes">
               <div> <input type="checkbox" onChange={() => {this.props.changePotion('strength', !this.props.activePotions.strength)}}/> Strength Potion</div>

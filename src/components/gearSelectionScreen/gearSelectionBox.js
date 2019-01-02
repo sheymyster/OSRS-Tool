@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {changePlayerGear, changeAttackStyle, changeAttackStance} from './gearSelectionActions';
-import {Dropdown, Image} from 'semantic-ui-react';
+import {Dropdown} from 'semantic-ui-react';
 import './gear.css';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
 
@@ -28,9 +28,7 @@ class GearSelectionBox extends Component {
     let dropdownBoxes = [];
     for (let i=0; i<slotNames.length; i++) {
       let placeholderText = slotNames[i];
-      let imageLink = require('../../assets/'+slotNames[i]+'_slot.png');
       let {value} = {value: this.props.playerGear[slotNames[i]]};
-      let height = 100;
       dropdownBoxes.push(
         <div className="Equipment-Selection-Row">
           <Dropdown
@@ -53,7 +51,7 @@ class GearSelectionBox extends Component {
                               {key: 'slash', value: 'slash', text: 'slash'},
                               {key: 'crush', value: 'crush', text: 'crush'}];
     dropdownBoxes.push(
-      <div>
+      <div className="Equipment-Selection-Row">
         <Dropdown
         placeholder="stance"
         value={this.props.playerGear.attackstance}
@@ -64,7 +62,7 @@ class GearSelectionBox extends Component {
         />
       </div>);
     dropdownBoxes.push(
-      <div>
+      <div className="Equipment-Selection-Row">
         <Dropdown
         placeholder="style"
         value={this.props.playerGear.attackstyle}
@@ -80,7 +78,11 @@ class GearSelectionBox extends Component {
      let dropdowns = this.generateEquipmentSearchboxes();
      return (
        <div className="Gear-Selection-Screen">
-          <div>{dropdowns}</div>
+          <div className="Equipment-Selection-Dropdowns">
+            {dropdowns}
+          </div>
+          <div className="Full-Equipment-Image-Div">
+          </div>
       </div>
      )
    }

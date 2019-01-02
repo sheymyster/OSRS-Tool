@@ -38,7 +38,6 @@ class PlayerStatBox extends Component {
 
      return (
        <div>
-          <div><button onClick={() => this.testHiScores()}>test</button></div>
           <div>Strength Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('strength', e.target.value)}/></div>
           <div>Attack Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/></div>
           <div>Range Level <input type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/></div>

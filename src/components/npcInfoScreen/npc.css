@@ -1,6 +1,94 @@
+.NPC-Name {
+  font-size: 2em;
+  line-height: 1.5em;
+  font-weight: bold;
+  align-items: center;
+  background-color: #b8a282;
+}
+
 .Version-Buttons {
   display: flex;
   flex-direction: row;
   align-items: stretch;
   justify-content: center;
+}
+
+.NPC-Stats-Title-Row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #b8a282;
+  height: 30px;
+  width: 100%;
+}
+
+.NPC-Stats-Title {
+  font-weight: bold;
+  padding-left: 5px;
+  line-height: 2em;
+}
+
+.NPC-Stats-Row {
+  background-color: #d8ccb4;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-around;
+}
+
+.NPC-Stats-Row-Item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding-top: 3px;
+  justify-content: center;
+  align-items: center;
+}
+
+.NPC-Stats-Title-Other-Bonuses {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background-color: #b8a282;
+  height: 30px;
+  width: 100%;
+}
+
+.NPC-Combat-HP-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: 30px;
+  width: 100%;
+  padding-bottom: 5px;
+}
+
+.NPC-Combat-HP-Item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.NPC-Combat-HP-Title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #b8a282;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.NPC-Combat-HP-Span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d8ccb4;
+  flex-grow: 1;
+}
+
+.NPC-Dropdown {
+  padding-top: 5px;
+  padding-bottom: 5px;
 }

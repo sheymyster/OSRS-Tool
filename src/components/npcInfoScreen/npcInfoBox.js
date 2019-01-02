@@ -29,40 +29,146 @@ class NPCInfoBox extends Component {
   }
 
    render() {
-     //console.log(allMonsterData.Vorkath.attributes[0].combatlvl)
      let imageLink = "https://oldschool.runescape.wiki/images/" + allMonsterImageLinks[this.props.chosenMonster.name] + ".png"
      let selectionOptions = {};
-
+     let iconWidth = 25;
+     let iconHeight = 25;
      Object.entries(allMonsterImageLinks).forEach(entry => {
        selectionOptions[entry[0]] = entry[0].split('_').join(' ').replace('%28', '(').replace('%29', ')');
      });
-
+     let npcSelectorValue = {}
+     npcSelectorValue[this.props.chosenMonster.name] = this.props.chosenMonster.name.split("_").join(" ");
      return (
 
        <div>
-          {this.props.chosenMonster.name.split('_').join(' ')}
+          <div className="NPC-Name">{this.props.chosenMonster.name.split('_').join(' ')}</div>
           <Image
             src={imageLink}
-            width={300}
-            height={300}
+            width={250}
+            height={250}
           />
           <div>
-            <div> Combat Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].combat}   Hitpoints: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints}</div>
-            <div> Immune to Poison: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunepoison}</div>
-            <div> Immune to Venom: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunevenom}</div>
-            <div> Attack Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].att}   Stab Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].astab}</div>
-            <div> Strength Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].str}   Slash Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].aslash}</div>
-            <div> Defense Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def}   Crush Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].acrush}</div>
-            <div> Magic Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].mage}   Magic Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].amage}</div>
-            <div> Range Level: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].range}   Range Attack: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].arange}</div>
-            <div> Stab Defense: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dstab}   Range Defense: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].drange}</div>
-            <div> Slash Defense: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dslash}   Magic Defense: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dmagic}</div>
-            <div> Crush Defense: {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dcrush}</div>
+            <div className="NPC-Combat-HP-Row">
+              <div className="NPC-Combat-HP-Item">
+                <span className="NPC-Combat-HP-Title">Combat Level</span>
+                <span className="NPC-Combat-HP-Span"> {allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].combat}</span>
+              </div>
+              <div className="NPC-Combat-HP-Item">
+                <span className="NPC-Combat-HP-Title">Hitpoints</span>
+                <span className="NPC-Combat-HP-Span">{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints}</span>
+              </div>
+            </div>
+            <div className="NPC-Stats-Title-Row">
+              <Image src={require('../../assets/combat_icon.png')} width={iconWidth} height={iconHeight}/>
+              <span className="NPC-Stats-Title">Combat Stats</span>
+            </div>
+            <div className="NPC-Stats-Row">
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/attack_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].att}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/strength_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].str}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/defence_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/magic_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].mage}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/ranged_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].range}</span>
+              </div>
+            </div>
+            <div className="NPC-Stats-Title-Row">
+              <Image src={require('../../assets/attack_icon.png')} width={iconWidth} height={iconHeight}/>
+              <span className="NPC-Stats-Title">Aggressive Stats</span>
+            </div>
+            <div className="NPC-Stats-Row">
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/stab_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].astab}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/slash_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].aslash}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/crush_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].acrush}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/magic_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].amagic}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/ranged_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].arange}</span>
+              </div>
+            </div>
+            <div className="NPC-Stats-Title-Row">
+              <Image src={require('../../assets/defence_icon.png')} width={iconWidth} height={iconHeight}/>
+              <span className="NPC-Stats-Title">Defensive Stats</span>
+            </div>
+            <div className="NPC-Stats-Row">
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/stab_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dstab}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/slash_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dslash}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/crush_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dcrush}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/magic_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].dmagic}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/ranged_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].drange}</span>
+              </div>
+            </div>
+            <div className="NPC-Stats-Title-Other-Bonuses">
+              <span className="NPC-Stats-Title">Other Bonuses</span>
+              <span className="NPC-Stats-Title">Immunities</span>
+            </div>
+            <div className="NPC-Stats-Row">
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/attack_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].attbns}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/strength_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].strbns}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/ranged_strength_icon.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].rngbns}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/poison_hitsplat.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunepoison}</span>
+              </div>
+              <div className="NPC-Stats-Row-Item">
+                <Image src={require('../../assets/venom_hitsplat.png')} width={iconWidth} height={iconHeight}/>
+                <span>{allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].immunevenom}</span>
+              </div>
+            </div>
           </div>
+          <div className="NPC-Dropdown">
             <Select
             onChange={(value) => this.changeMonsterAndVersion(value.replace('%28', '(').replace('%29', ')'))}
             items={selectionOptions}
             />
+          </div>
           <div className="Version-Buttons">
             {this.generateVersionButtons(this.props.chosenMonster.name)}
           </div>
