@@ -202,6 +202,7 @@ class OutputInformationBox extends Component {
     let maxHit = this.calculateMaxMeleeHit();
     let accuracy = this.calculateChanceToHit();
     let weaponAttackSpeed = this.calculateAttackSpeed();
+    console.log(weaponAttackSpeed);
     let dps = (1/weaponAttackSpeed)*accuracy*(maxHit/2);
     return dps;
   }
