@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {Popup, Button} from 'semantic-ui-react';
+import {Popup} from 'semantic-ui-react';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
 import allMonsterData from '../../JSONraw/allNPCdata.json';
 import Image from 'react-image-resizer';
