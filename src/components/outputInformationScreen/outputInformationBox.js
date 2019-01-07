@@ -11,7 +11,7 @@ import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions';
 import './output.css';
 
-const math = require('mathjs');
+var math = require('mathjs');
 
 math.config({
     number: "BigNumber",
