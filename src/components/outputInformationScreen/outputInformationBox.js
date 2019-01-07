@@ -10,7 +10,7 @@ import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelection
 import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions';
 import './output.css';
-import * as math from 'mathjs';
+import math from 'mathjs';
 
 //var math = require('mathjs');
 
