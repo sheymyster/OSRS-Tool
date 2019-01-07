@@ -1,22 +1,20 @@
-export const changePlayerGear = (slot, name) => {
-  let newGearObject = {};
-  newGearObject[slot] = name.value;
+export const changePlayerGear = (gearObject) => {
   return {
     type: "PLAYER_GEAR_CHANGED",
-    payload: newGearObject
+    payload: gearObject
   }
 };
 
-export const changeAttackStyle = (newStyle) => {
+export const changeAttackStyle = (styleObject) => {
   return {
     type: "ATTACK_STYLE_CHANGED",
-    payload: {'attackstyle': newStyle}
+    payload: styleObject
   }
 };
 
-export const changeAttackStance = (newStance) => {
+export const changeAttackStance = (attackObject) => {
   return {
     type: "ATTACK_STANCE_CHANGED",
-    payload: {'attackstance': newStance}
+    payload: attackObject
   }
 };

@@ -16,17 +16,20 @@ class PlayerStatBox extends Component {
 
 
   mockGear() {
-    this.props.changePlayerGear('head', {value:'Dragon full helm'});
-    this.props.changePlayerGear('neck', {value:'Amulet of torture'});
-    this.props.changePlayerGear('chest', {value:'Bandos chestplate'});
-    this.props.changePlayerGear('leg', {value:'Bandos tassets'});
-    this.props.changePlayerGear('feet', {value:'Primordial boots'});
-    this.props.changePlayerGear('cape', {value:'Infernal cape'});
-    this.props.changePlayerGear('ammo', {value:'Peaceful blessing'});
-    this.props.changePlayerGear('weapon', {value:'Abyssal whip'});
-    this.props.changePlayerGear('shield', {value:'Dragonfire shield'});
-    this.props.changePlayerGear('hand', {value:'Barrows gloves'});
-    this.props.changePlayerGear('ring', {value:'Berserker ring (i)'});
+    let mockGear = {
+      head: 'Dragon full helm',
+      neck: 'Amulet of torture',
+      chest: 'Bandos chestplate',
+      leg: 'Bandos tassets',
+      feet: 'Primordial boots',
+      cape: 'Infernal cape',
+      ammo: 'Peaceful blessing',
+      weapon: 'Abyssal whip',
+      shield: 'Avernic defender',
+      hand: 'Barrows gloves',
+      ring: 'Berserker ring (i)'
+    }
+    this.props.changePlayerGear(mockGear);
   }
 
   testHiScores() {
@@ -37,25 +40,44 @@ class PlayerStatBox extends Component {
         console.log(stats);
       })
   }
+
+  highlightPlayerStatInputs(stat) {
+    if (this.props.lockStatus.locked === true) {
+      if (this.props.playerStats[stat] === this.props.lockStatus.lockedSelections.playerStats[stat]) {
+        return {
+          backgroundColor: 'rgba(90, 90, 90, 0.8)'
+        }
+      } else if (this.props.playerStats[stat] > this.props.lockStatus.lockedSelections.playerStats[stat]) {
+        return {
+          backgroundColor: 'green'
+        }
+      } else {
+        return {
+          backgroundColor: 'red'
+        }
+      }
+    }
+  }
+
    render() {
 
      return (
        <div className="Player-Stat-Screen">
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/attack_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('attack')} type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('attack', e.target.value)}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/strength_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('strength', e.target.value)}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('strength')} type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('strength', e.target.value)}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/ranged_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('range')} type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('range', e.target.value)}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/magic_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('magic', e.target.value)}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('magic')} type='number' defaultValue={1} onChange={(e) => this.props.changePlayerStat('magic', e.target.value)}/>
           </div>
           <div className="Mock-Gear-Button-Div">
             <button className="Mock-Gear-Button" onClick={() => this.mockGear()}>Mock Gear</button>
@@ -69,7 +91,8 @@ class PlayerStatBox extends Component {
 function mapStateToProps(state) {
   return {
     playerStats: state.playerStats,
-    playerGear: state.playerGear
+    playerGear: state.playerGear,
+    lockStatus: state.lockStatus
   }
 }
 

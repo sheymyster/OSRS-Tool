@@ -1,5 +1,4 @@
 export const changeMonster = (newMonster) => {
-  console.log(newMonster);
   return {
     type: "MONSTER_CHANGED",
     payload: {name: newMonster}

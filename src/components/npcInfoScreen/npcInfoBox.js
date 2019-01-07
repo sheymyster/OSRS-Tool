@@ -30,11 +30,31 @@ class NPCInfoBox extends Component {
 
   highlightVersionButton(version) {
     if (this.props.chosenMonster.version === version) {
-      return {
-        backgroundColor: 'green'
+      if (this.props.lockStatus.locked === true && this.props.chosenMonster.version === this.props.lockStatus.lockedSelections.chosenMonster.version) {
+        return {
+          backgroundColor: '#464646'
+        }
+      } else {
+        return {
+          backgroundColor: 'green'
+        }
       }
     } else {
       return
+    }
+  }
+
+  highlightNPC() {
+    if (this.props.lockStatus.locked === true) {
+      if (this.props.chosenMonster.name === this.props.lockStatus.lockedSelections.chosenMonster.name) {
+        return {
+          backgroundColor: 'rgba(90, 90, 90, 0.6)'
+        }
+      } else {
+        return {
+          backgroundColor: 'rgba(0, 255, 0, 0.3)'
+        }
+      }
     }
   }
 
@@ -52,11 +72,13 @@ class NPCInfoBox extends Component {
 
        <div className="NPC-Info-Screen">
           <div className="NPC-Name">{this.props.chosenMonster.name.split('_').join(' ')}</div>
-          <Image
-            src={imageLink}
-            width={250}
-            height={250}
-          />
+            <div style={this.highlightNPC()}>
+              <Image
+                src={imageLink}
+                width={250}
+                height={250}
+              />
+            </div>
           <div>
             <div className="NPC-Combat-HP-Row">
               <div className="NPC-Combat-HP-Item">
@@ -191,14 +213,16 @@ class NPCInfoBox extends Component {
 
 function mapStateToProps(state) {
   return{
-    chosenMonster : state.chosenMonster
+    chosenMonster : state.chosenMonster,
+    lockStatus: state.lockStatus
   }
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     changeMonster: changeMonster,
-    changeMonsterVersion: changeMonsterVersion}, dispatch)
+    changeMonsterVersion: changeMonsterVersion
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NPCInfoBox);

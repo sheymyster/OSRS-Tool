@@ -22,6 +22,25 @@ class GearSelectionBox extends Component {
     return listOfNames;
   };
 
+  highlightEquipmentRow(slot) {
+    if (this.props.lockStatus.locked === true) {
+      if (this.props.playerGear[slot] === this.props.lockStatus.lockedSelections.playerGear[slot]) {
+        return {
+          backgroundColor: 'rgba(90, 90, 90, 0.8)'
+        }
+      } else {
+        return {
+          backgroundColor: 'green'
+        }
+      }
+    }
+  };
+
+  getGearObject(slot, value) {
+    let gearObject = {};
+    gearObject[slot] = value;
+    return gearObject;
+  };
 
   generateEquipmentSearchboxes() {
     let slotNames = ['head', 'neck', 'chest', 'leg', 'feet', 'cape', 'ammo', 'weapon', 'shield', 'hand', 'ring'];
@@ -30,11 +49,11 @@ class GearSelectionBox extends Component {
       let placeholderText = slotNames[i];
       let {value} = {value: this.props.playerGear[slotNames[i]]};
       dropdownBoxes.push(
-        <div className="Equipment-Selection-Row">
+        <div className="Equipment-Selection-Row" style={this.highlightEquipmentRow(slotNames[i])}>
           <Dropdown
           placeholder={placeholderText}
           value={value}
-          onChange={(e, {value}) => this.props.changePlayerGear(slotNames[i], {value})}
+          onChange={(e, {value}) => this.props.changePlayerGear(this.getGearObject(slotNames[i], {value}.value))}
           fluid
           clearable
           search
@@ -51,20 +70,20 @@ class GearSelectionBox extends Component {
                               {key: 'slash', value: 'slash', text: 'slash'},
                               {key: 'crush', value: 'crush', text: 'crush'}];
     dropdownBoxes.push(
-      <div className="Equipment-Selection-Row">
+      <div className="Equipment-Selection-Row" style={this.highlightEquipmentRow('attackstance')}>
         <Dropdown
         value={this.props.playerGear.attackstance}
-        onChange={(e, data) => this.props.changeAttackStance(data.value)}
+        onChange={(e, data) => this.props.changeAttackStance({attackstance: data.value})}
         fluid
         selection
         options={attackStanceOptions}
         />
       </div>);
     dropdownBoxes.push(
-      <div className="Equipment-Selection-Row">
+      <div className="Equipment-Selection-Row" style={this.highlightEquipmentRow('attackstyle')}>
         <Dropdown
         value={this.props.playerGear.attackstyle}
-        onChange={(e, data) => this.props.changeAttackStyle(data.value)}
+        onChange={(e, data) => this.props.changeAttackStyle({attackstyle: data.value})}
         fluid
         selection
         options={attackStyleOptions} />
@@ -87,7 +106,8 @@ class GearSelectionBox extends Component {
 
 function mapStateToProps(state) {
   return{
-    playerGear: state.playerGear
+    playerGear: state.playerGear,
+    lockStatus: state.lockStatus
   }
 }
 

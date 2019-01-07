@@ -5,16 +5,16 @@
   align-items: center;
 }
 
-
 .Equipment-Selection-Row {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  padding-top: 5px;
+  padding: 5px;
 }
 
 .Equipment-Selection-Dropdowns {
+  width: 50%;
   padding-left: 5px;
   padding-right: 5px;
 }

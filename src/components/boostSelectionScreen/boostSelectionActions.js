@@ -1,27 +1,20 @@
-export const changePrayer = (name, value) => {
-  let newPrayerObject = {};
-  newPrayerObject[name] = value;
+export const changePrayer = (prayerObject) => {
   return {
     type: "PRAYER_CHANGED",
-    payload: newPrayerObject
+    payload: prayerObject
   }
 };
 
-export const changePotion = (name, value) => {
-  let newPotionObject = {};
-  console.log(name);
-  newPotionObject[name] = value;
+export const changePotion = (potionObject) => {
   return {
     type: "POTION_CHANGED",
-    payload: newPotionObject
+    payload: potionObject
   }
 };
 
-export const changeOtherBoost = (name, value) => {
-  let newOtherBoostObject = {};
-  newOtherBoostObject[name] = value;
+export const changeOtherBoost = (otherBoostObject) => {
   return {
     type: "OTHER_BOOST_CHANGED",
-    payload: newOtherBoostObject
+    payload: otherBoostObject
   }
 };
