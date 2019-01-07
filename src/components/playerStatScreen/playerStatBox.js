@@ -65,19 +65,19 @@ class PlayerStatBox extends Component {
        <div className="Player-Stat-Screen">
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/attack_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('attack')} type='number' value={this.props.playerStats.attack} onChange={(e) => this.props.changePlayerStat({attack: e.target.value})}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('attack')} type='number' value={this.props.playerStats.attack} onChange={(e) => this.props.changePlayerStat({attack: parseInt(e.target.value, 10)})}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/strength_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('strength')} type='number' value={this.props.playerStats.strength} onChange={(e) => this.props.changePlayerStat({strength: e.target.value})}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('strength')} type='number' value={this.props.playerStats.strength} onChange={(e) => this.props.changePlayerStat({strength: parseInt(e.target.value, 10)})}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/ranged_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('range')} type='number' value={this.props.playerStats.range} onChange={(e) => this.props.changePlayerStat({range: e.target.value})}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('range')} type='number' value={this.props.playerStats.range} onChange={(e) => this.props.changePlayerStat({range: parseInt(e.target.value, 10)})}/>
           </div>
           <div className="Player-Stat-Row">
             <Image src={require('../../assets/magic_icon.png')} width={50} height={50} />
-            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('magic')} type='number' value={this.props.playerStats.magic} onChange={(e) => this.props.changePlayerStat({magic: e.target.value})}/>
+            <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('magic')} type='number' value={this.props.playerStats.magic} onChange={(e) => this.props.changePlayerStat({magic: parseInt(e.target.value, 10)})}/>
           </div>
           <div className="Mock-Gear-Button-Div">
             <button className="Mock-Gear-Button" onClick={() => this.mockGear()}>Mock Gear</button>
