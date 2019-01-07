@@ -1,9 +1,6 @@
-export const changePlayerStat = (statName, newValue) => {
-  let newStatObject = {};
-  newStatObject[statName] = newValue;
-  console.log(newValue);
+export const changePlayerStat = (statObject) => {
   return {
     type: "PLAYER_STAT_CHANGED",
-    payload: newStatObject
+    payload: statObject
   }
 };

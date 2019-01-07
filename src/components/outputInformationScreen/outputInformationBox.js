@@ -9,6 +9,7 @@ import {toggleLock, lockAllSelections} from './outputInformationActions';
 import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions';
 import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions';
+import {changePlayerStat} from '../playerStatScreen/playerStatActions';
 import './output.css';
 import math from 'mathjs';
 
@@ -414,6 +415,7 @@ class OutputInformationBox extends Component {
       this.props.changePlayerGear(this.props.lockStatus.lockedSelections.playerGear);
       this.props.changeMonster(this.props.lockStatus.lockedSelections.chosenMonster.name);
       this.props.changeMonsterVersion(this.props.lockStatus.lockedSelections.chosenMonster.version);
+      this.props.changePlayerStat(this.props.lockStatus.lockedSelections.playerStats);
       this.props.toggleLock({locked: !this.props.lockStatus.locked});
     }
   }
@@ -520,7 +522,8 @@ function mapDispatchToProps(dispatch){
     changePotion: changePotion,
     changePlayerGear: changePlayerGear,
     changeMonster: changeMonster,
-    changeMonsterVersion: changeMonsterVersion
+    changeMonsterVersion: changeMonsterVersion,
+    changePlayerStat: changePlayerStat
   }, dispatch)
 }
 
