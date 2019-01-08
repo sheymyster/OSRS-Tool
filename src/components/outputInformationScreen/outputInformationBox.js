@@ -13,7 +13,6 @@ import {changePlayerStat} from '../playerStatScreen/playerStatActions';
 import './output.css';
 import math from 'mathjs';
 
-//var math = require('mathjs');
 
 math.config({
     number: "BigNumber",

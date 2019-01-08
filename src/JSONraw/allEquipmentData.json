@@ -29644,7 +29644,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Bronze crossbow": {
       "name": "Bronze crossbow",
@@ -29664,7 +29665,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Bronze thrownaxe": {
       "name": "Bronze thrownaxe",
@@ -29684,7 +29686,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Iron pickaxe": {
       "name": "Iron pickaxe",
@@ -29924,7 +29927,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Steel thrownaxe": {
       "name": "Steel thrownaxe",
@@ -29944,7 +29948,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Steel dart": {
       "name": "Steel dart",
@@ -29964,7 +29969,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Steel hasta": {
       "name": "Steel hasta",
@@ -30024,7 +30030,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Iron axe": {
       "name": "Iron axe",
@@ -30304,7 +30311,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Adamant dagger": {
       "name": "Adamant dagger",
@@ -30344,7 +30352,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Adamant hasta": {
       "name": "Adamant hasta",
@@ -30404,7 +30413,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Adamant longsword": {
       "name": "Adamant longsword",
@@ -30524,7 +30534,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Adamant warhammer": {
       "name": "Adamant warhammer",
@@ -30764,7 +30775,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Bronze halberd": {
       "name": "Bronze halberd",
@@ -30804,7 +30816,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Bronze hasta": {
       "name": "Bronze hasta",
@@ -30844,7 +30857,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Iron longsword": {
       "name": "Iron longsword",
@@ -30964,7 +30978,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Bronze pickaxe": {
       "name": "Bronze pickaxe",
@@ -31084,7 +31099,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Mithril longsword": {
       "name": "Mithril longsword",
@@ -31184,7 +31200,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Mithril warhammer": {
       "name": "Mithril warhammer",
@@ -31284,7 +31301,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Rune dart": {
       "name": "Rune dart",
@@ -31304,7 +31322,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Rune knife": {
       "name": "Rune knife",
@@ -31324,7 +31343,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Rune longsword": {
       "name": "Rune longsword",
@@ -31544,7 +31564,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Blurite sword": {
       "name": "Blurite sword",
@@ -31784,7 +31805,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Dragon battleaxe": {
       "name": "Dragon battleaxe",
@@ -31844,7 +31866,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Dramen staff": {
       "name": "Dramen staff",
@@ -32244,7 +32267,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Rat pole": {
       "name": "Rat pole",
@@ -32284,7 +32308,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Red topaz machete": {
       "name": "Red topaz machete",
@@ -32504,7 +32529,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Training sword": {
       "name": "Training sword",
@@ -32724,7 +32750,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Rune axe": {
       "name": "Rune axe",
@@ -32904,7 +32931,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Black knife": {
       "name": "Black knife",
@@ -32924,7 +32952,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Mithril dart": {
       "name": "Mithril dart",
@@ -32944,7 +32973,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Black dart": {
       "name": "Black dart",
@@ -32964,7 +32994,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Iron crossbow": {
       "name": "Iron crossbow",
@@ -32984,7 +33015,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Staff": {
       "name": "Staff",
@@ -33124,7 +33156,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Silverlight": {
       "name": "Silverlight",
@@ -33544,7 +33577,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Silver sickle (b)": {
       "name": "Silver sickle (b)",
@@ -34044,7 +34078,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+1",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Steam battlestaff": {
       "name": "Steam battlestaff",
@@ -34104,7 +34139,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Staff of the dead": {
       "name": "Staff of the dead",
@@ -34604,7 +34640,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Harry's cutlass": {
       "name": "Harry's cutlass",
@@ -36404,7 +36441,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Dragon thrownaxe": {
       "name": "Dragon thrownaxe",
@@ -36424,7 +36462,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Kodai wand": {
       "name": "Kodai wand",
@@ -36484,7 +36523,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Lava battlestaff (or)": {
       "name": "Lava battlestaff (or)",
@@ -37164,7 +37204,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Morrigan's javelin": {
       "name": "Morrigan's javelin",
@@ -37184,7 +37225,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Zuriel's staff": {
       "name": "Zuriel's staff",
@@ -37264,7 +37306,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 1,
-      "attackspeed": 7
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Dragon hunter lance": {
       "name": "Dragon hunter lance",
@@ -37824,7 +37867,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Crystal bow": {
       "name": "Crystal bow",
@@ -37844,7 +37888,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Dragon 2h sword": {
       "name": "Dragon 2h sword",
@@ -37944,7 +37989,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Magic shortbow": {
       "name": "Magic shortbow",
@@ -37964,7 +38010,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Maple longbow": {
       "name": "Maple longbow",
@@ -37984,7 +38031,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Maple shortbow": {
       "name": "Maple shortbow",
@@ -38004,7 +38052,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Oak longbow": {
       "name": "Oak longbow",
@@ -38024,7 +38073,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Ogre bow": {
       "name": "Ogre bow",
@@ -38044,7 +38094,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 8
+      "attackspeed": 8,
+      "combattype": "ranged"
     },
     "Saradomin mjolnir": {
       "name": "Saradomin mjolnir",
@@ -38084,7 +38135,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Shortbow": {
       "name": "Shortbow",
@@ -38104,7 +38156,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Spatula": {
       "name": "Spatula",
@@ -38184,7 +38237,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Dragon halberd": {
       "name": "Dragon halberd",
@@ -38284,7 +38338,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 9
+      "attackspeed": 9,
+      "combattype": "ranged"
     },
     "Tzhaar-ket-om": {
       "name": "Tzhaar-ket-om",
@@ -38364,7 +38419,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Yew shortbow": {
       "name": "Yew shortbow",
@@ -38384,7 +38440,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Longbow": {
       "name": "Longbow",
@@ -38404,7 +38461,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Oak shortbow": {
       "name": "Oak shortbow",
@@ -38424,7 +38482,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Magic longbow": {
       "name": "Magic longbow",
@@ -38444,7 +38503,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Yew comp bow": {
       "name": "Yew comp bow",
@@ -38464,7 +38524,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Magic comp bow": {
       "name": "Magic comp bow",
@@ -38484,7 +38545,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Training bow": {
       "name": "Training bow",
@@ -38504,7 +38566,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Willow longbow": {
       "name": "Willow longbow",
@@ -38524,27 +38587,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
-    },
-    "Swamp lizard": {
-      "name": "Swamp lizard",
-      "members": true,
-      "stabatt": "+0",
-      "slashatt": "+10",
-      "crushatt": "+0",
-      "magicatt": "+0",
-      "rangeatt": "+20",
-      "stabdef": "+0",
-      "slashdef": "+0",
-      "crushdef": "+0",
-      "magicdef": "+0",
-      "rangedef": "+0",
-      "strengthbonus": "+22",
-      "rangestrengthbonus": "+0",
-      "magicdamage": "+0",
-      "prayerbonus": "+0",
-      "hands": 2,
-      "attackspeed": null
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Leaf-bladed spear": {
       "name": "Leaf-bladed spear",
@@ -38584,7 +38628,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Crystal halberd": {
       "name": "Crystal halberd",
@@ -38705,26 +38750,6 @@
       "prayerbonus": "+0",
       "hands": 2,
       "attackspeed": 4
-    },
-    "Cursed goblin bow": {
-      "name": "Cursed goblin bow",
-      "members": false,
-      "stabatt": "+0",
-      "slashatt": "+0",
-      "crushatt": "+0",
-      "magicatt": "+0",
-      "rangeatt": "+0",
-      "stabdef": "+0",
-      "slashdef": "+0",
-      "crushdef": "+0",
-      "magicdef": "+0",
-      "rangedef": "+0",
-      "strengthbonus": "+0",
-      "rangestrengthbonus": "+0",
-      "magicdamage": "+0",
-      "prayerbonus": "+0",
-      "hands": 2,
-      "attackspeed": 5
     },
     "Dharok's greataxe": {
       "name": "Dharok's greataxe",
@@ -38886,46 +38911,6 @@
       "hands": 2,
       "attackspeed": 6
     },
-    "Black salamander": {
-      "name": "Black salamander",
-      "members": true,
-      "stabatt": "+0",
-      "slashatt": "+59",
-      "crushatt": "+0",
-      "magicatt": "+0",
-      "rangeatt": "+69",
-      "stabdef": "+0",
-      "slashdef": "+0",
-      "crushdef": "+0",
-      "magicdef": "+0",
-      "rangedef": "+0",
-      "strengthbonus": "+71",
-      "rangestrengthbonus": "+0",
-      "magicdamage": "+0",
-      "prayerbonus": "+0",
-      "hands": 2,
-      "attackspeed": null
-    },
-    "Red salamander": {
-      "name": "Red salamander",
-      "members": true,
-      "stabatt": "+0",
-      "slashatt": "+37",
-      "crushatt": "+0",
-      "magicatt": "+0",
-      "rangeatt": "+47",
-      "stabdef": "+0",
-      "slashdef": "+0",
-      "crushdef": "+0",
-      "magicdef": "+0",
-      "rangedef": "+0",
-      "strengthbonus": "+49",
-      "rangestrengthbonus": "+0",
-      "magicdamage": "+0",
-      "prayerbonus": "+0",
-      "hands": 2,
-      "attackspeed": null
-    },
     "Sled": {
       "name": "Sled",
       "members": true,
@@ -38964,7 +38949,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Crate with zanik": {
       "name": "Crate with zanik",
@@ -38980,26 +38966,6 @@
       "magicdef": "+0",
       "rangedef": "+0",
       "strengthbonus": "+0",
-      "rangestrengthbonus": "+0",
-      "magicdamage": "+0",
-      "prayerbonus": "+0",
-      "hands": 2,
-      "attackspeed": null
-    },
-    "Orange salamander": {
-      "name": "Orange salamander",
-      "members": true,
-      "stabatt": "+0",
-      "slashatt": "+19",
-      "crushatt": "+0",
-      "magicatt": "+0",
-      "rangeatt": "+29",
-      "stabdef": "+0",
-      "slashdef": "+0",
-      "crushdef": "+0",
-      "magicdef": "+0",
-      "rangedef": "+0",
-      "strengthbonus": "+31",
       "rangestrengthbonus": "+0",
       "magicdamage": "+0",
       "prayerbonus": "+0",
@@ -39064,7 +39030,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Event rpg": {
       "name": "Event rpg",
@@ -39104,7 +39071,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Saradomin's blessed sword": {
       "name": "Saradomin's blessed sword",
@@ -39164,7 +39132,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 3
+      "attackspeed": 3,
+      "combattype": "ranged"
     },
     "Dragon claws": {
       "name": "Dragon claws",
@@ -39224,7 +39193,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 7
+      "attackspeed": 7,
+      "combattype": "ranged"
     },
     "Light ballista": {
       "name": "Light ballista",
@@ -39244,7 +39214,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 7
+      "attackspeed": 7,
+      "combattype": "ranged"
     },
     "Gilded 2h sword": {
       "name": "Gilded 2h sword",
@@ -39524,7 +39495,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+4",
       "hands": 2,
-      "attackspeed": 6
+      "attackspeed": 6,
+      "combattype": "ranged"
     },
     "Dinh's bulwark": {
       "name": "Dinh's bulwark",
@@ -39584,7 +39556,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Craw's bow": {
       "name": "Craw's bow",
@@ -39604,7 +39577,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 4
+      "attackspeed": 4,
+      "combattype": "ranged"
     },
     "Vesta's spear": {
       "name": "Vesta's spear",
@@ -39644,7 +39618,8 @@
       "magicdamage": "+0",
       "prayerbonus": "+0",
       "hands": 2,
-      "attackspeed": 5
+      "attackspeed": 5,
+      "combattype": "ranged"
     },
     "Crystal halberd (i)": {
       "name": "Crystal halberd (i)",
