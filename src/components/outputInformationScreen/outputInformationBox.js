@@ -1,17 +1,33 @@
-import React, {Component} from 'react';
-import {bindActionCreators} from 'redux';
-import {connect} from 'react-redux';
-import {Popup} from 'semantic-ui-react';
-import allEquipmentData from '../../JSONraw/allEquipmentData.json';
-import allMonsterData from '../../JSONraw/allNPCdata.json';
-import Image from 'react-image-resizer';
-import {toggleLock, lockAllSelections} from './outputInformationActions';
-import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions';
-import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions';
-import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions';
-import {changePlayerStat} from '../playerStatScreen/playerStatActions';
-import './output.css';
-import math from 'mathjs';
+import React, {Component} from 'react';   /////////////////////////////
+import {bindActionCreators} from 'redux'; ////////////////////////////
+import {connect} from 'react-redux';      ///// Libaries used ////////
+import {Popup} from 'semantic-ui-react';  ////////////////////////////
+import Image from 'react-image-resizer';  ///////////////////////////
+
+import allEquipmentData from '../../JSONraw/allEquipmentData.json'; // Equipment Data //
+import allMonsterData from '../../JSONraw/allNPCdata.json';  // Monster Data //
+
+import {toggleLock, lockAllSelections} from './outputInformationActions';  ///////////////////////////////////
+import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions'; ///////////////////
+import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions'; /////// Redux Actions /////////
+import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; ////////////////////////
+import {changePlayerStat} from '../playerStatScreen/playerStatActions'; /////////////////////////////////////
+
+import {
+  calculateStrengthPotionBonus, calculateStrengthPrayerBonus, calculateEffectiveStrengthLevel,
+  calculateAttackPotionBonus, calculateAttackPrayerBonus, calculateEffectiveAttackLevel,
+  calculateMaxMeleeHit, calculateMaxAttackRoll} from './meleeCalculations';
+
+import {
+  calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
+  calculateMaxRangeHit} from './rangeCalculations'; // functions for range //
+
+import {
+  calculateMagicPotionBonus, calculateMagicPrayerBonus, calculateEffectiveMagicLevel,
+  calculateMaxMagicHit} from './magicCalculations'; // functions for magic //
+
+import './output.css'; // Styling //
+import math from 'mathjs'; // Library for working with big numbers //
 
 
 math.config({
@@ -20,137 +36,6 @@ math.config({
 });
 
 class OutputInformationBox extends Component {
-
-  calculateBonusLevels(statName) {
-    let addedLevels;
-    if (statName === 'strength') {
-      if (this.props.activePotions.superstrength || this.props.activePotions.supercombat) {
-        addedLevels = 5 + Math.floor(this.props.playerStats.strength*0.15)
-      } else if (this.props.activePotions.strength || this.props.activePotions.combat) {
-        addedLevels = 3 + Math.floor(this.props.playerStats.strength*0.10)
-      } else {
-        addedLevels = 0
-      }
-    } else if (statName === 'attack') {
-      if (this.props.activePotions.superattack || this.props.activePotions.supercombat) {
-        addedLevels = 5 + Math.floor(this.props.playerStats.attack*0.15)
-      } else if (this.props.activePotions.attack || this.props.activePotions.combat) {
-        addedLevels = 3 + Math.floor(this.props.playerStats.attack*0.10)
-      } else {
-        addedLevels = 0
-      }
-    } else if (statName === 'range') {
-      if (this.props.activePotions.ranging) {
-        addedLevels = 4 + Math.floor(this.props.playerStats.range*0.10)
-      } else {
-        addedLevels = 0
-      }
-    } else if (statName === 'magic') {
-      if (this.props.activePotions.magic) {
-        addedLevels = 4
-      } else {
-        addedLevels = 0
-      }
-    };
-    return addedLevels
-  }
-
-  calculatePrayerBonuses(statName) {
-    let multiplier;
-    if (statName === 'strength') {
-      if (this.props.activePrayers.piety) {
-        multiplier = 1.23
-      } else if (this.props.activePrayers.chivalry) {
-        multiplier = 1.18
-      } else if (this.props.activePrayers.ultimatestrength) {
-        multiplier = 1.15
-      } else if (this.props.activePrayers.superhumanstrength) {
-        multiplier = 1.1
-      } else if (this.props.activePrayers.burstofstrength) {
-        multiplier = 1.05
-      } else {
-        multiplier = 1
-      }
-    } else if (statName === 'attack') {
-      if (this.props.activePrayers.piety) {
-        multiplier = 1.20
-      } else if (this.props.activePrayers.chivalry) {
-        multiplier = 1.15
-      } else if (this.props.activePrayers.incrediblereflexes) {
-        multiplier = 1.15
-      } else if (this.props.activePrayers.improvedreflexes) {
-        multiplier = 1.1
-      } else if (this.props.activePrayers.clarityofthought) {
-        multiplier = 1.05
-      } else {
-        multiplier = 1
-      }
-    } else if (statName === 'range') {
-      if (this.props.activePrayers.rigour) {
-        multiplier = 1.20
-      } else if (this.props.activePrayers.eagleeye) {
-        multiplier = 1.15
-      } else if (this.props.activePrayers.hawkeye) {
-        multiplier = 1.10
-      } else if (this.props.activePrayers.sharpeye) {
-        multiplier = 1.05
-      } else {
-        multiplier = 1
-      }
-    } else if (statName === 'magic') {
-      if (this.props.activePrayers.augury) {
-        multiplier = 1.25
-      } else if (this.props.activePrayers.mysticmight) {
-        multiplier = 1.15
-      } else if (this.props.activePrayers.mysticlore) {
-        multiplier = 1.1
-      } else if (this.props.activePrayers.mysticwill) {
-        multiplier = 1.05
-      } else {
-        multiplier = 1
-      }
-    }
-    return multiplier;
-  }
-
-  calculateEffectiveStrength(strPotionBonus, strPrayerBonus) {
-    let effectiveStrengthLevel;
-    let otherBonus = 1;
-    let stanceBonus;
-    if (this.props.playerGear.attackstance === 'aggressive') {
-      stanceBonus = 3
-    } else if (this.props.playerGear.attackstance === 'controlled') {
-      stanceBonus = 1
-    } else {
-      stanceBonus = 0
-    }
-    effectiveStrengthLevel = Math.floor((+this.props.playerStats.strength + strPotionBonus)*strPrayerBonus*otherBonus)+stanceBonus;
-    return effectiveStrengthLevel;
-  }
-
-  calculateEffectiveAttack() {
-    let effectiveAttackLevel;
-    let potionBonus = this.calculateBonusLevels('attack');
-    let prayerBonus = this.calculatePrayerBonuses('attack');
-    let otherBonus = 1;
-    let stanceBonus;
-    if (this.props.playerGear.attackstance === 'accurate') {
-      stanceBonus = 3
-    } else if (this.props.playerGear.attackstance === 'controlled') {
-      stanceBonus = 1
-    } else {
-      stanceBonus = 0
-    }
-    effectiveAttackLevel = Math.floor((+this.props.playerStats.attack + potionBonus)*prayerBonus*otherBonus)+stanceBonus;
-    return effectiveAttackLevel;
-  }
-
-  calculateMaxAttackRoll() {
-    let effectiveLevel = this.calculateEffectiveAttack();
-    let equipmentBonus = this.calculatePlayerStat(this.props.playerGear.attackstyle+'att');
-    let maxAttackRoll = effectiveLevel*(equipmentBonus+64);
-    return maxAttackRoll;
-  }
 
   calculateEnemyDefenseRoll() {
     let defenseStyle;
@@ -176,6 +61,22 @@ class OutputInformationBox extends Component {
     return accuracy;
   }
 
+  determineCombatType() {
+    let combatType = allEquipmentData.weapon[this.props.playerGear.weapon].combattype;
+    return combatType;
+  }
+
+  getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic) {
+    let combatType = this.determineCombatType();
+    if (combatType === "melee") {
+      return effectiveMeleeAttack;
+    } else if (combatType === "ranged") {
+      return effectiveRange;
+    } else {
+      return effectiveMagic;
+    }
+  }
+
   calculatePlayerStat(statName) {
     let slotNames = Object.keys(this.props.playerGear);
     slotNames.pop();
@@ -185,19 +86,13 @@ class OutputInformationBox extends Component {
     for (i=0; i<slotNames.length; i++) {
       if (this.props.playerGear[slotNames[i]].length > 1) {
         let addedStat = allEquipmentData[slotNames[i]][this.props.playerGear[slotNames[i]]][statName];
-        statValue += parseInt(addedStat, 10);
+        statValue += addedStat;
       }
     }
     return statValue;
   }
 
-  calculateMaxMeleeHit(effectiveStrength, strengthBonus) {
-    let baseDamage = 1.3 + (effectiveStrength/10) + (strengthBonus/80) + (effectiveStrength*strengthBonus)/640;
-    let maxHit = Math.floor(baseDamage);
-    return maxHit;
-  }
-
-  calculateAttackSpeed() {
+  calculateAttackSpeed () {
     let attackspeed;
     if (this.props.playerGear.weapon !== '') {
       attackspeed = allEquipmentData.weapon[this.props.playerGear.weapon].attackspeed;
@@ -209,14 +104,8 @@ class OutputInformationBox extends Component {
   }
 
   calculateDPS(maxHit, monsterHP, accuracy, weaponAttackSpeed) {
-    let useOverKill = true;
-    let dps;
     let overkillDamagePerHit = this.calculateOverkillDamagePerHit(maxHit, monsterHP);
-    if (useOverKill) {
-      dps = (1/weaponAttackSpeed)*accuracy*(overkillDamagePerHit);
-    } else {
-      dps = (1/weaponAttackSpeed)*accuracy*(maxHit/2);
-    }
+    let dps = (1/weaponAttackSpeed)*accuracy*(overkillDamagePerHit);
     return dps;
   }
 
@@ -317,7 +206,7 @@ class OutputInformationBox extends Component {
   return math.number(adjustForZero);
 }
 
-  calculatePlayerBonuses(strengthBonus, rangeStrengthBonus, magicDamageBonus, prayerBonus) {
+  calculatePlayerBonuses() {
     let bonuses = {};
     bonuses.astab = this.calculatePlayerStat('stabatt');
     bonuses.aslash = this.calculatePlayerStat('slashatt');
@@ -329,10 +218,10 @@ class OutputInformationBox extends Component {
     bonuses.dcrush = this.calculatePlayerStat('crushdef');
     bonuses.dmagic = this.calculatePlayerStat('magicdef');
     bonuses.drange = this.calculatePlayerStat('rangedef');
-    bonuses.strengthbonus = strengthBonus;
-    bonuses.rangestrengthbonus = rangeStrengthBonus;
-    bonuses.magicdamagebonus = magicDamageBonus;
-    bonuses.prayerbonus = prayerBonus;
+    bonuses.strength = this.calculatePlayerStat('strengthbonus');
+    bonuses.rangeStrength = this.calculatePlayerStat('rangestrengthbonus');
+    bonuses.magicDamage = this.calculatePlayerStat('magicdamage');
+    bonuses.prayer = this.calculatePlayerStat('prayerbonus');
     return bonuses;
   }
 
@@ -446,22 +335,43 @@ class OutputInformationBox extends Component {
   }
 
    render() {
-     let strPotionBonus = this.calculateBonusLevels('strength');
-     let strPrayerBonus = this.calculatePrayerBonuses('strength');
-     let strengthBonus = this.calculatePlayerStat('strengthbonus');
-     let rangeStrengthBonus = this.calculatePlayerStat('rangestrengthbonus');
-     let magicDamageBonus = this.calculatePlayerStat('magicdamage');
-     let prayerBonus = this.calculatePlayerStat('prayerbonus');
-     let effectiveStrength = this.calculateEffectiveStrength(strPotionBonus, strPrayerBonus);
-     let maxAttackRoll = this.calculateMaxAttackRoll();
+     // precalculate potion and prayer bonuses for 4 combat stats //
+     let strPotionBonus = calculateStrengthPotionBonus(this.props.activePotions, this.props.playerStats.strength);
+     let strPrayerBonus = calculateStrengthPrayerBonus(this.props.activePrayers);
+     let attPotionBonus = calculateAttackPotionBonus(this.props.activePotions, this.props.playerStats.attack);
+     let attPrayerBonus = calculateAttackPrayerBonus(this.props.activePrayers);
+     let rangePotionBonus = calculateRangePotionBonus(this.props.activePotions, this.props.playerStats.range);
+     let rangePrayerBonus = calculateRangePrayerBonus(this.props.activePrayers);
+     let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions);
+     let magicPrayerBonus = calculateMagicPrayerBonus(this.props.activePrayers);
+
+     // add up equipment attack, defense, and other bonuses and store as object //
+     let playerBonuses = this.calculatePlayerBonuses();
+
+     // precalculate effects of potions, prayers, and stance //
+     let effectiveStrength = calculateEffectiveStrengthLevel(this.props.playerGear.attackstance, this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
+     let effectiveMeleeAttack = calculateEffectiveAttackLevel(this.props.playerGear.attackstance, this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
+     let effectiveRange = calculateEffectiveRangeLevel(this.props.playerGear.attackStance, this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
+     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerGear.attackStance, this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+
+     // choose which effective attack to use based on what user has selected (weapon type or spell) //
+     let effectiveAttack = this.getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic);
+
+     // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
+     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.props.playerGear.attackstyle)]);
+
+     // use chosen monster stats and player attack style to determine enemy max defense roll //
      let maxDefenseRoll = this.calculateEnemyDefenseRoll();
-     let maxHit = this.calculateMaxMeleeHit(effectiveStrength, strengthBonus);
+
+     // calculate max hit for chosen combat type //
+     let maxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
+     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangeStrength);
+     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicDamage);
      let monsterHP = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints;
      let accuracy = this.calculateChanceToHit(maxAttackRoll, maxDefenseRoll);
      let weaponAttackSpeed = this.calculateAttackSpeed();
      let dps = this.calculateDPS(maxHit, monsterHP, accuracy, weaponAttackSpeed);
      let killsPerHour = this.calculateKillsPerHour(dps, monsterHP);
-     let playerBonuses = this.calculatePlayerBonuses(strengthBonus, rangeStrengthBonus, magicDamageBonus, prayerBonus);
      let calculatedValues = {maxHit: maxHit, accuracy: accuracy, dps: dps, killsPerHour: killsPerHour};
 
      return (

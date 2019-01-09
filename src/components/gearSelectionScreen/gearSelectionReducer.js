@@ -6,7 +6,7 @@ const initialState = {
   feet: '',
   cape: '',
   ammo: '',
-  weapon: '',
+  weapon: 'Unarmed',
   shield: '',
   ring: '',
   hand: '',
