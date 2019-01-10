@@ -11,17 +11,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Left-Container">
-          <div className="Top-Left-Container">
-            <NPCInfoBox />
-            <div className="Stat-And-Gear-Container">
-              <PlayerStatBox />
-              <GearSelectionBox />
-            </div>
-            <BoostSelectionBox />
-          </div>
+        <div className="NPC-Info-Container">
+          <NPCInfoBox />
         </div>
-        <OutputInformationBox />
+        <div className="Stat-Gear-Container">
+          <PlayerStatBox />
+          <GearSelectionBox />
+        </div>
+        <div className="Boost-Container">
+          <BoostSelectionBox />
+        </div>
+        <div className="Output-Container">
+          <OutputInformationBox />
+        </div>
       </div>
     );
   }

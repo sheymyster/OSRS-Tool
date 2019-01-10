@@ -26,6 +26,13 @@ import {
   calculateMagicPotionBonus, calculateMagicPrayerBonus, calculateEffectiveMagicLevel,
   calculateMaxMagicHit} from './magicCalculations'; // functions for magic //
 
+import {
+  getFinalRatios,
+  flipFinalRatios,
+  generateArrayOfOdds,
+  calculateAverageDamagePerHit
+} from './overkillCalculations'; // functions for calculating effect of overkill and resulting dps //
+
 import './output.css'; // Styling //
 import math from 'mathjs'; // Library for working with big numbers //
 
@@ -39,9 +46,9 @@ class OutputInformationBox extends Component {
 
   calculateEnemyDefenseRoll() {
     let defenseStyle;
-    if (this.props.playerGear.attackstyle === 'slash') {
+    if (this.props.playerGear.attacktype === 'slash') {
       defenseStyle = 'dslash'
-    } else if (this.props.playerGear.attackstyle === 'stab') {
+    } else if (this.props.playerGear.attacktype === 'stab') {
       defenseStyle = 'dstab'
     } else {
       defenseStyle = 'dcrush'
@@ -62,7 +69,12 @@ class OutputInformationBox extends Component {
   }
 
   determineCombatType() {
-    let combatType = allEquipmentData.weapon[this.props.playerGear.weapon].combattype;
+    let combatType;
+    if (this.props.playerGear.weapon !== '') {
+      combatType = allEquipmentData.weapon[this.props.playerGear.weapon].combattype;
+    } else {
+      combatType = 'melee'
+    }
     return combatType;
   }
 
@@ -74,6 +86,17 @@ class OutputInformationBox extends Component {
       return effectiveRange;
     } else {
       return effectiveMagic;
+    }
+  }
+
+  getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit) {
+    let combatType = this.determineCombatType();
+    if (combatType === "melee") {
+      return meleeMaxHit;
+    } else if (combatType === "ranged") {
+      return rangeMaxHit;
+    } else {
+      return magicMaxHit;
     }
   }
 
@@ -97,7 +120,7 @@ class OutputInformationBox extends Component {
     if (this.props.playerGear.weapon !== '') {
       attackspeed = allEquipmentData.weapon[this.props.playerGear.weapon].attackspeed;
     } else {
-      attackspeed = 6;
+      attackspeed = 4;
     }
     let secondsPerAttack = attackspeed*0.6;
     return secondsPerAttack;
@@ -110,10 +133,10 @@ class OutputInformationBox extends Component {
   }
 
   calculateOverkillDamagePerHit(maxHit, hp) {
-    let finalRatios = this.getFinalRatios(maxHit, hp);
-    let flippedRatios = this.flipFinalRatios(finalRatios);
-    let oddsArray = this.generateArrayOfOdds(finalRatios, flippedRatios, maxHit);
-    let damagePerHit = this.calculateDPH(oddsArray, maxHit, hp);
+    let finalRatios = getFinalRatios(maxHit, hp);
+    let flippedRatios = flipFinalRatios(finalRatios);
+    let oddsArray = generateArrayOfOdds(finalRatios, flippedRatios, maxHit);
+    let damagePerHit = calculateAverageDamagePerHit(oddsArray, maxHit, hp);
     return damagePerHit;
   }
 
@@ -122,89 +145,10 @@ class OutputInformationBox extends Component {
     return killsPerHour;
   }
 
-  getFinalRatios(maxHit, hp) {
-    let finalRatios = [];
-    let i;
-    let firstLine = [];
-    for (i=0; i<hp; i++) {
-      if (i < maxHit) {
-        firstLine.push(1);
-      } else {
-        firstLine.push(0);
-      }
-    }
-    finalRatios.push(firstLine);
-    let j;
-    let n = hp-1;
-    for (j=0; j<n; j++) {
-      let additionalLine = [];
-      let k;
-      let m = finalRatios[j].length;
-      for (k=0; k<m; k++) {
-        if (k<=j) {
-          additionalLine.push(0);
-        } else if (k<maxHit) {
-          let sectionToSum = finalRatios[j].slice(0, k);
-          let sum = sectionToSum.reduce((a, b) => a + b, 0);
-          additionalLine.push(sum);
-        } else {
-          let sectionToSum = finalRatios[j].slice(k-maxHit, k);
-          let sum = sectionToSum.reduce((a, b) => a + b, 0);
-          additionalLine.push(sum);
-        }
-      }
-      finalRatios.push(additionalLine);
-    }
-    return finalRatios;
+  calculateXpPerHour(killsPerHour, monsterHP) {
+    let xpPerHour = Math.floor(monsterHP*killsPerHour*4);
+    return xpPerHour;
   }
-
-  flipFinalRatios(finalRatios) {
-  let i;
-  let n = finalRatios.length;
-  let flippedArray = [];
-  for (i=0; i<n; i++) {
-    let newRow = [];
-    let j;
-    let m = finalRatios.length;
-    for (j=0; j<m; j++) {
-      newRow.push(finalRatios[j][i]);
-    }
-    flippedArray.push(newRow);
-  }
-  return flippedArray;
-}
-
-  generateArrayOfOdds(finalRatios, flippedRatios, maxHit) {
-  let targetRatios = flippedRatios.pop();
-  let oddsArray = [];
-  let counter = math.bignumber(0);
-  let i;
-  let n = targetRatios.length;
-  for (i=0; i<n; i++) {
-    let possibleOutcomes = math.pow(math.bignumber(maxHit), math.add(math.bignumber(i), math.bignumber(1)));
-    let previousNumbers = finalRatios[i].splice(0, finalRatios.length-1);
-    let previousSum = previousNumbers.reduce((a, b) => a + b, 0);
-    let subOdd = math.subtract(math.bignumber(possibleOutcomes), math.bignumber(previousSum));
-    let divOdd = math.divide(math.bignumber(subOdd), math.bignumber(possibleOutcomes));
-    let newOdd = math.subtract(math.bignumber(divOdd), math.bignumber(counter));
-    counter = math.add(math.bignumber(newOdd), math.bignumber(counter));
-    oddsArray.push(newOdd);
-  }
-  return oddsArray;
-}
-
-  calculateDPH(oddsArray, maxHit, hp) {
-  let sumproduct = math.bignumber(0);
-  let i;
-  let n = oddsArray.length;
-  for (i=0; i<n; i++) {
-    let addSum = math.add(math.bignumber(i), math.bignumber(1))
-    let newSum = math.multiply(math.bignumber(addSum), oddsArray[i]);
-    sumproduct = math.add(math.bignumber(newSum), math.bignumber(sumproduct));
-  }
-  let adjustForZero = math.eval((hp/sumproduct) * (1-(1/(1+maxHit))));
-  return math.number(adjustForZero);
-}
 
   calculatePlayerBonuses() {
     let bonuses = {};
@@ -239,9 +183,9 @@ class OutputInformationBox extends Component {
           displayColor = 'red';
           showDifference = differenceValue
         };
-      row = <div className="Player-Stats-Row"><span style={{color: '#DA8D2D'}}>{labelName}: +{this.props.lockStatus.lockedSelections.playerBonuses[statName]}</span> <span style={{color: displayColor}}> {showDifference}</span></div>
+      row = <div className="Player-Stats-Row"><span style={{color: '#DA8D2D'}}>{labelName}: {this.props.lockStatus.lockedSelections.playerBonuses[statName]}</span> <span style={{color: displayColor}}> {showDifference}</span></div>
     } else {
-      row = <div className="Player-Stats-Row"><span style={{color: '#DA8D2D'}}>{labelName}: +{bonuses[statName]}</span></div>
+      row = <div className="Player-Stats-Row"><span style={{color: '#DA8D2D'}}>{labelName}: {bonuses[statName]}</span></div>
     }
     return row;
   }
@@ -349,30 +293,35 @@ class OutputInformationBox extends Component {
      let playerBonuses = this.calculatePlayerBonuses();
 
      // precalculate effects of potions, prayers, and stance //
-     let effectiveStrength = calculateEffectiveStrengthLevel(this.props.playerGear.attackstance, this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
-     let effectiveMeleeAttack = calculateEffectiveAttackLevel(this.props.playerGear.attackstance, this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
-     let effectiveRange = calculateEffectiveRangeLevel(this.props.playerGear.attackStance, this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
-     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerGear.attackStance, this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+     let effectiveStrength = calculateEffectiveStrengthLevel(this.props.playerGear.attackstyle, this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
+     let effectiveMeleeAttack = calculateEffectiveAttackLevel(this.props.playerGear.attackstyle, this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
+     let effectiveRange = calculateEffectiveRangeLevel(this.props.playerGear.attackstyle, this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
+     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerGear.attackstyle, this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+
+     // precalculate max hit of all 3 styles, only the one the player is using will be used of course
+     let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
+     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangeStrength);
+     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicDamage);
 
      // choose which effective attack to use based on what user has selected (weapon type or spell) //
      let effectiveAttack = this.getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic);
 
+     // choose which maxHit to use based on what the user has selected (weapon type or spell) //
+     let maxHit = this.getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit);
+
      // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
-     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.props.playerGear.attackstyle)]);
+     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.props.playerGear.attacktype)]);
 
      // use chosen monster stats and player attack style to determine enemy max defense roll //
      let maxDefenseRoll = this.calculateEnemyDefenseRoll();
 
-     // calculate max hit for chosen combat type //
-     let maxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
-     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangeStrength);
-     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicDamage);
      let monsterHP = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints;
      let accuracy = this.calculateChanceToHit(maxAttackRoll, maxDefenseRoll);
      let weaponAttackSpeed = this.calculateAttackSpeed();
      let dps = this.calculateDPS(maxHit, monsterHP, accuracy, weaponAttackSpeed);
      let killsPerHour = this.calculateKillsPerHour(dps, monsterHP);
-     let calculatedValues = {maxHit: maxHit, accuracy: accuracy, dps: dps, killsPerHour: killsPerHour};
+     let xpPerHour = this.calculateXpPerHour(killsPerHour, monsterHP);
+     let calculatedValues = {maxHit: maxHit, accuracy: accuracy, dps: dps, killsPerHour: killsPerHour, xp:xpPerHour};
 
      return (
        <div className="Output-Screen">
@@ -402,9 +351,10 @@ class OutputInformationBox extends Component {
         </div>
         <div className="Calculated-Output">
           {this.generateCalculatedOutputRow('Chance to Hit', 'accuracy', accuracy, 3)}
-          {this.generateCalculatedOutputRow('Max Melee Hit', 'maxHit', maxHit, 0)}
+          {this.generateCalculatedOutputRow('Max Hit', 'maxHit', maxHit, 0)}
           {this.generateCalculatedOutputRow('DPS', 'dps', dps, 3)}
           {this.generateCalculatedOutputRow('Kills Per Hour', 'killsPerHour', killsPerHour, 2)}
+          {this.generateCalculatedOutputRow('XP Per Hour', 'xp', xpPerHour, 0)}
         </div>
        </div>
      );

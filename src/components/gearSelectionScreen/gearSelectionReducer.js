@@ -6,12 +6,12 @@ const initialState = {
   feet: '',
   cape: '',
   ammo: '',
-  weapon: 'Unarmed',
+  weapon: '',
   shield: '',
   ring: '',
   hand: '',
-  attackstance: 'aggressive',
-  attackstyle: 'slash'
+  attackstyle: 'aggressive',
+  attacktype: 'crush'
 };
 
 export default function (state = initialState, action) {
@@ -21,12 +21,12 @@ export default function (state = initialState, action) {
         ...state,
         ...action.payload
       };
-    case "ATTACK_STYLE_CHANGED":
+    case "ATTACK_TYPE_CHANGED":
       return {
         ...state,
         ...action.payload
       };
-    case "ATTACK_STANCE_CHANGED":
+    case "ATTACK_STYLE_CHANGED":
       return {
         ...state,
         ...action.payload
