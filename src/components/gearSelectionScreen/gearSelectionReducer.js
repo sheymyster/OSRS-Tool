@@ -10,23 +10,12 @@ const initialState = {
   shield: '',
   ring: '',
   hand: '',
-  attackstyle: 'aggressive',
-  attacktype: 'crush'
+  chosenattack: 1
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case "PLAYER_GEAR_CHANGED":
-      return {
-        ...state,
-        ...action.payload
-      };
-    case "ATTACK_TYPE_CHANGED":
-      return {
-        ...state,
-        ...action.payload
-      };
-    case "ATTACK_STYLE_CHANGED":
       return {
         ...state,
         ...action.payload

@@ -10,27 +10,35 @@ import './playerStats.css';
 const request = require('request');
 
 
+let maxMeleeGear = {
+  head: 'Serpentine helm',
+  neck: 'Amulet of torture',
+  chest: 'Bandos chestplate',
+  leg: 'Bandos tassets',
+  feet: 'Primordial boots',
+  cape: 'Infernal cape',
+  ammo: 'Peaceful blessing',
+  weapon: 'Abyssal whip',
+  shield: 'Avernic defender',
+  hand: 'Barrows gloves',
+  ring: 'Berserker ring (i)'
+}
 
+let maxRangeGear = {
+  head: 'Armadyl helmet',
+  neck: 'Necklace of anguish',
+  chest: 'Armadyl chestplate',
+  leg: 'Armadyl chainskirt',
+  feet: 'Pegasian boots',
+  cape: 'Ava\'s assembler',
+  ammo: 'Dragon bolts',
+  weapon: 'Twisted bow',
+  shield: '',
+  hand: 'Barrows gloves',
+  ring: 'Archers ring (i)'
+}
 
 class PlayerStatBox extends Component {
-
-
-  mockGear() {
-    let mockGear = {
-      head: 'Dragon full helm',
-      neck: 'Amulet of torture',
-      chest: 'Bandos chestplate',
-      leg: 'Bandos tassets',
-      feet: 'Primordial boots',
-      cape: 'Infernal cape',
-      ammo: 'Peaceful blessing',
-      weapon: 'Abyssal whip',
-      shield: 'Avernic defender',
-      hand: 'Barrows gloves',
-      ring: 'Berserker ring (i)'
-    }
-    this.props.changePlayerGear(mockGear);
-  }
 
   testHiScores() {
     let proxyurl = 'https://cors-anywhere.herokuapp.com/';
@@ -80,7 +88,8 @@ class PlayerStatBox extends Component {
             <input className="Player-Stat-Input" style={this.highlightPlayerStatInputs('magic')} type='number' value={this.props.playerStats.magic} onChange={(e) => this.props.changePlayerStat({magic: parseInt(e.target.value, 10)})}/>
           </div>
           <div className="Mock-Gear-Button-Div">
-            <button className="Mock-Gear-Button" onClick={() => this.mockGear()}>Mock Gear</button>
+            <button className="Mock-Gear-Button" onClick={() => this.props.changePlayerGear(maxMeleeGear)}>Max Melee</button>
+            <button className="Mock-Gear-Button" onClick={() => this.props.changePlayerGear(maxRangeGear)}>Max Range</button>
           </div>
        </div>
      );

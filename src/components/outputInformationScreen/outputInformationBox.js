@@ -42,13 +42,35 @@ math.config({
     precision: 200
 });
 
+var unarmedOptions = {
+  "1": {
+    "name": "Punch",
+    "style": "Accurate",
+    "icon": "unarmed_punch_icon",
+    "type": "Crush"
+  },
+  "2": {
+    "name": "Kick",
+    "style": "Aggressive",
+    "icon": "unarmed_kick_icon",
+    "type": "Crush"
+  },
+  "3": {
+    "name": "Block",
+    "style": "Defensive",
+    "icon": "unarmed_block_icon",
+    "type": "Crush"
+  }
+};
+
 class OutputInformationBox extends Component {
 
   calculateEnemyDefenseRoll() {
     let defenseStyle;
-    if (this.props.playerGear.attacktype === 'slash') {
+    let chosenAttack = this.getChosenAttackObject();
+    if (chosenAttack.type === 'slash') {
       defenseStyle = 'dslash'
-    } else if (this.props.playerGear.attacktype === 'stab') {
+    } else if (chosenAttack.type === 'stab') {
       defenseStyle = 'dstab'
     } else {
       defenseStyle = 'dcrush'
@@ -103,7 +125,6 @@ class OutputInformationBox extends Component {
   calculatePlayerStat(statName) {
     let slotNames = Object.keys(this.props.playerGear);
     slotNames.pop();
-    slotNames.pop();
     let statValue = 0;
     let i;
     for (i=0; i<slotNames.length; i++) {
@@ -119,6 +140,9 @@ class OutputInformationBox extends Component {
     let attackspeed;
     if (this.props.playerGear.weapon !== '') {
       attackspeed = allEquipmentData.weapon[this.props.playerGear.weapon].attackspeed;
+      if (allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack].style === 'Rapid') {
+        attackspeed -= 1
+      }
     } else {
       attackspeed = 4;
     }
@@ -150,13 +174,23 @@ class OutputInformationBox extends Component {
     return xpPerHour;
   }
 
+  getChosenAttackObject() {
+    let chosenAttack;
+    if (this.props.playerGear.weapon !== '') {
+      chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
+    } else {
+      chosenAttack = Object.assign({}, unarmedOptions[this.props.playerGear.chosenattack]);
+    }
+    return chosenAttack;
+  }
+
   calculatePlayerBonuses() {
     let bonuses = {};
     bonuses.astab = this.calculatePlayerStat('stabatt');
     bonuses.aslash = this.calculatePlayerStat('slashatt');
     bonuses.acrush = this.calculatePlayerStat('crushatt');
     bonuses.amagic = this.calculatePlayerStat('magicatt');
-    bonuses.arange = this.calculatePlayerStat('rangeatt');
+    bonuses.aranged = this.calculatePlayerStat('rangeatt');
     bonuses.dstab = this.calculatePlayerStat('stabdef');
     bonuses.dslash = this.calculatePlayerStat('slashdef');
     bonuses.dcrush = this.calculatePlayerStat('crushdef');
@@ -228,7 +262,7 @@ class OutputInformationBox extends Component {
       allSelections.potions = Object.assign({}, this.props.activePotions);
       allSelections.playerStats = Object.assign({}, this.props.playerStats);
       allSelections.chosenMonster = JSON.parse(JSON.stringify(this.props.chosenMonster));
-      allSelections.playerGear = JSON.parse(JSON.stringify(this.props.playerGear));
+      allSelections.playerGear = Object.assign({}, this.props.playerGear);
       allSelections.playerBonuses = JSON.parse(JSON.stringify(playerBonuses));
       allSelections.calculatedValues = JSON.parse(JSON.stringify(calculatedValues));
       this.props.lockAllSelections({lockedSelections: allSelections});
@@ -279,6 +313,9 @@ class OutputInformationBox extends Component {
   }
 
    render() {
+     // formula getting long so chose to save chosen attack object in new object //
+     let chosenAttack = this.getChosenAttackObject()
+
      // precalculate potion and prayer bonuses for 4 combat stats //
      let strPotionBonus = calculateStrengthPotionBonus(this.props.activePotions, this.props.playerStats.strength);
      let strPrayerBonus = calculateStrengthPrayerBonus(this.props.activePrayers);
@@ -293,10 +330,10 @@ class OutputInformationBox extends Component {
      let playerBonuses = this.calculatePlayerBonuses();
 
      // precalculate effects of potions, prayers, and stance //
-     let effectiveStrength = calculateEffectiveStrengthLevel(this.props.playerGear.attackstyle, this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
-     let effectiveMeleeAttack = calculateEffectiveAttackLevel(this.props.playerGear.attackstyle, this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
-     let effectiveRange = calculateEffectiveRangeLevel(this.props.playerGear.attackstyle, this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
-     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerGear.attackstyle, this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+     let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
+     let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
+     let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
+     let effectiveMagic = calculateEffectiveMagicLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
@@ -310,8 +347,7 @@ class OutputInformationBox extends Component {
      let maxHit = this.getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit);
 
      // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
-     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.props.playerGear.attacktype)]);
-
+     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+chosenAttack.type.toLowerCase())]);
      // use chosen monster stats and player attack style to determine enemy max defense roll //
      let maxDefenseRoll = this.calculateEnemyDefenseRoll();
 

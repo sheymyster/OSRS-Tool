@@ -4,17 +4,3 @@ export const changePlayerGear = (gearObject) => {
     payload: gearObject
   }
 };
-
-export const changeAttackType = (typeObject) => {
-  return {
-    type: "ATTACK_TYPE_CHANGED",
-    payload: typeObject
-  }
-};
-
-export const changeAttackStyle = (styleObject) => {
-  return {
-    type: "ATTACK_STYLE_CHANGED",
-    payload: styleObject
-  }
-};

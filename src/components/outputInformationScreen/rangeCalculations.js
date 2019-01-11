@@ -24,18 +24,18 @@ export const calculateRangePrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateEffectiveRangeLevel = (stance, rangeLvl, rangePotionBonus, rangePrayerBonus) => {
+export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, rangePrayerBonus) => {
   let effectiveRangeLevel;
   let otherBonus = 1;
-  let stanceBonus;
-  if (stance === 'accuraterange') {
-    stanceBonus = 3
-  } else if (stance === 'longrange') {
-    stanceBonus = 1
+  let styleBonus;
+  if (style === 'accurate') {
+    styleBonus = 3
+  } else if (style === 'longrange') {
+    styleBonus = 1
   } else {
-    stanceBonus = 0
+    styleBonus = 0
   }
-  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*otherBonus)+stanceBonus;
+  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*otherBonus)+styleBonus;
   return effectiveRangeLevel;
 }
 
