@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {changePlayerGear} from './gearSelectionActions';
+import {changePlayerGear, changeSpell} from './gearSelectionActions';
 import {Dropdown, Popup} from 'semantic-ui-react';
 import './gear.css';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
@@ -76,6 +76,22 @@ class GearSelectionBox extends Component {
     }
   }
 
+  highlightSpell(spellname) {
+    if (this.props.playerMagic.chosenspell === spellname) {
+      return {
+        opacity: 1,
+        cursor: "pointer",
+        backgroundColor: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: '50%'
+      }
+    } else {
+      return {
+        opacity: 0.4,
+        cursor: "pointer"
+      }
+    }
+  }
+
   determineCombatType() {
     let combatType;
     if (this.props.playerGear.weapon !== '') {
@@ -89,6 +105,14 @@ class GearSelectionBox extends Component {
   handleWeaponChange(weaponObject) {
     this.props.changePlayerGear({chosenattack: 1});
     this.props.changePlayerGear(weaponObject);
+  }
+
+  handleSpellClick(spellObject) {
+    if (spellObject.chosenspell === this.props.playerMagic.chosenspell) {
+      this.props.changeSpell({chosenspell: ''});
+    } else {
+      this.props.changeSpell(spellObject);
+    }
   }
 
   getXpType() {
@@ -179,25 +203,21 @@ class GearSelectionBox extends Component {
 
   generateSpells() {
     let spells = [];
-    let standardSpells = Object.keys(magicSpellList.standard);
-    let ancientSpells = Object.keys(magicSpellList.ancient);
+    let allSpells = Object.keys(magicSpellList);
     let i;
-    let n = standardSpells.length;
+    let n = allSpells.length;
     for (i=0; i<n; i++) {
-      let spellName = magicSpellList.standard[standardSpells[i]].name.toLowerCase().split(" ").join("_");
+      let spellName = magicSpellList[allSpells[i]].name.toLowerCase();
+      let spellNameFormatted = spellName.split(" ").join("_");
+      let spellObject = {chosenspell: allSpells[i]};
       spells.push(
-        <div className="Magic-Spell">
-          <Image src={require('../../assets/'+spellName+'_icon.png')} height={25} width={25} />
-        </div>
-      )
-    }
-    let j;
-    let m = ancientSpells.length;
-    for (j=0; j<m; j++) {
-      let spellName = magicSpellList.ancient[ancientSpells[j]].name.toLowerCase().split(" ").join("_");
-      spells.push(
-        <div className="Magic-Spell">
-          <Image src={require('../../assets/'+spellName+'_icon.png')} height={25} width={25} />
+        <div className="Magic-Spell"
+          style={this.highlightSpell(allSpells[i])}
+          title={spellName}
+          onClick={() => this.handleSpellClick(spellObject)}>
+          <Image
+            src={require('../../assets/'+spellNameFormatted+'_icon.png')}
+            height={25} width={25} />
         </div>
       )
     }
@@ -226,13 +246,15 @@ class GearSelectionBox extends Component {
 function mapStateToProps(state) {
   return{
     playerGear: state.playerGear,
-    lockStatus: state.lockStatus
+    lockStatus: state.lockStatus,
+    playerMagic: state.playerMagic
   }
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    changePlayerGear: changePlayerGear
+    changePlayerGear: changePlayerGear,
+    changeSpell: changeSpell
   }, dispatch)
 }
 

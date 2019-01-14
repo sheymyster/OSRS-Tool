@@ -24,10 +24,14 @@ export const calculateMagicPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateEffectiveMagicLevel = () => {
-
+export const calculateEffectiveMagicLevel = (magicLvl, magicPotionBonus, magicPrayerBonus) => {
+  let effectiveMagicLevel;
+  let otherBonus = 1;
+  effectiveMagicLevel = Math.floor((+magicLvl + magicPotionBonus)*magicPrayerBonus*otherBonus);
+  return effectiveMagicLevel;
 }
 
-export const calculateMaxMagicHit = () => {
-  
+export const calculateMaxMagicHit = (spellBase, magicDamage) => {
+  let maxHit = spellBase*(1+(magicDamage/100));
+  return maxHit;
 }

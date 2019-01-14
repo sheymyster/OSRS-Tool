@@ -4,3 +4,10 @@ export const changePlayerGear = (gearObject) => {
     payload: gearObject
   }
 };
+
+export const changeSpell = (spellObject) => {
+  return {
+    type: "SPELL_CHANGED",
+    payload: spellObject
+  }
+};

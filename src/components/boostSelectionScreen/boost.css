@@ -24,9 +24,19 @@
 
 .Potion-Image {
   padding: 5px;
+  align-items: center;
+  justify-content: center;
 }
 
 .Prayer-Image {
+  padding: 5px;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Other-Boost-Image {
   padding: 5px;
   width: 50px;
   height: 50px;

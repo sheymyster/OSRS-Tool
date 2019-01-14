@@ -83,4 +83,6 @@
 
 .Magic-Spell {
   padding: 5px;
+  align-items: center;
+  justify-content: center;
 }

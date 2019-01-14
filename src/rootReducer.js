@@ -4,11 +4,13 @@ import boostSelectionReducer from './components/boostSelectionScreen/boostSelect
 import playerStatReducer from './components/playerStatScreen/playerStatReducer';
 import gearSelectionReducer from './components/gearSelectionScreen/gearSelectionReducer';
 import outputInformationReducer from './components/outputInformationScreen/outputInformationReducer';
+import magicReducer from './components/gearSelectionScreen/magicReducer';
 
 export default combineReducers({
  chosenMonster: npcInfoReducer,
  currentBoosts: boostSelectionReducer,
  playerStats: playerStatReducer,
  playerGear: gearSelectionReducer,
- lockStatus: outputInformationReducer
+ lockStatus: outputInformationReducer,
+ playerMagic: magicReducer
 });

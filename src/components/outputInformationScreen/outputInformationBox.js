@@ -6,17 +6,18 @@ import Image from 'react-image-resizer';  ///////////////////////////
 
 import allEquipmentData from '../../JSONraw/allEquipmentData.json'; // Equipment Data //
 import allMonsterData from '../../JSONraw/allNPCdata.json';  // Monster Data //
+import magicSpellList from '../../JSONraw/magicSpellList.json'; // Spell Data //
 
-import {toggleLock, lockAllSelections} from './outputInformationActions';  ///////////////////////////////////
-import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions'; ///////////////////
-import {changePlayerGear} from '../gearSelectionScreen/gearSelectionActions'; /////// Redux Actions /////////
-import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; ////////////////////////
-import {changePlayerStat} from '../playerStatScreen/playerStatActions'; /////////////////////////////////////
+import {toggleLock, lockAllSelections} from './outputInformationActions';  /////////////////////////////////////
+import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions'; /////////////////////
+import {changePlayerGear, changeSpell} from '../gearSelectionScreen/gearSelectionActions'; // Redux Actions //
+import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; /////////////////////////
+import {changePlayerStat} from '../playerStatScreen/playerStatActions'; //////////////////////////////////////
 
 import {
   calculateStrengthPotionBonus, calculateStrengthPrayerBonus, calculateEffectiveStrengthLevel,
   calculateAttackPotionBonus, calculateAttackPrayerBonus, calculateEffectiveAttackLevel,
-  calculateMaxMeleeHit, calculateMaxAttackRoll} from './meleeCalculations';
+  calculateMaxMeleeHit, calculateMaxAttackRoll} from './meleeCalculations'; // functions for melee //
 
 import {
   calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
@@ -47,7 +48,9 @@ class OutputInformationBox extends Component {
   calculateEnemyDefenseRoll() {
     let defenseStyle;
     let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
-    if (chosenAttack.type === 'ranged') {
+    if (this.props.playerMagic.chosenspell !== '') {
+      defenseStyle = 'dmagic'
+    } else if (chosenAttack.type === 'ranged') {
       defenseStyle = 'drange'
     } else if (chosenAttack.type === 'magic') {
       defenseStyle = 'dmagic'
@@ -60,8 +63,14 @@ class OutputInformationBox extends Component {
         defenseStyle = 'dcrush'
       };
     }
+    let defensiveStat;
+    if (defenseStyle === 'dmagic') {
+      defensiveStat = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].mage;
+    } else {
+      defensiveStat = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def;
+    }
     let defenseLevel = (allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version][defenseStyle]);
-    let maxDefenseRoll = defenseLevel*64
+    let maxDefenseRoll = defensiveStat*(defenseLevel+64);
     return maxDefenseRoll;
   }
 
@@ -77,12 +86,22 @@ class OutputInformationBox extends Component {
 
   determineCombatType() {
     let combatType;
-    if (this.props.playerGear.weapon !== '') {
-      combatType = allEquipmentData.weapon[this.props.playerGear.weapon].combattype;
+    if (this.props.playerMagic.chosenspell !== '') {
+      combatType = 'magic'
     } else {
-      combatType = 'melee'
+      combatType = allEquipmentData.weapon[this.props.playerGear.weapon].combattype;
     }
     return combatType;
+  }
+
+  determineAttackType() {
+    let attackType;
+    if (this.props.playerMagic.chosenspell !== '') {
+      attackType = 'magic'
+    } else {
+      attackType = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack].type.toLowerCase();
+    }
+    return attackType;
   }
 
   getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic) {
@@ -123,13 +142,14 @@ class OutputInformationBox extends Component {
 
   calculateAttackSpeed () {
     let attackspeed;
-    if (this.props.playerGear.weapon !== '') {
+    let combatType = this.determineCombatType();
+    if (this.props.playerMagic.chosenspell !== '') {
+      attackspeed = 5;
+    } else {
       attackspeed = allEquipmentData.weapon[this.props.playerGear.weapon].attackspeed;
       if (allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack].style === 'Rapid') {
         attackspeed -= 1
       }
-    } else {
-      attackspeed = 4;
     }
     let secondsPerAttack = attackspeed*0.6;
     return secondsPerAttack;
@@ -199,7 +219,7 @@ class OutputInformationBox extends Component {
     return row;
   }
 
-  generateCalculatedOutputRow(labelName, valueName, value, roundFactor) {
+  generateCalculatedOutputRow(labelName, valueName, value, roundFactor, startSymbol, endSymbol) {
     let row;
     if (this.props.lockStatus.locked === true) {
       let differenceValue = value - this.props.lockStatus.lockedSelections.calculatedValues[valueName];
@@ -213,9 +233,9 @@ class OutputInformationBox extends Component {
           displayColor = 'red';
           showDifference = differenceValue.toFixed(roundFactor)
         };
-      row = <div className="Calculated-Row"><span className="Calculated-Label">{labelName}: {this.props.lockStatus.lockedSelections.calculatedValues[valueName].toFixed(roundFactor)}</span> <span style={{color: displayColor}}> {showDifference}</span></div>
+      row = <div className="Calculated-Row"><span className="Calculated-Label">{labelName}: {startSymbol}{this.props.lockStatus.lockedSelections.calculatedValues[valueName].toFixed(roundFactor)}{endSymbol}</span> <span style={{color: displayColor}}> {showDifference}</span></div>
     } else {
-      row = <div className="Calculated-Row"><span className="Calculated-Label">{labelName}: {value.toFixed(roundFactor)}</span></div>
+      row = <div className="Calculated-Row"><span className="Calculated-Label">{labelName}: {startSymbol}{value.toFixed(roundFactor)}{endSymbol}</span></div>
     }
     return row;
   }
@@ -301,6 +321,12 @@ class OutputInformationBox extends Component {
      let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions);
      let magicPrayerBonus = calculateMagicPrayerBonus(this.props.activePrayers);
 
+     // precalculate other bonuses such as void sets or damage boosting gear //
+     let attOtherBonus;
+     let strOtherBonus;
+     let rangeOtherBonus;
+     let magicOtherBonus;
+
      // add up equipment attack, defense, and other bonuses and store as object //
      let playerBonuses = this.calculatePlayerBonuses();
 
@@ -308,12 +334,15 @@ class OutputInformationBox extends Component {
      let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
      let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
      let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
-     let effectiveMagic = calculateEffectiveMagicLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
      let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength);
-     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicdamage);
+     let magicMaxHit;
+     if (this.props.playerMagic.chosenspell !== '') {
+       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage);
+     };
 
      // choose which effective attack to use based on what user has selected (weapon type or spell) //
      let effectiveAttack = this.getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic);
@@ -322,7 +351,7 @@ class OutputInformationBox extends Component {
      let maxHit = this.getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit);
 
      // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
-     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+chosenAttack.type.toLowerCase())]);
+     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.determineAttackType())]);
      // use chosen monster stats and player attack style to determine enemy max defense roll //
      let maxDefenseRoll = this.calculateEnemyDefenseRoll();
 
@@ -333,6 +362,10 @@ class OutputInformationBox extends Component {
      let killsPerHour = this.calculateKillsPerHour(dps, monsterHP);
      let xpPerHour = this.calculateXpPerHour(killsPerHour, monsterHP);
      let calculatedValues = {maxHit: maxHit, accuracy: accuracy, dps: dps, killsPerHour: killsPerHour, xp:xpPerHour};
+
+     console.log(this.props.playerStats.magic);
+     console.log(maxAttackRoll);
+     console.log(maxDefenseRoll);
 
      return (
        <div className="Output-Screen">
@@ -361,11 +394,11 @@ class OutputInformationBox extends Component {
             {this.generateComparisonRow('Prayer Bonus', 'prayer', playerBonuses)}
         </div>
         <div className="Calculated-Output">
-          {this.generateCalculatedOutputRow('Chance to Hit', 'accuracy', accuracy, 3)}
-          {this.generateCalculatedOutputRow('Max Hit', 'maxHit', maxHit, 0)}
-          {this.generateCalculatedOutputRow('DPS', 'dps', dps, 3)}
-          {this.generateCalculatedOutputRow('Kills Per Hour', 'killsPerHour', killsPerHour, 2)}
-          {this.generateCalculatedOutputRow('XP Per Hour', 'xp', xpPerHour, 0)}
+          {this.generateCalculatedOutputRow('Chance to Hit', 'accuracy', (accuracy*100), 2, '', '%')}
+          {this.generateCalculatedOutputRow('Max Hit', 'maxHit', maxHit, 0, '', '')}
+          {this.generateCalculatedOutputRow('DPS', 'dps', dps, 3, '', '')}
+          {this.generateCalculatedOutputRow('Kills Per Hour', 'killsPerHour', killsPerHour, 2, '', '')}
+          {this.generateCalculatedOutputRow('XP Per Hour', 'xp', xpPerHour, 0, '', '')}
         </div>
        </div>
      );
@@ -380,7 +413,8 @@ function mapStateToProps(state) {
     playerStats: state.playerStats,
     playerGear: state.playerGear,
     chosenMonster: state.chosenMonster,
-    lockStatus: state.lockStatus
+    lockStatus: state.lockStatus,
+    playerMagic: state.playerMagic
   }
 }
 
@@ -393,7 +427,8 @@ function mapDispatchToProps(dispatch){
     changePlayerGear: changePlayerGear,
     changeMonster: changeMonster,
     changeMonsterVersion: changeMonsterVersion,
-    changePlayerStat: changePlayerStat
+    changePlayerStat: changePlayerStat,
+    changeSpell: changeSpell
   }, dispatch)
 }
 

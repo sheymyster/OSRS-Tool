@@ -38,6 +38,20 @@ let maxRangeGear = {
   ring: 'Archers ring (i)'
 }
 
+let maxMagicGear = {
+  head: 'Ancestral hat',
+  neck: 'Occult necklace',
+  chest: 'Ancestral robe top',
+  leg: 'Ancestral robe bottom',
+  feet: 'Eternal boots',
+  cape: 'Imbued saradomin cape',
+  ammo: '',
+  weapon: 'Kodai wand',
+  shield: 'Mages book',
+  hand: 'Tormented bracelet',
+  ring: 'Seers ring (i)'
+}
+
 class PlayerStatBox extends Component {
 
   testHiScores() {
@@ -90,6 +104,7 @@ class PlayerStatBox extends Component {
           <div className="Mock-Gear-Button-Div">
             <button className="Mock-Gear-Button" onClick={() => this.props.changePlayerGear(maxMeleeGear)}>Max Melee</button>
             <button className="Mock-Gear-Button" onClick={() => this.props.changePlayerGear(maxRangeGear)}>Max Range</button>
+            <button className="Mock-Gear-Button" onClick={() => this.props.changePlayerGear(maxMagicGear)}>Max Mage</button>
           </div>
        </div>
      );

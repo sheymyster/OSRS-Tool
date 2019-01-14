@@ -49333,8 +49333,8 @@
       "magicdamage": 0,
       "prayerbonus": 0
     },
-    "Mage's book": {
-      "name": "Mage's book",
+    "Mages book": {
+      "name": "Mages book",
       "members": true,
       "stabatt": 0,
       "slashatt": 0,

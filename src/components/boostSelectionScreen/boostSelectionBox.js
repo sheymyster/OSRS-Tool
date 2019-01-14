@@ -105,14 +105,14 @@ class BoostSelectionBox extends Component {
         </div>
         <div className="Selection-Field">
             <div className="Selection-Images">
-              <div className="Other-Boost-Image">
-                <Image src={require('../../assets/slayer_icon.png')} height={50} width={50}/>
+              <div className="Other-Boost-Image" onClick={() => this.props.changeOtherBoost({ontask: !this.props.otherActiveBoosts.ontask})}>
+                <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
               </div>
               <div className="Other-Boost-Image">
-                <Image src={require('../../assets/undead.png')} height={50} width={50}/>
+                <Image src={require('../../assets/undead.png')} height={40} width={40}/>
               </div>
               <div className="Other-Boost-Image">
-                <Image src={require('../../assets/void_icon.png')} height={50} width={50}/>
+                <Image src={require('../../assets/void_icon.png')} height={40} width={40}/>
               </div>
             </div>
         </div>
