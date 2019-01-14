@@ -1,0 +1,468 @@
+{
+  "standard": {
+    "windstrike": {
+      "name": "Wind strike",
+      "magiclevel": 1,
+      "runes": {
+        "mind": 1,
+        "air": 1
+      },
+      "basexp": 5.5,
+      "maxhit": 2
+    },
+    "waterstrike": {
+      "name": "Water strike",
+      "magiclevel": 5,
+      "runes": {
+        "mind": 1,
+        "air": 1,
+        "water": 1
+      },
+      "basexp": 7.5,
+      "maxhit": 4
+    },
+    "earthstrike": {
+      "name": "Earth strike",
+      "magiclevel": 9,
+      "runes": {
+        "mind": 1,
+        "air": 1,
+        "earth": 2
+      },
+      "basexp": 9.5,
+      "maxhit": 6
+    },
+    "firestrike": {
+      "name": "Fire strike",
+      "magiclevel": 13,
+      "runes": {
+        "mind": 1,
+        "air": 2,
+        "fire": 3
+      },
+      "basexp": 11.5,
+      "maxhit": 8
+    },
+    "windbolt": {
+      "name": "Wind bolt",
+      "magiclevel": 17,
+      "runes": {
+        "chaos": 1,
+        "air": 2
+      },
+      "basexp": 13.5,
+      "maxhit": 9
+    },
+    "waterbolt": {
+      "name": "Water bolt",
+      "magiclevel": 23,
+      "runes": {
+        "chaos": 1,
+        "air": 2,
+        "water": 2
+      },
+      "basexp": 16.5,
+      "maxhit": 10
+    },
+    "earthbolt": {
+      "name": "Earth bolt",
+      "magiclevel": 29,
+      "runes": {
+        "chaos": 1,
+        "air": 3,
+        "earth": 1
+      },
+      "basexp": 19.5,
+      "maxhit": 11
+    },
+    "firebolt": {
+      "name": "Fire bolt",
+      "magiclevel": 35,
+      "runes": {
+        "chaos": 1,
+        "air": 3,
+        "fire": 4
+      },
+      "basexp": 22.5,
+      "maxhit": 12
+    },
+    "crumbleundead": {
+      "name": "Crumble undead",
+      "magiclevel": 39,
+      "runes": {
+        "chaos": 1,
+        "air": 2,
+        "earth": 2
+      },
+      "basexp": 24.5,
+      "maxhit": 15
+    },
+    "windblast": {
+      "name": "Wind blast",
+      "magiclevel": 41,
+      "runes": {
+        "death": 1,
+        "air": 3
+      },
+      "basexp": 25.5,
+      "maxhit": 13
+    },
+    "waterblast": {
+      "name": "Water blast",
+      "magiclevel": 47,
+      "runes": {
+        "death": 1,
+        "air": 3,
+        "water": 3
+      },
+      "basexp": 28.5,
+      "maxhit": 14
+    },
+    "ibanblast": {
+      "name": "Iban blast",
+      "magiclevel": 50,
+      "runes": {
+        "death": 1,
+        "fire": 5
+      },
+      "basexp": 30,
+      "maxhit": 25
+    },
+    "magicdart": {
+      "name": "Magic dart",
+      "magiclevel": 50,
+      "runes": {
+        "death": 1,
+        "mind": 4
+      },
+      "basexp": 30,
+      "maxhit": 15
+    },
+    "earthblast": {
+      "name": "Earth blast",
+      "magiclevel": 53,
+      "runes": {
+        "death": 1,
+        "air": 3,
+        "earth": 4
+      },
+      "basexp": 31.5,
+      "maxhit": 15
+    },
+    "fireblast": {
+      "name": "Fire blast",
+      "magiclevel": 59,
+      "runes": {
+        "death": 1,
+        "air": 4,
+        "fire": 5
+      },
+      "basexp": 34.5,
+      "maxhit": 16
+    },
+    "saradominstrike": {
+      "name": "Saradomin strike",
+      "magiclevel": 60,
+      "runes": {
+        "blood": 2,
+        "air": 4,
+        "fire": 2
+      },
+      "basexp": 61,
+      "maxhit": 20
+    },
+    "clawsofguthix": {
+      "name": "Claws of guthix",
+      "magiclevel": 60,
+      "runes": {
+        "blood": 2,
+        "air": 4,
+        "fire": 1
+      },
+      "basexp": 61,
+      "maxhit": 20
+    },
+    "flamesofzamorak": {
+      "name": "Flames of zamorak",
+      "magiclevel": 60,
+      "runes": {
+        "blood": 2,
+        "air": 1,
+        "fire": 4
+      },
+      "basexp": 61,
+      "maxhit": 20
+    },
+    "windwave": {
+      "name": "Wind wave",
+      "magiclevel": 41,
+      "runes": {
+        "blood": 1,
+        "air": 5
+      },
+      "basexp": 36,
+      "maxhit": 17
+    },
+    "waterwave": {
+      "name": "Water wave",
+      "magiclevel": 41,
+      "runes": {
+        "blood": 1,
+        "air": 5,
+        "water": 7
+      },
+      "basexp": 37.5,
+      "maxhit": 18
+    },
+    "earthwave": {
+      "name": "Earth wave",
+      "magiclevel": 41,
+      "runes": {
+        "blood": 1,
+        "air": 5,
+        "earth": 7
+      },
+      "basexp": 40,
+      "maxhit": 19
+    },
+    "firewave": {
+      "name": "Fire wave",
+      "magiclevel": 41,
+      "runes": {
+        "blood": 1,
+        "air": 5,
+        "fire": 7
+      },
+      "basexp": 42.5,
+      "maxhit": 20
+    },
+    "windsurge": {
+      "name": "Wind surge",
+      "magiclevel": 81,
+      "runes": {
+        "wrath": 1,
+        "air": 7
+      },
+      "basexp": 44.5,
+      "maxhit": 21
+    },
+    "watersurge": {
+      "name": "Water surge",
+      "magiclevel": 85,
+      "runes": {
+        "wrath": 1,
+        "air": 7,
+        "water": 10
+      },
+      "basexp": 46.5,
+      "maxhit": 22
+    },
+    "earthsurge": {
+      "name": "Earth surge",
+      "magiclevel": 90,
+      "runes": {
+        "wrath": 1,
+        "air": 7,
+        "earth": 10
+      },
+      "basexp": 48.5,
+      "maxhit": 23
+    },
+    "firesurge": {
+      "name": "Fire surge",
+      "magiclevel": 95,
+      "runes": {
+        "wrath": 1,
+        "air": 7,
+        "fire": 10
+      },
+      "basexp": 50.5,
+      "maxhit": 24
+    }
+  },
+  "ancient": {
+    "smokerush": {
+      "name": "Smoke rush",
+      "magiclevel": 50,
+      "runes": {
+        "death": 2,
+        "chaos": 2,
+        "fire": 1,
+        "air": 1
+      },
+      "basexp": 30,
+      "maxhit": 14
+    },
+    "shadowerush": {
+      "name": "Shadow rush",
+      "magiclevel": 52,
+      "runes": {
+        "soul": 1,
+        "death": 2,
+        "chaos": 2,
+        "air": 1
+      },
+      "basexp": 31,
+      "maxhit": 15
+    },
+    "bloodrush": {
+      "name": "Blood rush",
+      "magiclevel": 56,
+      "runes": {
+        "blood": 1,
+        "death": 2,
+        "chaos": 2
+      },
+      "basexp": 33,
+      "maxhit": 16
+    },
+    "icerush": {
+      "name": "Ice rush",
+      "magiclevel": 58,
+      "runes": {
+        "death": 2,
+        "chaos": 2,
+        "water": 2
+      },
+      "basexp": 34,
+      "maxhit": 17
+    },
+    "smokeburst": {
+      "name": "Smoke burst",
+      "magiclevel": 62,
+      "runes": {
+        "death": 2,
+        "chaos": 4,
+        "fire": 2,
+        "air": 2
+      },
+      "basexp": 36,
+      "maxhit": 18
+    },
+    "shadowburst": {
+      "name": "Shadow burst",
+      "magiclevel": 64,
+      "runes": {
+        "soul": 2,
+        "death": 2,
+        "chaos": 4,
+        "air": 1
+      },
+      "basexp": 37,
+      "maxhit": 19
+    },
+    "bloodburst": {
+      "name": "Blood burst",
+      "magiclevel": 68,
+      "runes": {
+        "blood": 2,
+        "death": 2,
+        "chaos": 4
+      },
+      "basexp": 39,
+      "maxhit": 21
+    },
+    "iceburst": {
+      "name": "Ice burst",
+      "magiclevel": 70,
+      "runes": {
+        "death": 2,
+        "chaos": 4,
+        "water": 4
+      },
+      "basexp": 40,
+      "maxhit": 22
+    },
+    "smokeblitz": {
+      "name": "Smoke blitz",
+      "magiclevel": 74,
+      "runes": {
+        "blood": 2,
+        "death": 2,
+        "fire": 2,
+        "air": 2
+      },
+      "basexp": 42,
+      "maxhit": 23
+    },
+    "shadowblitz": {
+      "name": "Shadow blitz",
+      "magiclevel": 76,
+      "runes": {
+        "soul": 2,
+        "blood": 2,
+        "death": 2,
+        "air": 2
+      },
+      "basexp": 43,
+      "maxhit": 24
+    },
+    "bloodblitz": {
+      "name": "Blood blitz",
+      "magiclevel": 80,
+      "runes": {
+        "blood": 4,
+        "death": 2
+      },
+      "basexp": 45,
+      "maxhit": 25
+    },
+    "iceblitz": {
+      "name": "Ice blitz",
+      "magiclevel": 82,
+      "runes": {
+        "blood": 2,
+        "death": 2,
+        "water": 3
+      },
+      "basexp": 46,
+      "maxhit": 26
+    },
+    "smokebarrage": {
+      "name": "Smoke barrage",
+      "magiclevel": 86,
+      "runes": {
+        "blood": 2,
+        "death": 4,
+        "fire": 4,
+        "air": 4
+      },
+      "basexp": 48,
+      "maxhit": 27
+    },
+    "shadowbarrage": {
+      "name": "Shadow barrage",
+      "magiclevel": 88,
+      "runes": {
+        "soul": 3,
+        "blood": 2,
+        "death": 4,
+        "air": 4
+      },
+      "basexp": 49,
+      "maxhit": 28
+    },
+    "bloodbarrage": {
+      "name": "Blood barrage",
+      "magiclevel": 92,
+      "runes": {
+        "soul": 1,
+        "blood": 4,
+        "death": 4
+      },
+      "basexp": 51,
+      "maxhit": 29
+    },
+    "icebarrage": {
+      "name": "Ice barrage",
+      "magiclevel": 94,
+      "runes": {
+        "blood": 2,
+        "death": 4,
+        "water": 6
+      },
+      "basexp": 52,
+      "maxhit": 30
+    }
+  }
+}

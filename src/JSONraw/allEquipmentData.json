@@ -47017,6 +47017,47 @@
         }
       }
     },
+    "Unarmed": {
+      "name": "Unarmed",
+      "members": false,
+      "stabatt": 0,
+      "slashatt": 0,
+      "crushatt": 0,
+      "magicatt": 0,
+      "rangeatt": 0,
+      "stabdef": 0,
+      "slashdef": 0,
+      "crushdef": 0,
+      "magicdef": 0,
+      "rangedef": 0,
+      "strengthbonus": 0,
+      "rangestrengthbonus": 0,
+      "magicdamage": 0,
+      "prayerbonus": 0,
+      "hands": 2,
+      "attackspeed": 4,
+      "combattype": "melee",
+      "attackoptions": {
+        "1": {
+          "name": "Punch",
+          "style": "Accurate",
+          "icon": "unarmed_punch_icon",
+          "type": "Crush"
+        },
+        "2": {
+          "name": "Kick",
+          "style": "Aggressive",
+          "icon": "unarmed_kick_icon",
+          "type": "Crush"
+        },
+        "3": {
+          "name": "Block",
+          "style": "Defensive",
+          "icon": "unarmed_block_icon",
+          "type": "Crush"
+        }
+      }
+    },
     "Magic shortbow (i)": {
       "name": "Magic shortbow (i)",
       "members": true,

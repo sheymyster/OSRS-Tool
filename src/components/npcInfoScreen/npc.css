@@ -16,6 +16,12 @@
   background-color: #b8a282;
 }
 
+.NPC-Image-Div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Version-Buttons {
   display: flex;
   flex-direction: row;

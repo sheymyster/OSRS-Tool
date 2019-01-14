@@ -71,14 +71,16 @@ class NPCInfoBox extends Component {
      return (
 
        <div className="NPC-Info-Screen">
-          <div className="NPC-Name">{this.props.chosenMonster.name.split('_').join(' ')}</div>
-            <div style={this.highlightNPC()}>
-              <Image
-                src={imageLink}
-                width={250}
-                height={250}
-              />
-            </div>
+          <div
+            className="NPC-Name">{this.props.chosenMonster.name.split('_').join(' ')}
+          </div>
+          <div style={this.highlightNPC()} className="NPC-Image-Div">
+            <Image
+              src={imageLink}
+              width={250}
+              height={250}
+            />
+          </div>
           <div>
             <div className="NPC-Combat-HP-Row">
               <div className="NPC-Combat-HP-Item">

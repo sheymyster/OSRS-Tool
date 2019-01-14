@@ -42,39 +42,24 @@ math.config({
     precision: 200
 });
 
-var unarmedOptions = {
-  "1": {
-    "name": "Punch",
-    "style": "Accurate",
-    "icon": "unarmed_punch_icon",
-    "type": "Crush"
-  },
-  "2": {
-    "name": "Kick",
-    "style": "Aggressive",
-    "icon": "unarmed_kick_icon",
-    "type": "Crush"
-  },
-  "3": {
-    "name": "Block",
-    "style": "Defensive",
-    "icon": "unarmed_block_icon",
-    "type": "Crush"
-  }
-};
-
 class OutputInformationBox extends Component {
 
   calculateEnemyDefenseRoll() {
     let defenseStyle;
-    let chosenAttack = this.getChosenAttackObject();
-    if (chosenAttack.type === 'slash') {
-      defenseStyle = 'dslash'
-    } else if (chosenAttack.type === 'stab') {
-      defenseStyle = 'dstab'
+    let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
+    if (chosenAttack.type === 'ranged') {
+      defenseStyle = 'drange'
+    } else if (chosenAttack.type === 'magic') {
+      defenseStyle = 'dmagic'
     } else {
-      defenseStyle = 'dcrush'
-    };
+      if (chosenAttack.type === 'Slash') {
+        defenseStyle = 'dslash'
+      } else if (chosenAttack.type === 'Stab') {
+        defenseStyle = 'dstab'
+      } else if (chosenAttack.type === 'Crush') {
+        defenseStyle = 'dcrush'
+      };
+    }
     let defenseLevel = (allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version][defenseStyle]);
     let maxDefenseRoll = defenseLevel*64
     return maxDefenseRoll;
@@ -174,16 +159,6 @@ class OutputInformationBox extends Component {
     return xpPerHour;
   }
 
-  getChosenAttackObject() {
-    let chosenAttack;
-    if (this.props.playerGear.weapon !== '') {
-      chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
-    } else {
-      chosenAttack = Object.assign({}, unarmedOptions[this.props.playerGear.chosenattack]);
-    }
-    return chosenAttack;
-  }
-
   calculatePlayerBonuses() {
     let bonuses = {};
     bonuses.astab = this.calculatePlayerStat('stabatt');
@@ -195,10 +170,10 @@ class OutputInformationBox extends Component {
     bonuses.dslash = this.calculatePlayerStat('slashdef');
     bonuses.dcrush = this.calculatePlayerStat('crushdef');
     bonuses.dmagic = this.calculatePlayerStat('magicdef');
-    bonuses.drange = this.calculatePlayerStat('rangedef');
+    bonuses.dranged = this.calculatePlayerStat('rangedef');
     bonuses.strength = this.calculatePlayerStat('strengthbonus');
-    bonuses.rangeStrength = this.calculatePlayerStat('rangestrengthbonus');
-    bonuses.magicDamage = this.calculatePlayerStat('magicdamage');
+    bonuses.rangestrength = this.calculatePlayerStat('rangestrengthbonus');
+    bonuses.magicdamage = this.calculatePlayerStat('magicdamage');
     bonuses.prayer = this.calculatePlayerStat('prayerbonus');
     return bonuses;
   }
@@ -314,7 +289,7 @@ class OutputInformationBox extends Component {
 
    render() {
      // formula getting long so chose to save chosen attack object in new object //
-     let chosenAttack = this.getChosenAttackObject()
+     let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
 
      // precalculate potion and prayer bonuses for 4 combat stats //
      let strPotionBonus = calculateStrengthPotionBonus(this.props.activePotions, this.props.playerStats.strength);
@@ -337,8 +312,8 @@ class OutputInformationBox extends Component {
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
-     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangeStrength);
-     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicDamage);
+     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength);
+     let magicMaxHit = calculateMaxMagicHit(effectiveMagic, playerBonuses.magicdamage);
 
      // choose which effective attack to use based on what user has selected (weapon type or spell) //
      let effectiveAttack = this.getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic);
@@ -372,18 +347,18 @@ class OutputInformationBox extends Component {
             {this.generateComparisonRow('Slash', 'aslash', playerBonuses)}
             {this.generateComparisonRow('Crush', 'acrush', playerBonuses)}
             {this.generateComparisonRow('Magic', 'amagic', playerBonuses)}
-            {this.generateComparisonRow('Range', 'arange', playerBonuses)}
+            {this.generateComparisonRow('Range', 'aranged', playerBonuses)}
           <div className="Player-Stats-Title">Defense Bonuses</div>
             {this.generateComparisonRow('Stab', 'dstab', playerBonuses)}
             {this.generateComparisonRow('Slash', 'dslash', playerBonuses)}
             {this.generateComparisonRow('Crush', 'dcrush', playerBonuses)}
             {this.generateComparisonRow('Magic', 'dmagic', playerBonuses)}
-            {this.generateComparisonRow('Range', 'drange', playerBonuses)}
+            {this.generateComparisonRow('Range', 'dranged', playerBonuses)}
           <div className="Player-Stats-Title">Other Bonuses</div>
-            {this.generateComparisonRow('Melee Strength', 'strengthbonus', playerBonuses)}
-            {this.generateComparisonRow('Range Strength', 'rangestrengthbonus', playerBonuses)}
-            {this.generateComparisonRow('Magic Damage Bonus', 'magicdamagebonus', playerBonuses)}
-            {this.generateComparisonRow('Prayer Bonus', 'prayerbonus', playerBonuses)}
+            {this.generateComparisonRow('Melee Strength', 'strength', playerBonuses)}
+            {this.generateComparisonRow('Range Strength', 'rangestrength', playerBonuses)}
+            {this.generateComparisonRow('Magic Damage Bonus', 'magicdamage', playerBonuses)}
+            {this.generateComparisonRow('Prayer Bonus', 'prayer', playerBonuses)}
         </div>
         <div className="Calculated-Output">
           {this.generateCalculatedOutputRow('Chance to Hit', 'accuracy', accuracy, 3)}

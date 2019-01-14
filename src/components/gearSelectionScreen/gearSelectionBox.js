@@ -2,30 +2,12 @@ import React, {Component} from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {changePlayerGear} from './gearSelectionActions';
-import {Dropdown} from 'semantic-ui-react';
+import {Dropdown, Popup} from 'semantic-ui-react';
 import './gear.css';
 import allEquipmentData from '../../JSONraw/allEquipmentData.json';
+import Image from 'react-image-resizer';
+import magicSpellList from '../../JSONraw/magicSpellList.json';
 
-var unarmedOptions = {
-  "1": {
-    "name": "Punch",
-    "style": "Accurate",
-    "icon": "unarmed_punch_icon",
-    "type": "Crush"
-  },
-  "2": {
-    "name": "Kick",
-    "style": "Aggressive",
-    "icon": "unarmed_kick_icon",
-    "type": "Crush"
-  },
-  "3": {
-    "name": "Block",
-    "style": "Defensive",
-    "icon": "unarmed_block_icon",
-    "type": "Crush"
-  }
-};
 
 
 class GearSelectionBox extends Component {
@@ -59,17 +41,12 @@ class GearSelectionBox extends Component {
   };
 
   highlightAttackOption(attackObject, attackNumber) {
-    let chosenAttack;
-    if (this.props.playerGear.weapon !== '') {
-      chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
-    } else {
-      chosenAttack = Object.assign({}, unarmedOptions);
-    }
+    let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
     if (this.props.lockStatus.locked === true) {
-      let lockedAttack = allEquipmentData.weapon[this.props.lockStatus.lockedSelections.playerGear.weapon].attackoptions[attackNumber];
-      if (lockedAttack === chosenAttack === attackObject) {
+      let lockedAttack = allEquipmentData.weapon[this.props.lockStatus.lockedSelections.playerGear.weapon].attackoptions[this.props.lockStatus.lockedSelections.playerGear.chosenattack];
+      if (lockedAttack === attackObject) {
         return {
-          backgroundColor: 'rgba(90, 90, 90, 0.8)',
+          backgroundColor: 'grey',
           cursor: "pointer"
         }
       } else if (chosenAttack === attackObject &&
@@ -109,6 +86,11 @@ class GearSelectionBox extends Component {
     return combatType;
   }
 
+  handleWeaponChange(weaponObject) {
+    this.props.changePlayerGear({chosenattack: 1});
+    this.props.changePlayerGear(weaponObject);
+  }
+
   getXpType() {
     let xpTypeObject;
     let combatType = this.determineCombatType();
@@ -141,7 +123,7 @@ class GearSelectionBox extends Component {
   };
 
   generateEquipmentSearchboxes() {
-    let slotNames = ['head', 'neck', 'chest', 'leg', 'feet', 'cape', 'ammo', 'weapon', 'shield', 'hand', 'ring'];
+    let slotNames = ['head', 'neck', 'chest', 'leg', 'feet', 'cape', 'ammo', 'shield', 'hand', 'ring'];
     let dropdownBoxes = [];
     for (let i=0; i<slotNames.length; i++) {
       let placeholderText = slotNames[i];
@@ -159,31 +141,67 @@ class GearSelectionBox extends Component {
           options={this.findEquipmentNames(slotNames[i])} />
         </div>
       )
-    };
+    }
+    let {value} = {value: this.props.playerGear['weapon']};
+    dropdownBoxes.splice(4, 0,
+      <div className="Equipment-Selection-Row" style={this.highlightEquipmentRow('weapon')}>
+        <Dropdown
+        value={value}
+        onChange={(e, {value}) => this.handleWeaponChange(this.getGearObject('weapon', {value}.value))}
+        fluid
+        search
+        selection
+        options={this.findEquipmentNames('weapon')} />
+      </div>
+    );
     return dropdownBoxes
   };
 
   generateAttackOptions() {
     let buttons = [];
-    if (this.props.playerGear.weapon !== '') {
-      let attackOptions = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions
-      let i;
-      let n = Object.keys(attackOptions).length;
-      for (i=0; i<n; i++) {
-        let xptypes = this.getXpType();
-        let tooltip = attackOptions[i+1].style + "&#10;" + attackOptions[i+1].type + "&#10;" + xptypes[attackOptions[i+1].style];
-        let attackNumber = i+1;
-        console.log(tooltip);
-        buttons.push(
-          <div title={tooltip}onClick={() => this.props.changePlayerGear({chosenattack: attackNumber})} className="Attack-Style-Option" style={this.highlightAttackOption(attackOptions[i+1], i+1)}><span className="Attack-Style-Name">{attackOptions[i+1].name}</span></div>
-        )
-      }
-    } else {
-      buttons.push(<div title="Aggressive&#10;Crush&#10;Strength XP" onClick={() => this.props.changePlayerGear({chosenattack: 1})} className="Attack-Style-Option" style={this.highlightAttackOption(unarmedOptions[1], 1)}><span className="Attack-Style-Name" title="Aggressive">Punch</span></div>);
-      buttons.push(<div title="Accurate&#10;Crush&#10;Attack XP" onClick={() => this.props.changePlayerGear({chosenattack: 2})} className="Attack-Style-Option" style={this.highlightAttackOption(unarmedOptions[2], 2)}><span className="Attack-Style-Name" title="Accurate">Kick</span></div>);
-      buttons.push(<div title="Defensive&#10;Crush&#10;Defense XP" onClick={() => this.props.changePlayerGear({chosenattack: 3})} className="Attack-Style-Option" style={this.highlightAttackOption(unarmedOptions[3], 3)}><span className="Attack-Style-Name" title="Defensive">Block</span></div>);
+    let attackOptions = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions
+    let i;
+    let n = Object.keys(attackOptions).length;
+    for (i=0; i<n; i++) {
+      let xptypes = this.getXpType();
+      let attackNumber = i+1;
+      buttons.push(
+        <Popup
+          content={<div className='Attack-Options-Popup'><span>{attackOptions[i+1].style}</span><span>{attackOptions[i+1].type}</span><span>{xptypes[attackOptions[i+1].style]}</span></div>}
+          trigger={<div onClick={() => this.props.changePlayerGear({chosenattack: attackNumber})} className="Attack-Style-Option" style={this.highlightAttackOption(attackOptions[i+1], i+1)}><span className="Attack-Style-Name">{attackOptions[i+1].name}</span></div>}
+          on='hover'
+          position='bottom left'
+        />
+      )
     }
-    return buttons;
+  return buttons;
+  };
+
+  generateSpells() {
+    let spells = [];
+    let standardSpells = Object.keys(magicSpellList.standard);
+    let ancientSpells = Object.keys(magicSpellList.ancient);
+    let i;
+    let n = standardSpells.length;
+    for (i=0; i<n; i++) {
+      let spellName = magicSpellList.standard[standardSpells[i]].name.toLowerCase().split(" ").join("_");
+      spells.push(
+        <div className="Magic-Spell">
+          <Image src={require('../../assets/'+spellName+'_icon.png')} height={25} width={25} />
+        </div>
+      )
+    }
+    let j;
+    let m = ancientSpells.length;
+    for (j=0; j<m; j++) {
+      let spellName = magicSpellList.ancient[ancientSpells[j]].name.toLowerCase().split(" ").join("_");
+      spells.push(
+        <div className="Magic-Spell">
+          <Image src={require('../../assets/'+spellName+'_icon.png')} height={25} width={25} />
+        </div>
+      )
+    }
+    return spells;
   };
 
    render() {
@@ -193,7 +211,8 @@ class GearSelectionBox extends Component {
             {this.generateEquipmentSearchboxes()}
           </div>
           <div className="Equipment-And-Attack-Styles">
-            <div className="Full-Equipment-Image-Div">
+            <div className="Magic-Spell-Choices">
+              {this.generateSpells()}
             </div>
             <div className="Attack-Style-Choices">
               {this.generateAttackOptions()}

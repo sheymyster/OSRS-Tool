@@ -31,14 +31,7 @@
   align-items: center;
   height: 100%;
   width: 70%;
-}
-
-.Full-Equipment-Image-Div {
-  background-image: url('../../assets/full_equipment_tree.png');
-  background-size: 100%, auto;
-  background-repeat: no-repeat;
-  height: 50%;
-  width: 100%;
+  padding: 10px;
 }
 
 .Attack-Style-Choices {
@@ -50,6 +43,7 @@
   justify-content: space-between;
   align-items: space-between;
   padding: 5%;
+  margin: 10px;
   background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -67,4 +61,26 @@
   color: #DA8D2D;
   text-shadow: 2px 2px 2px #3f2a14;
   font-weight: bold;
+}
+
+.Attack-Options-Popup {
+  display: flex;
+  flex-direction: column;
+}
+
+.Magic-Spell-Choices {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 70%;
+  height: 50%;
+  background-color: rgba(59, 49, 36, 0.7);
+  border-style: solid;
+  border-width: thick;
+  border-color: #4B4445;
+}
+
+.Magic-Spell {
+  padding: 5px;
 }
