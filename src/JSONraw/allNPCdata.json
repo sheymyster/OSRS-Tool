@@ -71,8 +71,8 @@
       "Lv 1, 2": {
         "combat": "1, 2",
         "hitpoints": 3,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -179,8 +179,8 @@
       "Lv 1": {
         "combat": 1,
         "hitpoints": 3,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -617,19 +617,6 @@
       }
     }
   },
-  "Carnivorous_chinchompa": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Cow": {
     "drops": {
       "guaranteed": [
@@ -711,8 +698,8 @@
       "Lv 2": {
         "combat": 2,
         "hitpoints": 6,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -1592,8 +1579,8 @@
       "Lv 2": {
         "combat": 2,
         "hitpoints": 7,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -1976,8 +1963,8 @@
       "Lv 2": {
         "combat": 2,
         "hitpoints": 7,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -1997,19 +1984,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Ping": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Rabbit": {
@@ -2042,8 +2016,8 @@
       "Lv 2": {
         "combat": 2,
         "hitpoints": 5,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -2084,8 +2058,8 @@
       "Lv 2": {
         "combat": 2,
         "hitpoints": 7,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -2173,19 +2147,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Tramp": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Undead_cow": {
@@ -2609,8 +2570,8 @@
       "Lv 3": {
         "combat": 3,
         "hitpoints": 7,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -2967,73 +2928,6 @@
       }
     }
   },
-  "Monkey": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Zombie_rat": {
-    "drops": {
-      "guaranteed": [
-        {
-          "name": "Bones",
-          "quantity": "1",
-          "noted": false
-        },
-        {
-          "name": "Key (Melzar's Maze)",
-          "quantity": "1",
-          "noted": false
-        }
-      ],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv 3": {
-        "combat": 3,
-        "hitpoints": 5,
-        "immunepoison": "Not immune"
-      }
-    }
-  },
-  "Ceolburg": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Hygd": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Bird": {
     "drops": {
       "guaranteed": [],
@@ -3119,8 +3013,8 @@
       "Lv 5": {
         "combat": 5,
         "hitpoints": 6,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 4,
         "def": 3,
         "str": 5,
@@ -3343,8 +3237,8 @@
       "Lv 6": {
         "combat": 6,
         "hitpoints": 8,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 5,
         "def": 5,
         "str": 5,
@@ -3830,7 +3724,7 @@
       "Lv 7, 11, 20, 22, 23": {
         "combat": "7, 11, 20, 22, 23",
         "hitpoints": "12, 24",
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "att": 5,
         "def": 5,
         "str": 2,
@@ -3952,8 +3846,8 @@
       "Lv 10": {
         "combat": 10,
         "hitpoints": 16,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 8,
         "def": 6,
         "str": 8,
@@ -4140,7 +4034,7 @@
       "Lv 7": {
         "combat": 7,
         "hitpoints": 12,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "att": 3,
         "def": 8,
         "str": 4,
@@ -4438,8 +4332,8 @@
       "Lv 8": {
         "combat": 8,
         "hitpoints": 17,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 5,
         "def": 5,
         "str": 5,
@@ -4462,8 +4356,8 @@
       "Lv 145": {
         "combat": 145,
         "hitpoints": 137,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 55,
         "str": 75,
@@ -4641,7 +4535,7 @@
       "Lv 9": {
         "combat": 9,
         "hitpoints": 19,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "No",
         "att": 7,
         "def": 4,
@@ -4660,19 +4554,6 @@
         "drange": 12,
         "strbns": 9
       }
-    }
-  },
-  "Barbarian_(male)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Wizard": {
@@ -4785,8 +4666,8 @@
       "Lv 9": {
         "combat": 9,
         "hitpoints": 14,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 8,
         "def": 5,
         "str": 8,
@@ -4821,8 +4702,8 @@
       "Lv 10": {
         "combat": 10,
         "hitpoints": 16,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 7,
         "def": 7,
         "str": 7,
@@ -4990,8 +4871,8 @@
       "Lv 10": {
         "combat": 10,
         "hitpoints": 18,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 7,
         "def": 9,
         "str": 5,
@@ -5344,8 +5225,8 @@
       "Lv 11": {
         "combat": 11,
         "hitpoints": 10,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 10,
         "def": 10,
         "str": 10,
@@ -5368,8 +5249,8 @@
       "Lv 14": {
         "combat": 14,
         "hitpoints": 15,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 10,
         "def": 10,
         "str": 15,
@@ -5392,8 +5273,8 @@
       "Lv 25": {
         "combat": 25,
         "hitpoints": 34,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 20,
         "def": 22,
         "str": 16,
@@ -5416,8 +5297,8 @@
       "Lv 64": {
         "combat": 64,
         "hitpoints": 69,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 50,
         "def": 52,
         "str": 55,
@@ -5475,19 +5356,6 @@
       }
     }
   },
-  "Desert_lizard": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Grave_scorpion": {
     "drops": {
       "guaranteed": [],
@@ -5507,7 +5375,7 @@
       "Lv 12": {
         "combat": 12,
         "hitpoints": 7,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Not immu",
         "att": 11,
         "def": 14,
@@ -6228,8 +6096,8 @@
       "Lv 13": {
         "combat": 13,
         "hitpoints": 20,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 8,
         "def": 12,
         "str": 8,
@@ -6333,8 +6201,8 @@
       "Lv 13": {
         "combat": 13,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 5,
         "def": 10,
         "str": 5,
@@ -6729,19 +6597,6 @@
       }
     }
   },
-  "Rock_crab_(exposed)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Skeleton": {
     "drops": {
       "guaranteed": [
@@ -7023,8 +6878,8 @@
       "Lv 13": {
         "combat": 13,
         "hitpoints": 18,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7046,8 +6901,8 @@
       "Lv 21": {
         "combat": 21,
         "hitpoints": 24,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7069,8 +6924,8 @@
       "Lv 22": {
         "combat": 22,
         "hitpoints": 29,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7092,8 +6947,8 @@
       "Lv 25": {
         "combat": 25,
         "hitpoints": 17,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7115,8 +6970,8 @@
       "Lv 42": {
         "combat": 42,
         "hitpoints": null,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7167,8 +7022,8 @@
       "Lv 13": {
         "combat": 13,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 5,
         "def": 10,
         "str": 5,
@@ -7187,19 +7042,6 @@
         "attbns": 0,
         "strbns": 0
       }
-    }
-  },
-  "Zombie": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Imp_Champion": {
@@ -7308,8 +7150,8 @@
       "Lv 14": {
         "combat": 14,
         "hitpoints": 17,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 11,
         "def": 11,
         "str": 12,
@@ -7332,8 +7174,8 @@
       "Lv 37": {
         "combat": 37,
         "hitpoints": 37,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -7356,8 +7198,8 @@
       "Lv 59": {
         "combat": 59,
         "hitpoints": 55,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -8269,8 +8111,8 @@
       "Lv 15": {
         "combat": 15,
         "hitpoints": 60,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 1,
         "str": 1,
@@ -8880,8 +8722,8 @@
       "Lv 19": {
         "combat": 19,
         "hitpoints": 30,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 20,
         "str": 20,
@@ -9150,8 +8992,8 @@
       "Lv 21, 1337 (Deadman Mode only)": {
         "combat": "21, 1337 (Deadman Mode only)",
         "hitpoints": "22, ?",
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 19,
         "def": 14,
         "str": 18,
@@ -10000,38 +9842,6 @@
       }
     }
   },
-  "Bandit_(wilderness)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Shantay_Guard": {
-    "drops": {
-      "guaranteed": [
-        {
-          "name": "Bones",
-          "quantity": "1",
-          "noted": false
-        }
-      ],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Tz-Kek": {
     "drops": {
       "guaranteed": [],
@@ -10382,8 +10192,8 @@
       "Lv 23": {
         "combat": 23,
         "hitpoints": 22,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 22,
         "def": 22,
         "str": 15,
@@ -10803,19 +10613,6 @@
       }
     }
   },
-  "Straven": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Weaponsmaster": {
     "drops": {
       "guaranteed": [],
@@ -11114,8 +10911,8 @@
       "Lv 24": {
         "combat": 24,
         "hitpoints": 32,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 14,
         "str": 1,
@@ -11593,8 +11390,8 @@
       "Lv 24": {
         "combat": 24,
         "hitpoints": 20,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 22,
         "def": 22,
         "str": 22,
@@ -12333,8 +12130,8 @@
       "Lv 26": {
         "combat": 26,
         "hitpoints": 32,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 19,
         "def": 21,
         "str": 23,
@@ -12353,19 +12150,6 @@
         "attbns": 9,
         "strbns": 5
       }
-    }
-  },
-  "Necromancer": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Rat": {
@@ -12596,8 +12380,8 @@
       "Lv 27": {
         "combat": 27,
         "hitpoints": 34,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 20,
         "def": 22,
         "str": 21,
@@ -12649,8 +12433,8 @@
       "Lv 27": {
         "combat": 27,
         "hitpoints": 32,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 22,
         "def": 22,
         "str": 22,
@@ -13149,8 +12933,8 @@
       "Lv 28": {
         "combat": 28,
         "hitpoints": 35,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 18,
         "def": 26,
         "str": 22,
@@ -13745,8 +13529,8 @@
       "Lv 28": {
         "combat": 28,
         "hitpoints": 32,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 23,
         "def": 23,
         "str": 23,
@@ -14015,19 +13799,6 @@
       }
     }
   },
-  "Watchman_(Yanille)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Ghost": {
     "drops": {
       "guaranteed": [],
@@ -14252,32 +14023,6 @@
       }
     }
   },
-  "Necromancer": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Rock_golem": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Rockslug": {
     "drops": {
       "guaranteed": [],
@@ -14387,8 +14132,8 @@
       "Lv 29": {
         "combat": 29,
         "hitpoints": 27,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 22,
         "def": 27,
         "str": 27,
@@ -14693,19 +14438,6 @@
       }
     }
   },
-  "Afflicted_(lv-30)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Ghast": {
     "drops": {
       "guaranteed": [],
@@ -14960,7 +14692,7 @@
       "Lv 30, 31": {
         "combat": "30, 31",
         "hitpoints": 20,
-        "immunepoison": "Not Immune",
+        "immunepoison": "No",
         "immunevenom": "Not Immu"
       }
     }
@@ -15071,19 +14803,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Zombie": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Mounted_terrorbird_gnome": {
@@ -15468,8 +15187,8 @@
       "Lv 33": {
         "combat": 33,
         "hitpoints": 42,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 25,
         "def": 25,
         "str": 25,
@@ -15551,8 +15270,8 @@
       "Lv 40, 71 (post-quest)": {
         "combat": "40, 71 (post-quest)",
         "hitpoints": "25, 71 (post-quest)",
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 59,
         "def": 59,
         "str": 62,
@@ -15741,8 +15460,8 @@
       "Lv 32": {
         "combat": 32,
         "hitpoints": 20,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 35,
         "def": 30,
         "str": 25,
@@ -16137,8 +15856,8 @@
       "Lv 33": {
         "combat": 33,
         "hitpoints": 30,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 28,
         "def": 32,
         "str": 28,
@@ -16195,8 +15914,8 @@
       "Lv 33": {
         "combat": 33,
         "hitpoints": 35,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 30,
         "def": 30,
         "str": 26,
@@ -17197,8 +16916,8 @@
       "Normal": {
         "combat": 35,
         "hitpoints": 35,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 20,
         "def": 35,
         "str": 35,
@@ -17221,8 +16940,8 @@
       "Ore": {
         "combat": 35,
         "hitpoints": 35,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 20,
         "def": 35,
         "str": 35,
@@ -18590,8 +18309,8 @@
       "Lv 21, 1337 (Deadman Mode only)": {
         "combat": "21, 1337 (Deadman Mode only)",
         "hitpoints": "22, ?",
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 19,
         "def": 14,
         "str": 18,
@@ -18721,8 +18440,8 @@
       "Lv 37": {
         "combat": 37,
         "hitpoints": 48,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 28,
         "def": 28,
         "str": 28,
@@ -18778,8 +18497,8 @@
       "Lv 14": {
         "combat": 14,
         "hitpoints": 17,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 11,
         "def": 11,
         "str": 12,
@@ -18802,8 +18521,8 @@
       "Lv 37": {
         "combat": 37,
         "hitpoints": 37,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -18826,8 +18545,8 @@
       "Lv 59": {
         "combat": 59,
         "hitpoints": 55,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -19045,8 +18764,8 @@
       "Lv 38": {
         "combat": 38,
         "hitpoints": 44,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 30,
         "def": 32,
         "str": 31,
@@ -19169,8 +18888,8 @@
       "Lv 39": {
         "combat": 39,
         "hitpoints": 38,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 33,
         "def": 33,
         "str": 33,
@@ -19273,8 +18992,8 @@
       "Lv 40": {
         "combat": 40,
         "hitpoints": 38,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 45,
         "def": 26,
         "str": 30,
@@ -19543,8 +19262,8 @@
       "Lv 40": {
         "combat": 40,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 53,
         "def": 30,
         "str": 30,
@@ -19567,8 +19286,8 @@
       "Lv 50": {
         "combat": 50,
         "hitpoints": 35,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 60,
         "def": 35,
         "str": 43,
@@ -19591,8 +19310,8 @@
       "Lv 60": {
         "combat": 60,
         "hitpoints": 40,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 72,
         "def": 40,
         "str": 54,
@@ -19921,8 +19640,8 @@
       "Lv 41": {
         "combat": 41,
         "hitpoints": 10,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 95,
         "def": 25,
         "str": 5,
@@ -19989,32 +19708,6 @@
         "attbns": 9,
         "strbns": 9
       }
-    }
-  },
-  "Wizard_Grayzag": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Zanik": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Dagannoth_spawn": {
@@ -20113,8 +19806,8 @@
       "Lv 42": {
         "combat": 42,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": null,
         "def": null,
         "str": null,
@@ -20137,8 +19830,8 @@
       "Lv 55": {
         "combat": 55,
         "hitpoints": 57,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 45,
         "def": 45,
         "str": 48,
@@ -20337,8 +20030,8 @@
       "Lv 21, 42": {
         "combat": "21, 42",
         "hitpoints": "27, 35",
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 17,
         "def": 15,
         "str": 18,
@@ -20419,8 +20112,8 @@
       "Lv 42": {
         "combat": 42,
         "hitpoints": 45,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 38,
         "def": 29,
         "str": 38,
@@ -20913,8 +20606,8 @@
       "Lv 42": {
         "combat": 42,
         "hitpoints": 45,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 35,
         "def": 35,
         "str": 35,
@@ -20934,19 +20627,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Melzar": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Pyrefiend": {
@@ -21225,8 +20905,8 @@
       "Lv 44": {
         "combat": 44,
         "hitpoints": 49,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 35,
         "def": 37,
         "str": 36,
@@ -21298,8 +20978,8 @@
       "Lv 44": {
         "combat": 44,
         "hitpoints": 40,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 40,
         "def": 34,
         "str": 39,
@@ -21772,19 +21452,6 @@
         "combat": 45,
         "hitpoints": 50
       }
-    }
-  },
-  "Guardian_of_Armadyl_(male)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Skeleton": {
@@ -22788,8 +22455,8 @@
       "Lv 46": {
         "combat": 46,
         "hitpoints": 40,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 40,
         "def": 40,
         "str": 40,
@@ -22886,8 +22553,8 @@
       "Lv 46": {
         "combat": 46,
         "hitpoints": 37,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 42,
         "def": 40,
         "str": 41,
@@ -23114,45 +22781,6 @@
         "strbns": 14,
         "rngbns": 0
       }
-    }
-  },
-  "Baby_blue_dragon": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Baby_green_dragon": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Baby_red_dragon": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Black_Guard": {
@@ -23791,19 +23419,6 @@
       }
     }
   },
-  "Inga": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Jennella": {
     "drops": {
       "guaranteed": [],
@@ -24099,45 +23714,6 @@
         "strbns": 20,
         "rngbns": 0
       }
-    }
-  },
-  "Market_Guard_(Fremennik)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Pontak": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Sassilik": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Shadow_warrior": {
@@ -25448,8 +25024,8 @@
       "Lv 51": {
         "combat": 51,
         "hitpoints": 54,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 42,
         "def": 42,
         "str": 42,
@@ -25618,8 +25194,8 @@
       "Lv 51": {
         "combat": 51,
         "hitpoints": 52,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 40,
         "def": 50,
         "str": 40,
@@ -25639,32 +25215,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Sergeant_Slimetoes": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Sergeant_Mossfists": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Zombie_Champion": {
@@ -25797,19 +25347,6 @@
       }
     }
   },
-  "Purepker895": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Revenant_pyrefiend": {
     "drops": {
       "guaranteed": [],
@@ -25834,8 +25371,8 @@
       "Lv 52": {
         "combat": 52,
         "hitpoints": 48,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 60,
         "def": 33,
         "str": 40,
@@ -27221,8 +26758,8 @@
       "Lv 75": {
         "combat": 75,
         "hitpoints": 75,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 85,
         "def": 50,
         "str": 50,
@@ -27945,8 +27482,8 @@
       "Lv 10": {
         "combat": 10,
         "hitpoints": 16,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 8,
         "def": 6,
         "str": 8,
@@ -28657,8 +28194,8 @@
       "Lv 57": {
         "combat": 57,
         "hitpoints": 52,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 49,
         "def": 50,
         "str": 50,
@@ -28858,8 +28395,8 @@
       "Lv 59": {
         "combat": 59,
         "hitpoints": 55,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 30,
         "def": 30,
         "str": 90,
@@ -28985,19 +28522,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "White_Broodoo_victim": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Mogre": {
@@ -29322,8 +28846,8 @@
       "Lv 60": {
         "combat": 60,
         "hitpoints": 56,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 64,
         "def": 42,
         "str": 47,
@@ -29369,8 +28893,8 @@
       "Lv 60": {
         "combat": 60,
         "hitpoints": 72,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 50,
         "def": 41,
         "str": 50,
@@ -29890,8 +29414,8 @@
       "Lv 61": {
         "combat": 61,
         "hitpoints": 40,
-        "immunepoison": "Not Immune",
-        "immunevenom": "Not Immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 55,
         "def": 55,
         "str": 60,
@@ -29914,8 +29438,8 @@
       "Lv 64": {
         "combat": 64,
         "hitpoints": 80,
-        "immunepoison": "Not Immune",
-        "immunevenom": "Not Immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 55,
         "def": 60,
         "str": 30,
@@ -29938,8 +29462,8 @@
       "Lv 70": {
         "combat": 70,
         "hitpoints": 75,
-        "immunepoison": "Not Immune",
-        "immunevenom": "Not Immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 90,
         "def": 30,
         "str": 46,
@@ -29962,8 +29486,8 @@
       "Lv 72": {
         "combat": 72,
         "hitpoints": 50,
-        "immunepoison": "Not Immune",
-        "immunevenom": "Not Immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 65,
         "def": 65,
         "str": 70,
@@ -29986,8 +29510,8 @@
       "Lv 77": {
         "combat": 77,
         "hitpoints": 60,
-        "immunepoison": "Not Immune",
-        "immunevenom": "Not Immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 65,
         "def": 81,
         "str": 66,
@@ -30022,8 +29546,8 @@
       "Lv 63": {
         "combat": 63,
         "hitpoints": 60,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 54,
         "def": 53,
         "str": 53,
@@ -30448,8 +29972,8 @@
       "Lv 62": {
         "combat": 62,
         "hitpoints": 57,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 54,
         "def": 54,
         "str": 54,
@@ -30602,8 +30126,8 @@
       "Lv 62": {
         "combat": 62,
         "hitpoints": 57,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 54,
         "def": 54,
         "str": 54,
@@ -30756,8 +30280,8 @@
       "Lv 62": {
         "combat": 62,
         "hitpoints": 57,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 54,
         "def": 54,
         "str": 54,
@@ -30792,8 +30316,8 @@
       "Lv 43, 64 (post-quest)": {
         "combat": "43, 64 (post-quest)",
         "hitpoints": 64,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 52,
         "def": 52,
         "str": 55,
@@ -30845,8 +30369,8 @@
       "Lv 63": {
         "combat": 63,
         "hitpoints": 62,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 53,
         "def": 54,
         "str": 54,
@@ -31500,8 +31024,8 @@
       "Lv 10": {
         "combat": 10,
         "hitpoints": 16,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 8,
         "def": 6,
         "str": 8,
@@ -31520,19 +31044,6 @@
         "attbns": 5,
         "strbns": 7
       }
-    }
-  },
-  "Jungle_Wolf": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Otherworldly_being": {
@@ -31674,8 +31185,8 @@
       "Lv 64": {
         "combat": 64,
         "hitpoints": 66,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 56,
         "def": 46,
         "str": 56,
@@ -31845,8 +31356,8 @@
       "Lv 11": {
         "combat": 11,
         "hitpoints": 10,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 10,
         "def": 10,
         "str": 10,
@@ -31869,8 +31380,8 @@
       "Lv 14": {
         "combat": 14,
         "hitpoints": 15,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 10,
         "def": 10,
         "str": 15,
@@ -31893,8 +31404,8 @@
       "Lv 25": {
         "combat": 25,
         "hitpoints": 34,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 20,
         "def": 22,
         "str": 16,
@@ -31917,8 +31428,8 @@
       "Lv 64": {
         "combat": 64,
         "hitpoints": 69,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 50,
         "def": 52,
         "str": 55,
@@ -32158,8 +31669,8 @@
       "Lv 66": {
         "combat": 66,
         "hitpoints": 60,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 60,
         "str": 1,
@@ -33540,8 +33051,8 @@
       "Lv 69": {
         "combat": 69,
         "hitpoints": 60,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 60,
         "def": 60,
         "str": 60,
@@ -33618,8 +33129,8 @@
       "Lv 69": {
         "combat": 69,
         "hitpoints": 82,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 54,
         "def": 54,
         "str": 55,
@@ -34114,8 +33625,8 @@
       "Lv 70": {
         "combat": 70,
         "hitpoints": 50,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 59,
         "def": 50,
         "str": 80,
@@ -34602,8 +34113,8 @@
       "Lv 70": {
         "combat": 70,
         "hitpoints": 70,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 58,
         "def": 62,
         "str": 58,
@@ -34967,8 +34478,8 @@
       "Lv 73": {
         "combat": 73,
         "hitpoints": 74,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 60,
         "def": 62,
         "str": 61,
@@ -35349,19 +34860,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Dagannoth": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Ice_troll_runt": {
@@ -36535,8 +36033,8 @@
       "Lv 75": {
         "combat": 75,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 20,
         "str": 1,
@@ -36571,8 +36069,8 @@
       "Lv 75": {
         "combat": 75,
         "hitpoints": 75,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 85,
         "def": 50,
         "str": 50,
@@ -37581,8 +37079,8 @@
       "Lv 76": {
         "combat": 76,
         "hitpoints": 76,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 88,
         "def": 60,
         "str": 55,
@@ -40817,8 +40315,8 @@
       "Lv 82": {
         "combat": 82,
         "hitpoints": 82,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 68,
         "def": 82,
         "str": 20,
@@ -41036,8 +40534,8 @@
       "Lv 82": {
         "combat": 82,
         "hitpoints": 82,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 68,
         "def": 82,
         "str": 70,
@@ -41083,8 +40581,8 @@
       "Lv 82": {
         "combat": 82,
         "hitpoints": 110,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 60,
         "def": 49,
         "str": 73,
@@ -41104,32 +40602,6 @@
         "strbns": 64,
         "rngbns": 0
       }
-    }
-  },
-  "Zamorak_mage": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
-  "Baby_black_dragon": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "City_guard": {
@@ -41888,8 +41360,8 @@
       "Lv 84": {
         "combat": 84,
         "hitpoints": 86,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 61,
         "str": 73,
@@ -42304,19 +41776,6 @@
       }
     }
   },
-  "Ghoul_Champion": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Kalphite_Soldier": {
     "drops": {
       "guaranteed": [],
@@ -42543,19 +42002,6 @@
         "strbns": 0,
         "rngbns": 0
       }
-    }
-  },
-  "Ent_(lv_86)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Fire_giant": {
@@ -43080,19 +42526,6 @@
       }
     }
   },
-  "PKMaster0036": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Reanimated_demon_spawn": {
     "drops": {
       "guaranteed": [],
@@ -43154,8 +42587,8 @@
       "Lv 88": {
         "combat": 88,
         "hitpoints": 85,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 75,
         "str": 75,
@@ -43735,8 +43168,8 @@
       "Lv 89": {
         "combat": 89,
         "hitpoints": 109,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 50,
         "str": 85,
@@ -44021,8 +43454,8 @@
       "Lv 90": {
         "combat": 90,
         "hitpoints": 80,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 76,
         "def": 80,
         "str": 80,
@@ -45828,8 +45261,8 @@
       "Lv 66 (summoned by [[Giant Scarab]]), 93": {
         "combat": "66 (summoned by [[Giant Scarab]]), 93",
         "hitpoints": 50,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 90,
         "def": 90,
         "str": 90,
@@ -46209,8 +45642,8 @@
       "Lv 96": {
         "combat": 96,
         "hitpoints": 90,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 90,
         "str": 1,
@@ -46848,8 +46281,8 @@
       "Lv 98": {
         "combat": 98,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 100,
         "str": 1,
@@ -46884,8 +46317,8 @@
       "Lv 98": {
         "combat": 98,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 100,
         "str": 1,
@@ -46931,8 +46364,8 @@
       "Lv 98}}": {
         "combat": "98}}",
         "hitpoints": 80,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 83,
         "def": 80,
         "str": 76,
@@ -46967,8 +46400,8 @@
       "Lv 98": {
         "combat": 98,
         "hitpoints": 25,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 255,
         "def": 30,
         "str": 5,
@@ -47573,8 +47006,8 @@
       "Lv 100": {
         "combat": 100,
         "hitpoints": 90,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 102,
         "def": 70,
         "str": 84,
@@ -48353,8 +47786,8 @@
       "Lv 100": {
         "combat": 100,
         "hitpoints": 80,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 60,
         "str": 100,
@@ -48789,19 +48222,6 @@
       }
     }
   },
-  "TzHaar-Mej": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Stick": {
     "drops": {
       "guaranteed": [
@@ -49010,8 +48430,8 @@
       "Lv 105": {
         "combat": 105,
         "hitpoints": 105,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 99,
         "def": 60,
         "str": 100,
@@ -50311,19 +49731,6 @@
       }
     }
   },
-  "Uri": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Elf_warrior": {
     "drops": {
       "guaranteed": [
@@ -50652,19 +50059,6 @@
         "attbns": 40,
         "strbns": 40
       }
-    }
-  },
-  "The_Illusive": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Yt-HurKot": {
@@ -52299,8 +51693,8 @@
       "Lv 111": {
         "combat": 111,
         "hitpoints": 105,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 95,
         "def": 95,
         "str": 95,
@@ -52492,8 +51886,8 @@
       "Lv 111": {
         "combat": 111,
         "hitpoints": 105,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 95,
         "def": 95,
         "str": 94,
@@ -52505,19 +51899,6 @@
         "dmagic": 10,
         "drange": 30
       }
-    }
-  },
-  "Rock": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Suqah": {
@@ -52581,8 +51962,8 @@
       "Lv 111": {
         "combat": 111,
         "hitpoints": 106,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 95,
         "def": 95,
         "str": 95,
@@ -52713,8 +52094,8 @@
       "Lv 112": {
         "combat": 112,
         "hitpoints": 170,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 80,
         "str": 78,
@@ -52749,8 +52130,8 @@
       "Lv 112": {
         "combat": 112,
         "hitpoints": 107,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 85,
         "def": 105,
         "str": 98,
@@ -52913,8 +52294,8 @@
       "Lv 112": {
         "combat": 112,
         "hitpoints": 140,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 95,
         "def": 70,
         "str": 90,
@@ -53477,19 +52858,6 @@
       }
     }
   },
-  "Troll_General": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Dharok_the_Wretched": {
     "drops": {
       "guaranteed": [],
@@ -53503,8 +52871,8 @@
       "Lv 115": {
         "combat": 115,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 100,
         "str": 100,
@@ -53539,8 +52907,8 @@
       "Lv 115": {
         "combat": 115,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 100,
         "str": 100,
@@ -53785,8 +53153,8 @@
       "Lv 115": {
         "combat": 115,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 100,
         "str": 100,
@@ -53821,8 +53189,8 @@
       "Lv 115": {
         "combat": 115,
         "hitpoints": 100,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 100,
         "str": 100,
@@ -54277,19 +53645,6 @@
         "strbns": 35,
         "rngbns": 0
       }
-    }
-  },
-  "Juvinate": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Black_Knight_Titan": {
@@ -55335,8 +54690,8 @@
       "Lv 120": {
         "combat": 120,
         "hitpoints": 140,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 93,
         "def": 80,
         "str": 110,
@@ -55424,8 +54779,8 @@
       "Lv 122": {
         "combat": 122,
         "hitpoints": 116,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 105,
         "def": 102,
         "str": 104,
@@ -55448,8 +54803,8 @@
       "Lv 127": {
         "combat": 127,
         "hitpoints": 116,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 107,
         "def": 106,
         "str": 116,
@@ -55472,8 +54827,8 @@
       "Lv 136": {
         "combat": 136,
         "hitpoints": 150,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 105,
         "def": 102,
         "str": 120,
@@ -55757,8 +55112,8 @@
       "Lv 123": {
         "combat": 123,
         "hitpoints": 170,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 110,
         "def": 30,
         "str": 115,
@@ -55991,8 +55346,8 @@
       "Normal": {
         "combat": 124,
         "hitpoints": 150,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 97,
         "def": 135,
         "str": 67,
@@ -56015,8 +55370,8 @@
       "Catacombs of Kourend": {
         "combat": 124,
         "hitpoints": 150,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 97,
         "def": 135,
         "str": 67,
@@ -56217,8 +55572,8 @@
       "Lv 126}}": {
         "combat": "126}}",
         "hitpoints": 143,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 100,
         "def": 80,
         "str": 119,
@@ -56525,8 +55880,8 @@
       "Lv 127": {
         "combat": 127,
         "hitpoints": 125,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 150,
         "str": 1,
@@ -57017,8 +56372,8 @@
       "Lv 128": {
         "combat": 128,
         "hitpoints": 115,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 130,
         "def": 100,
         "str": 100,
@@ -57236,8 +56591,8 @@
       "Lv 129": {
         "combat": 129,
         "hitpoints": 150,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 98,
         "def": 98,
         "str": 65,
@@ -58572,8 +57927,8 @@
       "Lv 132": {
         "combat": 132,
         "hitpoints": 124,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 115,
         "def": 110,
         "str": 114,
@@ -58726,8 +58081,8 @@
       "Lv 132": {
         "combat": 132,
         "hitpoints": 124,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 115,
         "def": 110,
         "str": 114,
@@ -58994,8 +58349,8 @@
       "Lv 132": {
         "combat": 132,
         "hitpoints": 124,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 115,
         "def": 110,
         "str": 114,
@@ -59014,19 +58369,6 @@
         "attbns": 9,
         "strbns": 15
       }
-    }
-  },
-  "Zombie": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "TzHaar-Xil": {
@@ -59134,8 +58476,8 @@
       "Lv 135}}": {
         "combat": "135}}",
         "hitpoints": 155,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 106,
         "def": 87,
         "str": 126,
@@ -60574,8 +59916,8 @@
       "Lv 140": {
         "combat": 140,
         "hitpoints": 150,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 80,
         "def": 80,
         "str": 70,
@@ -60667,8 +60009,8 @@
       "Lv 140": {
         "combat": 140,
         "hitpoints": 65,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 200,
         "def": 10,
         "str": 175,
@@ -60735,8 +60077,8 @@
       "Stronghold of Security": {
         "combat": 159,
         "hitpoints": 170,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 130,
         "def": 130,
         "str": 130,
@@ -60759,8 +60101,8 @@
       "Catacombs of Kourend": {
         "combat": 140,
         "hitpoints": 115,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 130,
         "def": 100,
         "str": 136,
@@ -61221,8 +60563,8 @@
       "Lv 141": {
         "combat": 141,
         "hitpoints": 171,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 110,
         "def": 110,
         "str": 110,
@@ -61241,21 +60583,6 @@
         "attbns": 0,
         "strbns": 0,
         "rngbns": 0
-      }
-    }
-  },
-  "Leon_d'Cour": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {
-        "hitpoints": 123
       }
     }
   },
@@ -62023,19 +61350,6 @@
       }
     }
   },
-  "Skeleton_monkey": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Zakl'n_Gritch": {
     "drops": {
       "guaranteed": [
@@ -62408,8 +61722,8 @@
       "Lv 8": {
         "combat": 8,
         "hitpoints": 17,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 5,
         "def": 5,
         "str": 5,
@@ -62432,8 +61746,8 @@
       "Lv 145": {
         "combat": 145,
         "hitpoints": 137,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 75,
         "def": 55,
         "str": 75,
@@ -62871,19 +62185,6 @@
         "attbns": 10,
         "strbns": 7
       }
-    }
-  },
-  "Vannaka": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Taloned_Wyvern": {
@@ -64675,8 +63976,8 @@
       "Lv 152": {
         "combat": 152,
         "hitpoints": 140,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 130,
         "def": 130,
         "str": 130,
@@ -64856,19 +64157,6 @@
         "strbns": 14,
         "rngbns": 0
       }
-    }
-  },
-  "Zombie_(random_event)": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
     }
   },
   "Bouncer_(ghost)": {
@@ -65665,8 +64953,8 @@
       "Lv 169": {
         "combat": 169,
         "hitpoints": 190,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 1,
         "def": 90,
         "str": 1,
@@ -66295,8 +65583,8 @@
       "Lv 178": {
         "combat": 178,
         "hitpoints": 170,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 140,
         "def": 165,
         "str": 150,
@@ -67022,19 +66310,6 @@
       }
     }
   },
-  "Robert_the_strong": {
-    "drops": {
-      "guaranteed": [],
-      "main": [],
-      "other": {
-        "pet": [],
-        "tertiary": []
-      }
-    },
-    "versions": {
-      "Lv undefined": {}
-    }
-  },
   "Jungle_Demon": {
     "drops": {
       "guaranteed": [],
@@ -67351,8 +66626,8 @@
       "Lv 200": {
         "combat": 200,
         "hitpoints": 205,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 197,
         "def": 85,
         "str": 197,
@@ -67565,7 +66840,7 @@
       "Lv 202": {
         "combat": 202,
         "hitpoints": 380,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 190,
         "def": 85,
@@ -68919,8 +68194,8 @@
       "Lv 225": {
         "combat": 225,
         "hitpoints": 200,
-        "immunepoison": "Not immune",
-        "immunevenom": "Not immune",
+        "immunepoison": "No",
+        "immunevenom": "No",
         "att": 250,
         "def": 180,
         "str": 150,
@@ -69501,7 +68776,7 @@
       "Lv 230": {
         "combat": 230,
         "hitpoints": 200,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Poison",
         "att": 200,
         "def": 200,
@@ -70258,7 +69533,7 @@
       "Lv 253": {
         "combat": 253,
         "hitpoints": 250,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 1,
         "def": 180,
@@ -71465,7 +70740,7 @@
       "Lv 278": {
         "combat": 278,
         "hitpoints": 410,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 250,
         "def": 130,
@@ -73041,8 +72316,8 @@
       "Lv 303": {
         "combat": 303,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 255,
         "def": 255,
         "str": 255,
@@ -73325,8 +72600,8 @@
       "Lv 303": {
         "combat": 303,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 255,
         "def": 255,
         "str": 255,
@@ -73639,8 +72914,8 @@
       "Lv 303": {
         "combat": 303,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 255,
         "def": 128,
         "str": 255,
@@ -74046,8 +73321,8 @@
       "Lv 305": {
         "combat": 305,
         "hitpoints": 250,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 270,
         "def": 270,
         "str": 270,
@@ -75000,8 +74275,8 @@
       "Crawling": {
         "combat": 333,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 300,
         "def": 300,
         "str": 300,
@@ -75024,8 +74299,8 @@
       "Airborne": {
         "combat": 333,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 300,
         "def": 300,
         "str": 300,
@@ -75268,7 +74543,7 @@
       "Lv 335": {
         "combat": 335,
         "hitpoints": 390,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 1,
         "def": 220,
@@ -75706,7 +74981,7 @@
       "Lv 342": {
         "combat": 342,
         "hitpoints": 400,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 300,
         "def": 240,
@@ -75920,7 +75195,7 @@
       "Lv 349": {
         "combat": 349,
         "hitpoints": 270,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 230,
         "def": 190,
@@ -76645,7 +75920,7 @@
       "Lv 374": {
         "combat": 374,
         "hitpoints": 550,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Immune",
         "att": 270,
         "def": 220,
@@ -77110,7 +76385,7 @@
       "Normal": {
         "combat": 454,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Poison",
         "att": 430,
         "def": 395,
@@ -77134,7 +76409,7 @@
       "Reborn": {
         "combat": 454,
         "hitpoints": 255,
-        "immunepoison": "Not immune",
+        "immunepoison": "No",
         "immunevenom": "Poison",
         "att": 430,
         "def": 395,
@@ -78380,8 +77655,8 @@
       "Lv 702": {
         "combat": 702,
         "hitpoints": 250,
-        "immunepoison": "Not immune",
-        "immunevenom": "Poisons instead",
+        "immunepoison": "No",
+        "immunevenom": "Poisons",
         "att": 640,
         "def": 480,
         "str": 960,

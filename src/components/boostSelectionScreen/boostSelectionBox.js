@@ -11,19 +11,16 @@ class BoostSelectionBox extends Component {
      if (this.props.activePotions[name]) {
        if (this.props.lockStatus.locked === true && this.props.activePotions[name] === this.props.lockStatus.lockedSelections.potions[name]) {
          return {
-           backgroundColor: 'rgba(90, 90, 90, 0.8)',
-           borderRadius: '50%'
+           backgroundColor: 'rgba(90, 90, 90, 0.8)'
          }
        } else {
          return {
-           backgroundColor: 'rgba(0, 128, 0, 0.5)',
-           borderRadius: '50%'
+           backgroundColor: 'rgba(0, 128, 0, 0.5)'
          }
        }
      } else if (this.props.lockStatus.locked === true && this.props.activePotions[name] !== this.props.lockStatus.lockedSelections.potions[name]) {
         return {
-          backgroundColor: 'rgba(255, 0, 0, 0.5)',
-          borderRadius: '50%'
+          backgroundColor: 'rgba(255, 0, 0, 0.5)'
         }
      } else {
        return
@@ -32,21 +29,38 @@ class BoostSelectionBox extends Component {
 
    highlightPrayer(name) {
      if (this.props.activePrayers[name]) {
-       if (this.props.lockStatus.locked === true && this.props.activePrayers[name] === this.props.lockStatus.lockedSelections.prayers[name]) {
+       if (this.props.lockStatus.locked && this.props.activePrayers[name] === this.props.lockStatus.lockedSelections.prayers[name]) {
          return {
-           backgroundColor: 'rgba(90, 90, 90, 0.8)',
-           borderRadius: '50%'
+           backgroundColor: 'rgba(90, 90, 90, 0.8)'
          }
        } else {
          return {
-           backgroundColor: 'rgba(255, 255, 0, 0.3)',
-           borderRadius: '50%'
+           backgroundColor: 'rgba(255, 255, 0, 0.3)'
          }
        }
      } else if (this.props.lockStatus.locked === true && this.props.activePrayers[name] !== this.props.lockStatus.lockedSelections.prayers[name]) {
         return {
-          backgroundColor: 'rgba(255, 0, 0, 0.5)',
-          borderRadius: '50%'
+          backgroundColor: 'rgba(255, 0, 0, 0.5)'
+        }
+     } else {
+       return
+     }
+   }
+
+   highlightOnTask() {
+     if (this.props.otherActiveBoosts.ontask) {
+       if (this.props.lockStatus.locked && this.props.otherActiveBoosts.ontask === this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
+         return {
+           backgroundColor: 'rgba(90, 90, 90, 0.8)'
+         }
+       } else {
+         return {
+           backgroundColor: 'rgba(0, 128, 0, 0.5)'
+         }
+       }
+     } else if (this.props.lockStatus.locked === true && this.props.otherActiveBoosts.ontask !== this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
+        return {
+          backgroundColor: 'rgba(255, 0, 0, 0.5)'
         }
      } else {
        return
@@ -105,8 +119,10 @@ class BoostSelectionBox extends Component {
         </div>
         <div className="Selection-Field">
             <div className="Selection-Images">
-              <div className="Other-Boost-Image" onClick={() => this.props.changeOtherBoost({ontask: !this.props.otherActiveBoosts.ontask})}>
-                <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
+              <div className="Other-Boost-Image"
+                onClick={() => this.props.changeOtherBoost({ontask: !this.props.otherActiveBoosts.ontask})}
+                style={this.highlightOnTask()}>
+                  <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
               </div>
               <div className="Other-Boost-Image">
                 <Image src={require('../../assets/undead.png')} height={40} width={40}/>

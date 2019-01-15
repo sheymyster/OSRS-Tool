@@ -34,6 +34,12 @@ import {
   calculateAverageDamagePerHit
 } from './overkillCalculations'; // functions for calculating effect of overkill and resulting dps //
 
+import {
+  checkVoidSet,
+  checkUndead,
+  checkBarrows
+} from './specialChecks'; // functions for checking special conditions like sets //
+
 import './output.css'; // Styling //
 import math from 'mathjs'; // Library for working with big numbers //
 
@@ -63,23 +69,23 @@ class OutputInformationBox extends Component {
         defenseStyle = 'dcrush'
       };
     }
-    let defensiveStat;
+    let defenseLevel;
     if (defenseStyle === 'dmagic') {
-      defensiveStat = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].mage;
+      defenseLevel = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].mage + 8;
     } else {
-      defensiveStat = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def;
+      defenseLevel = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].def + 8;
     }
-    let defenseLevel = (allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version][defenseStyle]);
-    let maxDefenseRoll = defensiveStat*(defenseLevel+64);
+    let defenseStat = (allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version][defenseStyle]);
+    let maxDefenseRoll = defenseLevel*(defenseStat+64);
     return maxDefenseRoll;
   }
 
   calculateChanceToHit(maxAttackRoll, maxDefenseRoll) {
     let accuracy;
     if (maxAttackRoll > maxDefenseRoll) {
-      accuracy = 1-(maxDefenseRoll+2)/(2+(maxAttackRoll+1));
+      accuracy = 1-(maxDefenseRoll+2)/(2*(maxAttackRoll+1));
     } else {
-      accuracy = maxAttackRoll/(2+(maxDefenseRoll+1));
+      accuracy = maxAttackRoll/(2*(maxDefenseRoll+1));
     }
     return accuracy;
   }
@@ -255,6 +261,7 @@ class OutputInformationBox extends Component {
       let allSelections = {};
       allSelections.prayers = Object.assign({}, this.props.activePrayers);
       allSelections.potions = Object.assign({}, this.props.activePotions);
+      allSelections.otherActiveBoosts = Object.assign({}, this.props.otherActiveBoosts);
       allSelections.playerStats = Object.assign({}, this.props.playerStats);
       allSelections.chosenMonster = JSON.parse(JSON.stringify(this.props.chosenMonster));
       allSelections.playerGear = Object.assign({}, this.props.playerGear);

@@ -35,7 +35,7 @@ export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, 
   } else {
     styleBonus = 0
   }
-  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*otherBonus)+styleBonus;
+  effectiveRangeLevel = Math.floor((Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus)+styleBonus+8)*otherBonus);
   return effectiveRangeLevel;
 }
 

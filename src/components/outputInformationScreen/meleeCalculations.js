@@ -28,7 +28,11 @@ export const calculateStrengthPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateEffectiveStrengthLevel = (stance, strLevel, strPotionBonus, strPrayerBonus) => {
+export const calculateStrengthOtherBonus = (voidset, undead, barrowsset) => {
+
+}
+
+export const calculateEffectiveStrengthLevel = (stance, strLevel, strPotionBonus, strPrayerBonus, strOtherBonus) => {
   let effectiveStrengthLevel;
   let otherBonus = 1;
   let stanceBonus;
@@ -39,7 +43,7 @@ export const calculateEffectiveStrengthLevel = (stance, strLevel, strPotionBonus
   } else {
     stanceBonus = 0
   }
-  effectiveStrengthLevel = Math.floor((+strLevel + strPotionBonus)*strPrayerBonus*otherBonus)+stanceBonus;
+  effectiveStrengthLevel = Math.floor((Math.floor((+strLevel + strPotionBonus)*strPrayerBonus)+stanceBonus+8)*otherBonus);
   return effectiveStrengthLevel;
 }
 
@@ -84,7 +88,7 @@ export const calculateEffectiveAttackLevel = (stance, attLvl, attPotionBonus, at
   } else {
     stanceBonus = 0
   }
-  effectiveAttackLevel = Math.floor((+attLvl + attPotionBonus)*attPrayerBonus*otherBonus)+stanceBonus;
+  effectiveAttackLevel = Math.floor((Math.floor((+attLvl + attPotionBonus)*attPrayerBonus)+stanceBonus+8)*otherBonus);
   return effectiveAttackLevel;
 }
 
