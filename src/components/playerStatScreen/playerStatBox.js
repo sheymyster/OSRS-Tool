@@ -21,7 +21,8 @@ let maxMeleeGear = {
   weapon: 'Abyssal whip',
   shield: 'Avernic defender',
   hand: 'Barrows gloves',
-  ring: 'Berserker ring (i)'
+  ring: 'Berserker ring (i)',
+  chosenattack: 1
 }
 
 let maxRangeGear = {
@@ -35,7 +36,8 @@ let maxRangeGear = {
   weapon: 'Twisted bow',
   shield: '',
   hand: 'Barrows gloves',
-  ring: 'Archers ring (i)'
+  ring: 'Archers ring (i)',
+  chosenattack: 1
 }
 
 let maxMagicGear = {
@@ -49,7 +51,8 @@ let maxMagicGear = {
   weapon: 'Kodai wand',
   shield: 'Mages book',
   hand: 'Tormented bracelet',
-  ring: 'Seers ring (i)'
+  ring: 'Seers ring (i)',
+  chosenattack: 1
 }
 
 class PlayerStatBox extends Component {

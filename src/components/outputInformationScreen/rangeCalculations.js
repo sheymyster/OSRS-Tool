@@ -24,7 +24,7 @@ export const calculateRangePrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, rangePrayerBonus) => {
+export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, rangePrayerBonus, rangeOtherBonus) => {
   let effectiveRangeLevel;
   let otherBonus = 1;
   let styleBonus;
@@ -35,7 +35,7 @@ export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, 
   } else {
     styleBonus = 0
   }
-  effectiveRangeLevel = Math.floor((Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus)+styleBonus+8)*otherBonus);
+  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*otherBonus)+styleBonus+8;
   return effectiveRangeLevel;
 }
 

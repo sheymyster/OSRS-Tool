@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import Image from 'react-image-resizer';
 import {changePrayer, changePotion, changeOtherBoost} from './boostSelectionActions';
+import {checkUndead, checkBarrows, checkVoidSet} from '../outputInformationScreen/specialChecks';
 import './boost.css';
 
 class BoostSelectionBox extends Component {
@@ -54,17 +55,45 @@ class BoostSelectionBox extends Component {
            backgroundColor: 'rgba(90, 90, 90, 0.8)'
          }
        } else {
-         return {
+          return {
            backgroundColor: 'rgba(0, 128, 0, 0.5)'
          }
        }
-     } else if (this.props.lockStatus.locked === true && this.props.otherActiveBoosts.ontask !== this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
+     } else if (this.props.lockStatus.locked && this.props.otherActiveBoosts.ontask !== this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
         return {
           backgroundColor: 'rgba(255, 0, 0, 0.5)'
         }
      } else {
-       return
+        return
      }
+   }
+
+   highlightUndead(undead) {
+     let lockedUndead;
+     if (this.props.lockStatus.locked) {
+       lockedUndead = checkUndead(this.props.lockStatus.lockedSelections.chosenMonster.name);
+     }
+     if (undead) {
+       if (this.props.lockStatus.locked && undead === lockedUndead) {
+         return {
+           backgroundColor: 'rgba(90, 90, 90, 0.8)'
+         }
+       } else {
+          return {
+           backgroundColor: 'rgba(0, 128, 0, 0.5)'
+         }
+       }
+     } else if (this.props.lockStatus.locked && undead !== lockedUndead) {
+        return {
+         backgroundColor: 'rgba(255, 0, 0, 0.5)'
+       }
+     } else {
+        return
+     }
+   }
+
+   highlightVoid(hasvoid) {
+
    }
 
    generatePotionButtons() {
@@ -105,6 +134,10 @@ class BoostSelectionBox extends Component {
 
    render() {
 
+     let hasvoid = checkVoidSet(this.props.playerGear);
+     let hasbarrows = checkBarrows(this.props.playerGear);
+     let isundead = checkUndead(this.props.chosenMonster.name);
+
      return (
        <div className="Boost-Screen">
         <div className="Selection-Field">
@@ -124,11 +157,13 @@ class BoostSelectionBox extends Component {
                 style={this.highlightOnTask()}>
                   <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
               </div>
-              <div className="Other-Boost-Image">
-                <Image src={require('../../assets/undead.png')} height={40} width={40}/>
+              <div className="Other-Boost-Image"
+                style={this.highlightUndead(isundead)}>
+                  <Image src={require('../../assets/undead.png')} height={40} width={40}/>
               </div>
-              <div className="Other-Boost-Image">
-                <Image src={require('../../assets/void_icon.png')} height={40} width={40}/>
+              <div className="Other-Boost-Image"
+                style={this.highlightVoid(hasvoid)}>
+                  <Image src={require('../../assets/void_icon.png')} height={40} width={40}/>
               </div>
             </div>
         </div>
@@ -143,7 +178,9 @@ function mapStateToProps(state) {
     activePotions : state.currentBoosts.potions,
     activePrayers: state.currentBoosts.prayers,
     otherActiveBoosts: state.currentBoosts.other,
-    lockStatus: state.lockStatus
+    lockStatus: state.lockStatus,
+    playerGear: state.playerGear,
+    chosenMonster: state.chosenMonster
   }
 }
 

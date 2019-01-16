@@ -17,7 +17,8 @@ import {changePlayerStat} from '../playerStatScreen/playerStatActions'; ////////
 import {
   calculateStrengthPotionBonus, calculateStrengthPrayerBonus, calculateEffectiveStrengthLevel,
   calculateAttackPotionBonus, calculateAttackPrayerBonus, calculateEffectiveAttackLevel,
-  calculateMaxMeleeHit, calculateMaxAttackRoll} from './meleeCalculations'; // functions for melee //
+  calculateMaxMeleeHit, calculateMaxAttackRoll, calculateStrengthOtherBonus,
+  calculateAttackOtherBonus} from './meleeCalculations'; // functions for melee //
 
 import {
   calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
@@ -265,6 +266,7 @@ class OutputInformationBox extends Component {
       allSelections.playerStats = Object.assign({}, this.props.playerStats);
       allSelections.chosenMonster = JSON.parse(JSON.stringify(this.props.chosenMonster));
       allSelections.playerGear = Object.assign({}, this.props.playerGear);
+      allSelections.playerMagic = Object.assign({}, this.props.playerMagic);
       allSelections.playerBonuses = JSON.parse(JSON.stringify(playerBonuses));
       allSelections.calculatedValues = JSON.parse(JSON.stringify(calculatedValues));
       this.props.lockAllSelections({lockedSelections: allSelections});
@@ -280,7 +282,9 @@ class OutputInformationBox extends Component {
     } else if (action==="discard"){
       this.props.changePotion(this.props.lockStatus.lockedSelections.potions);
       this.props.changePrayer(this.props.lockStatus.lockedSelections.prayers);
+      this.props.changeOtherBoost(this.props.lockStatus.lockedSelections.otherActiveBoosts);
       this.props.changePlayerGear(this.props.lockStatus.lockedSelections.playerGear);
+      this.props.changeSpell(this.props.lockStatus.lockedSelections.playerMagic);
       this.props.changeMonster(this.props.lockStatus.lockedSelections.chosenMonster.name);
       this.props.changeMonsterVersion(this.props.lockStatus.lockedSelections.chosenMonster.version);
       this.props.changePlayerStat(this.props.lockStatus.lockedSelections.playerStats);
@@ -328,9 +332,14 @@ class OutputInformationBox extends Component {
      let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions);
      let magicPrayerBonus = calculateMagicPrayerBonus(this.props.activePrayers);
 
+     // check for various extra bonuses to pass to bonus calcs below //
+     let hasvoid = checkVoidSet(this.props.playerGear);
+     let hasbarrows = checkBarrows(this.props.playerGear);
+     let isundead = checkUndead(this.props.chosenMonster.name);
+
      // precalculate other bonuses such as void sets or damage boosting gear //
-     let attOtherBonus;
-     let strOtherBonus;
+     let attOtherBonus = calculateAttackOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
+     let strOtherBonus = calculateStrengthOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
      let rangeOtherBonus;
      let magicOtherBonus;
 
@@ -338,8 +347,8 @@ class OutputInformationBox extends Component {
      let playerBonuses = this.calculatePlayerBonuses();
 
      // precalculate effects of potions, prayers, and stance //
-     let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus);
-     let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus);
+     let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus, strOtherBonus);
+     let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus, attOtherBonus);
      let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
      let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
 
@@ -368,11 +377,7 @@ class OutputInformationBox extends Component {
      let dps = this.calculateDPS(maxHit, monsterHP, accuracy, weaponAttackSpeed);
      let killsPerHour = this.calculateKillsPerHour(dps, monsterHP);
      let xpPerHour = this.calculateXpPerHour(killsPerHour, monsterHP);
-     let calculatedValues = {maxHit: maxHit, accuracy: accuracy, dps: dps, killsPerHour: killsPerHour, xp:xpPerHour};
-
-     console.log(this.props.playerStats.magic);
-     console.log(maxAttackRoll);
-     console.log(maxDefenseRoll);
+     let calculatedValues = {maxHit: maxHit, accuracy: (100*accuracy), dps: dps, killsPerHour: killsPerHour, xp:xpPerHour};
 
      return (
        <div className="Output-Screen">

@@ -63,7 +63,7 @@ class NPCInfoBox extends Component {
      let selectionOptions = {};
      let iconWidth = 25;
      let iconHeight = 25;
-     Object.entries(allMonsterImageLinks).forEach(entry => {
+     Object.entries(allMonsterData).forEach(entry => {
        selectionOptions[entry[0]] = entry[0].split('_').join(' ').replace('%28', '(').replace('%29', ')');
      });
      let npcSelectorValue = {}

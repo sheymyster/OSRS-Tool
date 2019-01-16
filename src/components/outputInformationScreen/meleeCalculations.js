@@ -28,13 +28,25 @@ export const calculateStrengthPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateStrengthOtherBonus = (voidset, undead, barrowsset) => {
-
+export const calculateStrengthOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
+  let multiplier = 1;
+  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ie)" && undead)) {
+    multiplier += 0.2;
+  } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
+    multiplier += 0.15;
+  } else if (playerGear.head === "Slayer helmet" || playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask" || playerGear.head === "Black mask (i)") {
+    if (ontask) {
+      multiplier += 0.166667;
+    }
+  }
+  if (voidset.hasvoid === true && voidset.settype === 'melee') {
+    multiplier += 0.1;
+  }
+  return multiplier;
 }
 
 export const calculateEffectiveStrengthLevel = (stance, strLevel, strPotionBonus, strPrayerBonus, strOtherBonus) => {
   let effectiveStrengthLevel;
-  let otherBonus = 1;
   let stanceBonus;
   if (stance === 'aggressive') {
     stanceBonus = 3
@@ -43,7 +55,7 @@ export const calculateEffectiveStrengthLevel = (stance, strLevel, strPotionBonus
   } else {
     stanceBonus = 0
   }
-  effectiveStrengthLevel = Math.floor((Math.floor((+strLevel + strPotionBonus)*strPrayerBonus)+stanceBonus+8)*otherBonus);
+  effectiveStrengthLevel = Math.floor((+strLevel + strPotionBonus)*strPrayerBonus*strOtherBonus)+stanceBonus+8;
   return effectiveStrengthLevel;
 }
 
@@ -77,9 +89,25 @@ export const calculateAttackPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateEffectiveAttackLevel = (stance, attLvl, attPotionBonus, attPrayerBonus) => {
+export const calculateAttackOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
+  let multiplier = 1;
+  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ie)" && undead)) {
+    multiplier += 0.2;
+  } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
+    multiplier += 0.15;
+  } else if (playerGear.head === "Slayer helmet" || playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask" || playerGear.head === "Black mask (i)") {
+    if (ontask) {
+      multiplier += 0.166667;
+    }
+  }
+  if (voidset.hasvoid === true && voidset.settype === 'melee') {
+    multiplier += 0.1;
+  }
+  return multiplier;
+}
+
+export const calculateEffectiveAttackLevel = (stance, attLvl, attPotionBonus, attPrayerBonus, attOtherBonus) => {
   let effectiveAttackLevel;
-  let otherBonus = 1;
   let stanceBonus;
   if (stance === 'accurate') {
     stanceBonus = 3
@@ -88,7 +116,7 @@ export const calculateEffectiveAttackLevel = (stance, attLvl, attPotionBonus, at
   } else {
     stanceBonus = 0
   }
-  effectiveAttackLevel = Math.floor((Math.floor((+attLvl + attPotionBonus)*attPrayerBonus)+stanceBonus+8)*otherBonus);
+  effectiveAttackLevel = Math.floor((+attLvl + attPotionBonus)*attPrayerBonus*attOtherBonus)+stanceBonus+8;
   return effectiveAttackLevel;
 }
 

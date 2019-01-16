@@ -1,9 +1,9 @@
-const undeadNPCs = ['Aberrant spectre', 'Ankou', 'Banshee', 'Crawling hand', 'Ghast', 'Ghost', 'Mummy',
+const undeadNPCs = ['Aberrant spectre', 'Deviant spectre', 'Ankou', 'Banshee', 'Crawling hand', 'Ghast', 'Ghost', 'Mummy',
 'Revenant imp', 'Revenant goblin', 'revenant pyrefiend', 'Revenant hobgoblin', 'Revenant cyclops',
 'Revenant demon', 'Revenant ork', 'Revenant dark beast', 'Revenant knight', 'Revenant dragon', 'Shade',
 'Skeleton', 'Skogre', 'Summoned zombie', 'Tortured soul', 'Undead chicken', 'Undead cow', 'Undead one',
 'Zogre', 'Zombified spawn', 'Zombie', 'Zombie rat', "Vet'ion", 'Pestilent Bloat', 'Tree spirit', 'Mi-Gor',
-'Treus Dayth', 'Nazastarool', 'Slash Bash', 'Ulfric', 'Vorkath'];
+'Treus Dayth', 'Nazastarool', 'Slash Bash', 'Ulfric', 'Vorkath', 'Monkey Zombie', 'Zombie pirate'];
 
 export const checkVoidSet = (playerGear) => {
   let checkObject = {};
@@ -52,7 +52,7 @@ export const checkVoidSet = (playerGear) => {
 }
 
 export const checkUndead = (npc) => {
-  if (undeadNPCs.indexOf(npc) > -1 ) {
+  if (undeadNPCs.indexOf(npc.split("_").join(" ")) > -1 ) {
     return true;
   }
 }
