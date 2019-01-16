@@ -28,18 +28,18 @@ export const calculateStrengthPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateStrengthOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
+export const calculateStrengthOtherBonus = (playerGear, checkObject) => {
   let multiplier = 1;
-  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ei)" && undead)) {
+  if ((playerGear.neck === "Salve amulet (e)" && checkObject.isundead) || (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead)) {
     multiplier += 0.2;
-  } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
+  } else if ((playerGear.neck === "Salve amulet" && checkObject.isundead) || (playerGear.neck === "Salve amulet(i)" && checkObject.isundead)) {
     multiplier += 0.15;
   } else if (playerGear.head === "Slayer helmet" || playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask" || playerGear.head === "Black mask (i)") {
-    if (ontask) {
+    if (checkObject.ontask) {
       multiplier += 0.166667;
     }
   }
-  if (voidset.hasvoid === true && voidset.settype === 'melee') {
+  if (checkObject.voidset.hasvoid === true && checkObject.voidset.settype === 'melee') {
     multiplier += 0.1;
   }
   return multiplier;
@@ -89,18 +89,18 @@ export const calculateAttackPrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateAttackOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
+export const calculateAttackOtherBonus = (playerGear, checkObject) => {
   let multiplier = 1;
-  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ei)" && undead)) {
+  if ((playerGear.neck === "Salve amulet (e)" && checkObject.isundead) || (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead)) {
     multiplier += 0.2;
-  } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
+  } else if ((playerGear.neck === "Salve amulet" && checkObject.isundead) || (playerGear.neck === "Salve amulet(i)" && checkObject.isundead)) {
     multiplier += 0.15;
   } else if (playerGear.head === "Slayer helmet" || playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask" || playerGear.head === "Black mask (i)") {
-    if (ontask) {
+    if (checkObject.ontask) {
       multiplier += 0.166667;
     }
   }
-  if (voidset.hasvoid === true && voidset.settype === 'melee') {
+  if (checkObject.voidset.hasvoid === true && checkObject.voidset.settype === 'melee') {
     multiplier += 0.1;
   }
   return multiplier;

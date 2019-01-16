@@ -24,19 +24,19 @@ export const calculateRangePrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
-export const calculateRangeOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
+export const calculateRangeOtherBonus = (playerGear, checkObject) => {
   let multiplier = 1;
-  if (playerGear.neck === "Salve amulet(ei)" && undead) {
+  if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
     multiplier += 0.2;
-  } else if (playerGear.neck === "Salve amulet(i)" && undead) {
+  } else if (playerGear.neck === "Salve amulet(i)" && checkObject.isundead) {
     multiplier += 0.15;
   } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)") {
-    if (ontask) {
+    if (checkObject.ontask) {
       multiplier += 0.15;
     }
   }
-  if (voidset.hasvoid && voidset.settype === 'range') {
-    if (voidset.set === 'elite') {
+  if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'range') {
+    if (checkObject.voidset.set === 'elite') {
       multiplier += 0.125;
     } else {
       multiplier += 0.1;
