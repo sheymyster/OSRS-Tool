@@ -92,8 +92,42 @@ class BoostSelectionBox extends Component {
      }
    }
 
-   highlightVoid(hasvoid) {
+   getVoidSetImage(voidset) {
+     if (voidset.hasvoid) {
+       if (voidset.settype === 'melee') {
+         return 'Void_melee_helm_icon';
+       } else if (voidset.settype === 'mage') {
+         return 'Void_mage_helm_icon';
+       } else {
+         return 'Void_ranger_helm_icon';
+       }
+     } else {
+       return 'Void_ranger_helm_icon';
+     }
+   }
 
+   highlightVoid(voidset) {
+     let lockedVoid;
+     if (this.props.lockStatus.locked) {
+       lockedVoid = checkVoidSet(this.props.lockStatus.lockedSelections.playerGear);
+     }
+     if (voidset.hasvoid) {
+       if (this.props.lockStatus.locked && voidset.hasvoid === lockedVoid.hasvoid) {
+         return {
+           backgroundColor: 'rgba(90, 90, 90, 0.8)'
+         }
+       } else {
+          return {
+           backgroundColor: 'rgba(0, 128, 0, 0.5)'
+         }
+       }
+     } else if (this.props.lockStatus.locked && voidset.hasvoid !== lockedVoid.hasvoid) {
+        return {
+         backgroundColor: 'rgba(255, 0, 0, 0.5)'
+       }
+     } else {
+        return
+     }
    }
 
    generatePotionButtons() {
@@ -134,7 +168,7 @@ class BoostSelectionBox extends Component {
 
    render() {
 
-     let hasvoid = checkVoidSet(this.props.playerGear);
+     let voidset = checkVoidSet(this.props.playerGear);
      let hasbarrows = checkBarrows(this.props.playerGear);
      let isundead = checkUndead(this.props.chosenMonster.name);
 
@@ -154,16 +188,19 @@ class BoostSelectionBox extends Component {
             <div className="Selection-Images">
               <div className="Other-Boost-Image"
                 onClick={() => this.props.changeOtherBoost({ontask: !this.props.otherActiveBoosts.ontask})}
-                style={this.highlightOnTask()}>
+                style={this.highlightOnTask()}
+                title="On Task">
                   <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
               </div>
               <div className="Other-Boost-Image"
-                style={this.highlightUndead(isundead)}>
+                style={this.highlightUndead(isundead)}
+                title="Enemy is undead">
                   <Image src={require('../../assets/undead.png')} height={40} width={40}/>
               </div>
               <div className="Other-Boost-Image"
-                style={this.highlightVoid(hasvoid)}>
-                  <Image src={require('../../assets/void_icon.png')} height={40} width={40}/>
+                style={this.highlightVoid(voidset)}
+                title="Void set active">
+                  <Image src={require('../../assets/' + this.getVoidSetImage(voidset) + '.png')} height={40} width={40}/>
               </div>
             </div>
         </div>

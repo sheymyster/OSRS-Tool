@@ -124,6 +124,7 @@ export const calculateAverageDamagePerHit = (oddsArray, maxHit, hp) => {
     let newSum = math.multiply(math.bignumber(addSum), oddsArray[i]);
     sumproduct = math.add(math.bignumber(newSum), math.bignumber(sumproduct));
   }
-  let adjustForZero = math.eval((hp/sumproduct) * (1-(1/(1+maxHit))));
+  let rawDPH = math.divide(hp, sumproduct);
+  let adjustForZero = math.multiply(math.bignumber(rawDPH), math.bignumber((1-(1/(1+maxHit)))));
   return math.number(adjustForZero);
 }

@@ -20,7 +20,7 @@ export const checkVoidSet = (playerGear) => {
       checkObject.hasvoid = true;
       checkObject.set = 'standard';
       checkObject.settype = 'mage';
-    } else if (playerGear.head === "Void range helmet") {
+    } else if (playerGear.head === "Void ranger helm") {
       checkObject.hasvoid = true;
       checkObject.set = 'standard';
       checkObject.settype = 'range';
@@ -38,7 +38,7 @@ export const checkVoidSet = (playerGear) => {
       checkObject.hasvoid = true;
       checkObject.set = 'elite';
       checkObject.settype = 'mage';
-    } else if (playerGear.head === "Void range helmet") {
+    } else if (playerGear.head === "Void ranger helm") {
       checkObject.hasvoid = true;
       checkObject.set = 'elite';
       checkObject.settype = 'range';

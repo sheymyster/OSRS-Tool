@@ -30,7 +30,7 @@ export const calculateStrengthPrayerBonus = (activePrayers) => {
 
 export const calculateStrengthOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
   let multiplier = 1;
-  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ie)" && undead)) {
+  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ei)" && undead)) {
     multiplier += 0.2;
   } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
     multiplier += 0.15;
@@ -91,7 +91,7 @@ export const calculateAttackPrayerBonus = (activePrayers) => {
 
 export const calculateAttackOtherBonus = (playerGear, voidset, undead, barrowsset, ontask) => {
   let multiplier = 1;
-  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ie)" && undead)) {
+  if ((playerGear.neck === "Salve amulet (e)" && undead) || (playerGear.neck === "Salve amulet(ei)" && undead)) {
     multiplier += 0.2;
   } else if ((playerGear.neck === "Salve amulet" && undead) || (playerGear.neck === "Salve amulet(i)" && undead)) {
     multiplier += 0.15;

@@ -9,7 +9,7 @@ import allMonsterData from '../../JSONraw/allNPCdata.json';  // Monster Data //
 import magicSpellList from '../../JSONraw/magicSpellList.json'; // Spell Data //
 
 import {toggleLock, lockAllSelections} from './outputInformationActions';  /////////////////////////////////////
-import {changePrayer, changePotion} from '../boostSelectionScreen/boostSelectionActions'; /////////////////////
+import {changePrayer, changePotion, changeOtherBoost} from '../boostSelectionScreen/boostSelectionActions'; /////////////////////
 import {changePlayerGear, changeSpell} from '../gearSelectionScreen/gearSelectionActions'; // Redux Actions //
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; /////////////////////////
 import {changePlayerStat} from '../playerStatScreen/playerStatActions'; //////////////////////////////////////
@@ -22,11 +22,11 @@ import {
 
 import {
   calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
-  calculateMaxRangeHit} from './rangeCalculations'; // functions for range //
+  calculateRangeOtherBonus, calculateMaxRangeHit} from './rangeCalculations'; // functions for range //
 
 import {
   calculateMagicPotionBonus, calculateMagicPrayerBonus, calculateEffectiveMagicLevel,
-  calculateMaxMagicHit} from './magicCalculations'; // functions for magic //
+  calculateMagicOtherBonus, calculateMaxMagicHit} from './magicCalculations'; // functions for magic //
 
 import {
   getFinalRatios,
@@ -340,8 +340,8 @@ class OutputInformationBox extends Component {
      // precalculate other bonuses such as void sets or damage boosting gear //
      let attOtherBonus = calculateAttackOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
      let strOtherBonus = calculateStrengthOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
-     let rangeOtherBonus;
-     let magicOtherBonus;
+     let rangeOtherBonus = calculateRangeOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
+     let magicOtherBonus = calculateMagicOtherBonus(this.props.playerGear, hasvoid, isundead, hasbarrows, this.props.otherActiveBoosts.ontask);
 
      // add up equipment attack, defense, and other bonuses and store as object //
      let playerBonuses = this.calculatePlayerBonuses();
@@ -349,15 +349,15 @@ class OutputInformationBox extends Component {
      // precalculate effects of potions, prayers, and stance //
      let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus, strOtherBonus);
      let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus, attOtherBonus);
-     let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus);
-     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus);
+     let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus, rangeOtherBonus);
+     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus, magicOtherBonus);
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
      let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength);
      let magicMaxHit;
      if (this.props.playerMagic.chosenspell !== '') {
-       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage);
+       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, hasvoid, this.props.otherActiveBoosts.ontask, this.props.playerGear, isundead);
      };
 
      // choose which effective attack to use based on what user has selected (weapon type or spell) //
@@ -436,6 +436,7 @@ function mapDispatchToProps(dispatch){
     lockAllSelections: lockAllSelections,
     changePrayer: changePrayer,
     changePotion: changePotion,
+    changeOtherBoost: changeOtherBoost,
     changePlayerGear: changePlayerGear,
     changeMonster: changeMonster,
     changeMonsterVersion: changeMonsterVersion,
