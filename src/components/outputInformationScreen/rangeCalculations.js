@@ -24,9 +24,29 @@ export const calculateRangePrayerBonus = (activePrayers) => {
   return multiplier;
 }
 
+export const calculateRangeOtherBonus = (playerGear, checkObject) => {
+  let multiplier = 1;
+  if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
+    multiplier += 0.2;
+  } else if (playerGear.neck === "Salve amulet(i)" && checkObject.isundead) {
+    multiplier += 0.15;
+  } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)") {
+    if (checkObject.ontask) {
+      multiplier += 0.15;
+    }
+  }
+  if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'range') {
+    if (checkObject.voidset.set === 'elite') {
+      multiplier += 0.125;
+    } else {
+      multiplier += 0.1;
+    }
+  }
+  return multiplier;
+}
+
 export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, rangePrayerBonus, rangeOtherBonus) => {
   let effectiveRangeLevel;
-  let otherBonus = 1;
   let styleBonus;
   if (style === 'accurate') {
     styleBonus = 3
@@ -35,7 +55,7 @@ export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, 
   } else {
     styleBonus = 0
   }
-  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*otherBonus)+styleBonus+8;
+  effectiveRangeLevel = Math.floor((+rangeLvl + rangePotionBonus)*rangePrayerBonus*rangeOtherBonus)+styleBonus+8;
   return effectiveRangeLevel;
 }
 

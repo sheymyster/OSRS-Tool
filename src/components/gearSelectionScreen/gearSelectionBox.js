@@ -146,6 +146,16 @@ class GearSelectionBox extends Component {
     return gearObject;
   };
 
+  getAttackName() {
+    let name;
+    if (this.props.playerMagic.chosenspell !== "") {
+      name = magicSpellList[this.props.playerMagic.chosenspell].name;
+    } else {
+      name = this.props.playerGear.weapon;
+    }
+    return name;
+  }
+
   generateEquipmentSearchboxes() {
     let slotNames = ['head', 'neck', 'chest', 'leg', 'feet', 'cape', 'ammo', 'shield', 'hand', 'ring'];
     let dropdownBoxes = [];
@@ -235,6 +245,7 @@ class GearSelectionBox extends Component {
               {this.generateSpells()}
             </div>
             <div className="Attack-Style-Choices">
+              <span className="Attack-Name">{this.getAttackName()}</span>
               {this.generateAttackOptions()}
             </div>
           </div>

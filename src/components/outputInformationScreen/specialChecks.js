@@ -5,6 +5,8 @@ const undeadNPCs = ['Aberrant spectre', 'Deviant spectre', 'Ankou', 'Banshee', '
 'Zogre', 'Zombified spawn', 'Zombie', 'Zombie rat', "Vet'ion", 'Pestilent Bloat', 'Tree spirit', 'Mi-Gor',
 'Treus Dayth', 'Nazastarool', 'Slash Bash', 'Ulfric', 'Vorkath', 'Monkey Zombie', 'Zombie pirate'];
 
+const dragonNPCs = [];
+
 export const checkVoidSet = (playerGear) => {
   let checkObject = {};
   if (
@@ -20,7 +22,7 @@ export const checkVoidSet = (playerGear) => {
       checkObject.hasvoid = true;
       checkObject.set = 'standard';
       checkObject.settype = 'mage';
-    } else if (playerGear.head === "Void range helmet") {
+    } else if (playerGear.head === "Void ranger helm") {
       checkObject.hasvoid = true;
       checkObject.set = 'standard';
       checkObject.settype = 'range';
@@ -38,7 +40,7 @@ export const checkVoidSet = (playerGear) => {
       checkObject.hasvoid = true;
       checkObject.set = 'elite';
       checkObject.settype = 'mage';
-    } else if (playerGear.head === "Void range helmet") {
+    } else if (playerGear.head === "Void ranger helm") {
       checkObject.hasvoid = true;
       checkObject.set = 'elite';
       checkObject.settype = 'range';
@@ -114,4 +116,10 @@ export const checkBarrows = (playerGear) => {
     checkObject.amuletofdamned = false;
   }
   return checkObject;
+}
+
+export const checkDHC = (playerGear, npc) => {
+  if (playerGear.weapon === 'Dragon hunter crossbow' && dragonNPCs.indexOf(npc.split("_").join(" ")) > -1 ) {
+    return true;
+  }
 }
