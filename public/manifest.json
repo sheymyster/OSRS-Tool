@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "OSRS-DPS",
+  "name": "Oldschool Runescape damage calculator",
   "icons": [
     {
       "src": "favicon.ico",
