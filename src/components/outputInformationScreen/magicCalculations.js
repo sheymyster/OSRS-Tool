@@ -47,7 +47,14 @@ export const calculateEffectiveMagicLevel = (magicLvl, magicPotionBonus, magicPr
   return effectiveMagicLevel;
 }
 
-export const calculateMaxMagicHit = (spellBase, magicDamage, playerGear, checkObject) => {
+export const calculateMaxMagicHit = (spellBase, magicDamage, playerGear, checkObject, visibleMagicLvl) => {
+  if (playerGear.weapon === "Trident of the seas" || playerGear.weapon === "Trident of the swamp" ||
+      playerGear.weapon === "Sanguinesti staff") {
+    let boostedBase = spellBase + Math.floor((visibleMagicLvl - 75)/3);
+    if (boostedBase >= spellBase) {
+      spellBase = boostedBase;
+    }
+  }
   if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
     magicDamage += 20;
   } else if (playerGear.neck === "Salve amulet(i)" && checkObject.undead) {

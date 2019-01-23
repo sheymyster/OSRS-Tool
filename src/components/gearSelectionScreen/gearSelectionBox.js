@@ -105,6 +105,17 @@ class GearSelectionBox extends Component {
   handleWeaponChange(weaponObject) {
     this.props.changePlayerGear({chosenattack: 1});
     this.props.changePlayerGear(weaponObject);
+    if (weaponObject.weapon === "Trident of the seas") {
+      this.props.changeSpell({chosenspell: "tridentoftheseas"});
+    } else if (weaponObject.weapon === "Trident of the swamp") {
+      this.props.changeSpell({chosenspell: "tridentoftheswamp"});
+    } else if (weaponObject.weapon === "Sanguinesti staff") {
+      this.props.changeSpell({chosenspell: "sanguinestistaff"});
+    } else if (this.props.playerMagic.chosenspell === "sanguinestistaff" ||
+               this.props.playerMagic.chosenspell === "tridentoftheseas" ||
+               this.props.playerMagic.chosenspell === "tridentoftheswamp") {
+                 this.props.changeSpell({chosenspell: ""});
+               }
   }
 
   handleSpellClick(spellObject) {
@@ -214,6 +225,7 @@ class GearSelectionBox extends Component {
   generateSpells() {
     let spells = [];
     let allSpells = Object.keys(magicSpellList);
+    allSpells.splice(allSpells.length-3, 3);
     let i;
     let n = allSpells.length;
     for (i=0; i<n; i++) {

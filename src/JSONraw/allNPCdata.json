@@ -78967,5 +78967,1161 @@
         "rngbns": 200
       }
     }
+  },
+  "Drake": {
+    "drops": {
+      "guaranteed": [
+        {
+          "name": "Drake bones",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "main": [
+        {
+          "name": "Black d'hide vamb",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Red d'hide body",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune full helm",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Mystic earth staff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon mace",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon thrownaxe",
+          "quantity": "100-200",
+          "noted": false
+        },
+        {
+          "name": "Dragon knife",
+          "quantity": "100-200",
+          "noted": false
+        },
+        {
+          "name": "Nature rune",
+          "quantity": "30-60",
+          "noted": false
+        },
+        {
+          "name": "Fire rune",
+          "quantity": "100-200",
+          "noted": false
+        },
+        {
+          "name": "Law rune",
+          "quantity": "25-50",
+          "noted": false
+        },
+        {
+          "name": "Rune arrow",
+          "quantity": "35-65",
+          "noted": false
+        },
+        {
+          "name": "Death rune",
+          "quantity": "20-40",
+          "noted": false
+        },
+        {
+          "name": "Grimy guam leaf",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy marrentill",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy tarromin",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy harralander",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy ranarr weed",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy irit leaf",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy avantoe",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy kwuarm",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy snapdragon",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy cadantine",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy lantadyme",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy dwarf weed",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Grimy torstol",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Irit seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Lantadyme seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Toadflax seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Snapdragon seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Kwuarm seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Avantoe seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dwarf weed seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Cactus seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Poison ivy seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Belladonna seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Snape grass seed",
+          "quantity": "3",
+          "noted": false
+        },
+        {
+          "name": "Coins",
+          "quantity": "1000-2000, 5781-6885",
+          "noted": false
+        },
+        {
+          "name": "Diamond",
+          "quantity": "3-6",
+          "noted": true
+        },
+        {
+          "name": "Swordfish",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Drake's tooth",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Drake's claw",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "other": {
+        "pet": [],
+        "tertiary": [
+          {
+            "name": "Clue scroll (hard)",
+            "quantity": "1",
+            "noted": false
+          }
+        ]
+      }
+    },
+    "versions": {
+      "Lv 192": {
+        "combat": 192,
+        "hitpoints": 250,
+        "immunepoison": "yes",
+        "immunevenom": "yes",
+        "att": 140,
+        "def": 120,
+        "str": 118,
+        "mage": 112,
+        "range": 140,
+        "astab": 0,
+        "aslash": 0,
+        "acrush": 0,
+        "amagic": 0,
+        "arange": 40,
+        "dstab": 60,
+        "dslash": 60,
+        "dcrush": 60,
+        "dmagic": 20,
+        "drange": 100,
+        "attbns": 40,
+        "strbns": 12,
+        "rngbns": 40
+      }
+    }
+  },
+  "Alchemical_Hydra": {
+    "drops": {
+      "guaranteed": [
+        {
+          "name": "Hydra bones",
+          "quantity": "2",
+          "noted": false
+        }
+      ],
+      "main": [
+        {
+          "name": "Hydra's eye",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra's fang",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra's heart",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra tail",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra leather",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra's claw",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon knife",
+          "quantity": "500-1000",
+          "noted": false
+        },
+        {
+          "name": "Dragon thrownaxe",
+          "quantity": "500-1000",
+          "noted": false
+        },
+        {
+          "name": "Mystic fire staff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Mystic water staff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Battlestaff",
+          "quantity": "8-12",
+          "noted": true
+        },
+        {
+          "name": "Black d'hide body",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon longsword",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon med helm",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune platebody",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon battleaxe",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune platelegs",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune plateskirt",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Mystic robe top (light)",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Mystic robe bottom (light)",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Chaos rune",
+          "quantity": "150-300",
+          "noted": false
+        },
+        {
+          "name": "Death rune",
+          "quantity": "150-300",
+          "noted": false
+        },
+        {
+          "name": "Blood rune",
+          "quantity": "150-300",
+          "noted": false
+        },
+        {
+          "name": "Astral rune",
+          "quantity": "150-300",
+          "noted": false
+        },
+        {
+          "name": "Dragonstone bolts (e)",
+          "quantity": "100-120",
+          "noted": false
+        },
+        {
+          "name": "Onyx bolts (e)",
+          "quantity": "35-50",
+          "noted": false
+        },
+        {
+          "name": "Grimy ranarr weed",
+          "quantity": "10-15",
+          "noted": true
+        },
+        {
+          "name": "Grimy avantoe",
+          "quantity": "10-15",
+          "noted": true
+        },
+        {
+          "name": "Grimy snapdragon",
+          "quantity": "10-15",
+          "noted": true
+        },
+        {
+          "name": "Grimy torstol",
+          "quantity": "10-15",
+          "noted": true
+        },
+        {
+          "name": "Grimy kwuarm",
+          "quantity": "25-30",
+          "noted": true
+        },
+        {
+          "name": "Grimy cadantine",
+          "quantity": "25-30",
+          "noted": true
+        },
+        {
+          "name": "Grimy lantadyme",
+          "quantity": "25-30",
+          "noted": true
+        },
+        {
+          "name": "Grimy dwarf weed",
+          "quantity": "25-30",
+          "noted": true
+        },
+        {
+          "name": "Torstol seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Ranarr seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Snapdragon seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Willow seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Watermelon seed",
+          "quantity": "30-45",
+          "noted": false
+        },
+        {
+          "name": "Maple seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Yew seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Teak seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Mahogany seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Papaya tree seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Palm tree seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Magic seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Spirit seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Celastrus seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Dragonfruit tree seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Redwood tree seed",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Coins",
+          "quantity": "40000-60000",
+          "noted": false
+        },
+        {
+          "name": "Shark",
+          "quantity": "2-4",
+          "noted": false
+        },
+        {
+          "name": "Ranging potion(3)",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Super restore(3)",
+          "quantity": "2",
+          "noted": false
+        },
+        {
+          "name": "Dragon bones",
+          "quantity": "30",
+          "noted": true
+        },
+        {
+          "name": "Crystal key",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "other": {
+        "pet": [
+          {
+            "name": "Ikkle hydra",
+            "quantity": "1",
+            "noted": false
+          }
+        ],
+        "tertiary": [
+          {
+            "name": "Clue scroll (hard)",
+            "quantity": "1",
+            "noted": false
+          },
+          {
+            "name": "Clue scroll (elite)",
+            "quantity": "1",
+            "noted": false
+          }
+        ]
+      }
+    },
+    "versions": {
+      "Lvl 426": {
+        "combat": 426,
+        "hitpoints": 1100,
+        "immunepoison": "Yes",
+        "immunevenom": "Yes",
+        "att": 100,
+        "def": 100,
+        "str": 100,
+        "mage": 260,
+        "range": 260,
+        "astab": 0,
+        "aslash": 0,
+        "acrush": 0,
+        "amagic": 45,
+        "arange": 45,
+        "dstab": 75,
+        "dslash": 150,
+        "dcrush": 150,
+        "dmagic": 150,
+        "drange": 45,
+        "attbns": 0,
+        "strbns": 0,
+        "rngbns": 20
+      }
+    }
+  },
+  "Hydra": {
+    "drops": {
+      "guaranteed": [
+        {
+          "name": "Hydra bones",
+          "quantity": 1,
+          "noted": false
+        }
+      ],
+      "main": [
+        {
+          "name": "Black d'hide chaps",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Battlestaff",
+          "quantity": "2-3",
+          "noted": false
+        },
+        {
+          "name": "Fire battlestaff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Water battlestaff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune kiteshield",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune platebody",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Mystic robe bottom (blue)",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon longsword",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon knife",
+          "quantity": "200-400",
+          "noted": false
+        },
+        {
+          "name": "Dragon thrownaxe",
+          "quantity": "200-636",
+          "noted": false
+        },
+        {
+          "name": "Water rune",
+          "quantity": "71-89",
+          "noted": false
+        },
+        {
+          "name": "Fire rune",
+          "quantity": "56-86",
+          "noted": false
+        },
+        {
+          "name": "Death rune",
+          "quantity": "30-60",
+          "noted": false
+        },
+        {
+          "name": "Law rune",
+          "quantity": "32-59",
+          "noted": false
+        },
+        {
+          "name": "Blood rune",
+          "quantity": "15-44",
+          "noted": false
+        },
+        {
+          "name": "Chaos rune",
+          "quantity": "22-50",
+          "noted": false
+        },
+        {
+          "name": "Irit seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Toadflax seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Avantoe seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Potato cactus seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Belladonna seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy guam leaf",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy marrentill",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy harralander",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy tarromin",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy ranarr weed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy irit leaf",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy cadantine",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Grimy ranarr weed",
+          "quantity": "3",
+          "noted": true
+        },
+        {
+          "name": "Grimy torstol",
+          "quantity": "3",
+          "noted": true
+        },
+        {
+          "name": "Coins",
+          "quantity": "510-4338",
+          "noted": false
+        },
+        {
+          "name": "Monkfish",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Super combat potion(1)",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon bones",
+          "quantity": "3-5",
+          "noted": true
+        },
+        {
+          "name": "Super restore(1)",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Emerald bolt tips",
+          "quantity": "20",
+          "noted": false
+        },
+        {
+          "name": "Ruby bolt tips",
+          "quantity": "20",
+          "noted": false
+        },
+        {
+          "name": "Diamond bolt tips",
+          "quantity": "20",
+          "noted": false
+        },
+        {
+          "name": "Onyx bolt tips",
+          "quantity": "8-30",
+          "noted": false
+        },
+        {
+          "name": "Hydra's eye",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra's heart",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra's fang",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Hydra tail",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "other": {
+        "pet": [],
+        "tertiary": [
+          {
+            "name": "Clue scroll (hard)",
+            "quantity": "1",
+            "noted": false
+          },
+          {
+            "name": "Clue scroll (elite)",
+            "quantity": "1",
+            "noted": false
+          }
+        ]
+      }
+    },
+    "versions": {
+      "Lv 194": {
+        "combat": 194,
+        "hitpoints": 300,
+        "immunepoison": "No",
+        "immunevenom": "No",
+        "att": 1,
+        "def": 100,
+        "str": 1,
+        "mage": 210,
+        "range": 210,
+        "astab": 0,
+        "aslash": 0,
+        "acrush": 0,
+        "amagic": 0,
+        "arange": 0,
+        "dstab": 160,
+        "dslash": 160,
+        "dcrush": 160,
+        "dmagic": 160,
+        "drange": 0,
+        "attbns": 0,
+        "strbns": 0,
+        "rngbns": 0
+      }
+    }
+  },
+  "Wyrm": {
+    "drops": {
+      "guaranteed": [
+        {
+          "name": "Wyrm bones",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "main": [
+        {
+          "name": "Dragon sword",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon harpoon",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Fire rune",
+          "quantity": "200",
+          "noted": false
+        },
+        {
+          "name": "Earth rune",
+          "quantity": "77-150",
+          "noted": false
+        },
+        {
+          "name": "Soul rune",
+          "quantity": "15-20",
+          "noted": false
+        },
+        {
+          "name": "Blood rune",
+          "quantity": "25-30",
+          "noted": false
+        },
+        {
+          "name": "Adamant axe",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Red d'hide chaps",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Adamant sq shield",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Adamant battleaxe",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Adamant 2h sword",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Earth battlestaff",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune med helm",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Rune battleaxe",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon dagger",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dragon knife",
+          "quantity": "75-155",
+          "noted": false
+        },
+        {
+          "name": "Dragon thrownaxe",
+          "quantity": "76-150",
+          "noted": false
+        },
+        {
+          "name": "Grimy marrentill",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy tarromin",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy harralander",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy ranarr weed",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy irit leaf",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy avantoe",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy kwuarm",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Grimy cadantine",
+          "quantity": "1-2",
+          "noted": false
+        },
+        {
+          "name": "Snape grass seed",
+          "quantity": "3",
+          "noted": false
+        },
+        {
+          "name": "Potato cactus seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Belladonna seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Poison ivy seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Cactus seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Irit seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Kwuarm seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Toadflax seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Snapdragon seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Dwarf weed seed",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Torstol seed",
+          "quantity": "1-3",
+          "noted": false
+        },
+        {
+          "name": "Coins",
+          "quantity": "953-1500",
+          "noted": false
+        },
+        {
+          "name": "Bass",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Pure essence",
+          "quantity": "200-300",
+          "noted": false
+        },
+        {
+          "name": "Rune arrowtips",
+          "quantity": "8-12",
+          "noted": false
+        },
+        {
+          "name": "Adamant arrowtips",
+          "quantity": "8-12",
+          "noted": false
+        },
+        {
+          "name": "Uncut ruby",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Uncut diamond",
+          "quantity": "1",
+          "noted": false
+        },
+        {
+          "name": "Uncut sapphire",
+          "quantity": "1",
+          "noted": false
+        }
+      ],
+      "other": {
+        "pet": [],
+        "tertiary": [
+          {
+            "name": "Clue scroll (hard)",
+            "quantity": "1",
+            "noted": false
+          }
+        ]
+      }
+    },
+    "versions": {
+      "Idle": {
+        "combat": 99,
+        "hitpoints": 130,
+        "immunepoison": "Yes",
+        "immunevenom": "No",
+        "att": 85,
+        "def": 80,
+        "str": 60,
+        "mage": 80,
+        "range": 80,
+        "astab": 0,
+        "aslash": 0,
+        "acrush": 0,
+        "amagic": 0,
+        "arange": 0,
+        "dstab": 20,
+        "dslash": 50,
+        "dcrush": 50,
+        "dmagic": 50,
+        "drange": 20,
+        "attbns": 0,
+        "strbns": 30,
+        "rngbns": 0
+      },
+      "Attacking": {
+        "combat": 99,
+        "hitpoints": 130,
+        "immunepoison": "Yes",
+        "immunevenom": "No",
+        "att": 85,
+        "def": 80,
+        "str": 60,
+        "mage": 80,
+        "range": 80,
+        "astab": 0,
+        "aslash": 0,
+        "acrush": 0,
+        "amagic": 0,
+        "arange": 0,
+        "dstab": 20,
+        "dslash": 50,
+        "dcrush": 50,
+        "dmagic": 50,
+        "drange": 20,
+        "attbns": 0,
+        "strbns": 30,
+        "rngbns": 0
+      }
+    }
   }
 }

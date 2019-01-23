@@ -502,5 +502,41 @@
       },
       "basexp": 52,
       "maxhit": 30
+    },
+    "tridentoftheseas": {
+      "name": "Trident of the seas",
+      "book": "trident",
+      "magiclevel": 75,
+      "runes": {
+        "death": 1,
+        "chaos": 1,
+        "fire": 5,
+        "coins": 10
+      },
+      "basexp": 0,
+      "maxhit": 20
+    },
+    "tridentoftheswamp": {
+      "name": "Trident of the swamp",
+      "book": "trident",
+      "magiclevel": 75,
+      "runes": {
+        "death": 1,
+        "chaos": 1,
+        "fire": 5,
+        "zulrah scale": 1
+      },
+      "basexp": 0,
+      "maxhit": 23
+    },
+    "sanguinestistaff": {
+      "name": "SAnguinesti staff",
+      "book": "trident",
+      "magiclevel": 75,
+      "runes": {
+        "blood": 3
+      },
+      "basexp": 0,
+      "maxhit": 24
     }
   }

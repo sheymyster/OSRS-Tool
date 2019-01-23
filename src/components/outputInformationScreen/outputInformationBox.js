@@ -366,7 +366,7 @@ class OutputInformationBox extends Component {
      let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength);
      let magicMaxHit;
      if (this.props.playerMagic.chosenspell !== '') {
-       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, this.props.playerGear, specialCheckObject);
+       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, this.props.playerGear, specialCheckObject, (this.props.playerStats.magic + magicPotionBonus));
      };
 
      // choose which effective attack to use based on what user has selected (weapon type or spell) //
