@@ -48,9 +48,9 @@ class BoostSelectionBox extends Component {
      }
    }
 
-   highlightOnTask() {
-     if (this.props.otherActiveBoosts.ontask) {
-       if (this.props.lockStatus.locked && this.props.otherActiveBoosts.ontask === this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
+   highlightOtherBoost(boostname) {
+     if (this.props.otherActiveBoosts[boostname]) {
+       if (this.props.lockStatus.locked && this.props.otherActiveBoosts[boostname] === this.props.lockStatus.lockedSelections.otherActiveBoosts[boostname]) {
          return {
            backgroundColor: 'rgba(90, 90, 90, 0.8)'
          }
@@ -59,7 +59,7 @@ class BoostSelectionBox extends Component {
            backgroundColor: 'rgba(0, 128, 0, 0.5)'
          }
        }
-     } else if (this.props.lockStatus.locked && this.props.otherActiveBoosts.ontask !== this.props.lockStatus.lockedSelections.otherActiveBoosts.ontask) {
+     } else if (this.props.lockStatus.locked && this.props.otherActiveBoosts[boostname] !== this.props.lockStatus.lockedSelections.otherActiveBoosts[boostname]) {
         return {
           backgroundColor: 'rgba(255, 0, 0, 0.5)'
         }
@@ -188,7 +188,7 @@ class BoostSelectionBox extends Component {
             <div className="Selection-Images">
               <div className="Other-Boost-Image"
                 onClick={() => this.props.changeOtherBoost({ontask: !this.props.otherActiveBoosts.ontask})}
-                style={this.highlightOnTask()}
+                style={this.highlightOtherBoost('ontask')}
                 title="On Task">
                   <Image src={require('../../assets/slayer_icon.png')} height={40} width={40}/>
               </div>
@@ -201,6 +201,12 @@ class BoostSelectionBox extends Component {
                 style={this.highlightVoid(voidset)}
                 title="Void set active">
                   <Image src={require('../../assets/' + this.getVoidSetImage(voidset) + '.png')} height={40} width={40}/>
+              </div>
+              <div className="Other-Boost-Image"
+                onClick={() => this.props.changeOtherBoost({imbuedheart: !this.props.otherActiveBoosts.imbuedheart})}
+                style={this.highlightOtherBoost('imbuedheart')}
+                title="Imbued Heart">
+                  <Image src={require('../../assets/imbued_heart_icon.png')} height={40} width={40}/>
               </div>
             </div>
         </div>

@@ -1,6 +1,8 @@
-export const calculateMagicPotionBonus = (activePotions) => {
+export const calculateMagicPotionBonus = (activePotions, activeOtherBoosts, magicLvl) => {
   let addedLevels;
-  if (activePotions.magic) {
+  if (activeOtherBoosts.imbuedheart) {
+    addedLevels = 1 + (Math.floor(magicLvl/10));
+  } else if (activePotions.magic) {
     addedLevels = 4
   } else {
     addedLevels = 0
@@ -53,6 +55,11 @@ export const calculateMaxMagicHit = (spellBase, magicDamage, playerGear, checkOb
     let boostedBase = spellBase + Math.floor((visibleMagicLvl - 75)/3);
     if (boostedBase >= spellBase) {
       spellBase = boostedBase;
+    }
+    if (playerGear.weapon === "Trident of the swamp" && spellBase === 34) {
+      spellBase -= 1;
+    } else if (playerGear.weapon === "Sanguinesti staff" && spellBase === 35) {
+      spellBase -= 1;
     }
   }
   if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {

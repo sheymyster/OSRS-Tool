@@ -1,0 +1,33 @@
+.Main-Container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  height: 100%;
+  width: 100%;
+  padding-right: 2%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  padding-left: 2%;
+  background-image: url('./assets/rocky_background.jpeg');
+  background-repeat: repeat;
+}
+
+.NPC-Info-Container {
+  height: 100%;
+  width: 20%;
+}
+
+.Stat-Gear-Container {
+  height: 100%;
+  width: 35%;
+}
+
+.Boost-Container {
+  height: 100%;
+  width: 25%;
+}
+
+.Output-Container {
+  height: 100%;
+  width: 20%;
+}

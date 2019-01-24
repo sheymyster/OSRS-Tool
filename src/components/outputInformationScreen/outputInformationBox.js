@@ -340,7 +340,7 @@ class OutputInformationBox extends Component {
      let attPrayerBonus = calculateAttackPrayerBonus(this.props.activePrayers);
      let rangePotionBonus = calculateRangePotionBonus(this.props.activePotions, this.props.playerStats.range);
      let rangePrayerBonus = calculateRangePrayerBonus(this.props.activePrayers);
-     let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions);
+     let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions, this.props.otherActiveBoosts, this.props.playerStats.magic);
      let magicPrayerBonus = calculateMagicPrayerBonus(this.props.activePrayers);
 
      // check for various extra bonuses to pass to bonus calcs below //

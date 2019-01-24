@@ -28,7 +28,8 @@ const initialState = {
     augury: false
   },
   other: {
-    ontask: false
+    ontask: false,
+    imbuedheart: false
   }
 };
 
