@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import NPCInfoBox from '../components/npcInfoScreen/npcInfoBox';
-import BoostSelectionBox from '../components/boostSelectionScreen/boostSelectionBox';
-import PlayerStatBox from '../components/playerStatScreen/playerStatBox';
-import OutputInformationBox from '../components/outputInformationScreen/outputInformationBox';
-import GearSelectionBox from '../components/gearSelectionScreen/gearSelectionBox';
+import NPCInfoBox from '../../components/npcInfoScreen/npcInfoBox.js';
+import BoostSelectionBox from '../../components/boostSelectionScreen/boostSelectionBox.js';
+import PlayerStatBox from '../../components/playerStatScreen/playerStatBox.js';
+import OutputInformationBox from '../../components/outputInformationScreen/outputInformationBox.js';
+import GearSelectionBox from '../../components/gearSelectionScreen/gearSelectionBox.js';
 import './DPSscreen.css';
 
 

@@ -1,5 +1,5 @@
 const initialState = {
-  currentscreen: 'main'
+  currentscreen: 'dps'
 };
 
 export default function (state = initialState, action) {

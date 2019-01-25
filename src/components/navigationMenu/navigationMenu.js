@@ -7,10 +7,10 @@ class NavigationMenu extends Component {
    render() {
      return (
        <div className="Main-Menu">
-          <button>DPS</button>
-          <button>Compare</button>
-          <button>About</button>
-          <button>Settings</button>
+          <button className="Navigation-Button">DPS</button>
+          <button className="Navigation-Button">Compare</button>
+          <button className="Navigation-Button">About</button>
+          <button className="Navigation-Button">Settings</button>
        </div>
      );
    }
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    
+
   }, dispatch)
 }
 

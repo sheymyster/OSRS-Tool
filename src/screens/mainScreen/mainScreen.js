@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import DPSscreen from './DPSscreen/DPSscreen.js';
+import DPSscreen from '../DPSscreen/DPSscreen.js';
 import './mainScreen.css';
 
 
@@ -14,7 +14,7 @@ class MainScreen extends Component {
   }
 
   render() {
-    return ({this.showScreen()});
+    return (this.showScreen());
   }
 }
 
