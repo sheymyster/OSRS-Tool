@@ -9,17 +9,17 @@ class MainScreen extends Component {
 
   showScreen() {
     if (this.props.navigation.currentscreen === 'dps') {
-      return <DPSscreen />
+      return (<DPSscreen />);
     }
   }
 
   render() {
-    return (this.showScreen());
+    return (<div className="Main-Screen">{this.showScreen()}</div>);
   }
 }
 
 function mapStateToProps(state) {
-  return{
+  return {
     navigation: state.navigation,
   }
 }

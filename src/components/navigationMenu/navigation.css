@@ -1,11 +1,22 @@
-.Main-Menu {
+.Navigation-Component {
   display: flex;
   flex-direction: row;
+  height: 100%;
   width: 100%;
-  height: 20%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
-.Navigation-Button {
-  height: 100%;
-  padding: 5px;
+.Navigation-Button-Div {
+  display: flex;
+  height: 70%;
+  width: 15%;
+  background-color: grey;
+  border-style: solid;
+  border-color: white;
+  border-width: medium;
+  align-items: center;
+  justify-content: center;
+  font-size: 25px;
 }

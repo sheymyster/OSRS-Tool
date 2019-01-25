@@ -1,8 +1,7 @@
 .Main-Container {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  height: 90%;
+  height: 100%;
   width: 100%;
 }
 

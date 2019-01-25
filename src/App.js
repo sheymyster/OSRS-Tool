@@ -8,8 +8,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <NavigationMenu />
-        <MainScreen />
+        <div className="Navigation-Menu"><NavigationMenu /></div>
+        <div className="Main-Screen"><MainScreen /></div>
       </div>
     );
   }
