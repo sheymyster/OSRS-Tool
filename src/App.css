@@ -21,6 +21,5 @@
 }
 
 .app-background {
-  opacity: 0.5;
-  background-image: url('./assets/rocky_background.jpeg');
+  background: linear-gradient(0deg, rgba(33,34,64,.8), rgba(33,34,64,.8)), url('./assets/rocky_background.jpeg') repeat;
 }

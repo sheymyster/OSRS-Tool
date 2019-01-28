@@ -363,7 +363,7 @@ class OutputInformationBox extends Component {
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
-     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength);
+     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength, specialCheckObject, this.props.activePrayers.rigour);
      let magicMaxHit;
      if (this.props.playerMagic.chosenspell !== '') {
        magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, this.props.playerGear, specialCheckObject, (this.props.playerStats.magic + magicPotionBonus));

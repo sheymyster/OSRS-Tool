@@ -5,7 +5,10 @@ const undeadNPCs = ['Aberrant spectre', 'Deviant spectre', 'Ankou', 'Banshee', '
 'Zogre', 'Zombified spawn', 'Zombie', 'Zombie rat', "Vet'ion", 'Pestilent Bloat', 'Tree spirit', 'Mi-Gor',
 'Treus Dayth', 'Nazastarool', 'Slash Bash', 'Ulfric', 'Vorkath', 'Monkey Zombie', 'Zombie pirate'];
 
-const dragonNPCs = [];
+const dragonNPCs = ['Green dragon', 'Brutal green dragon', 'Blue dragon', 'Brutal blue dragon',
+'Red dragon', 'Brutal red dragon', 'Black dragon', 'Brutal black dragon', 'Bronze dragon', 'Iron dragon',
+'Steel dragon', 'Mithril dragon', 'Adamant dragon', 'Rune dragon', 'Vorkath', 'King black dragon', 'Great Olm',
+'Spitting Wyvern', 'Skeletal Wyvern', 'Taloned Wyvern', 'Long-tailed Wyvern', 'Anceint Wyvern', 'Lava dragon'];
 
 export const checkVoidSet = (playerGear) => {
   let checkObject = {};

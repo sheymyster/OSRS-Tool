@@ -42,6 +42,9 @@ export const calculateRangeOtherBonus = (playerGear, checkObject) => {
       multiplier += 0.1;
     }
   }
+  if (checkObject.dhc) {
+    multiplier += 0.3;
+  }
   return multiplier;
 }
 
@@ -59,7 +62,10 @@ export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, 
   return effectiveRangeLevel;
 }
 
-export const calculateMaxRangeHit = (effectiveRangeLevel, rangeStrengthBonus) => {
+export const calculateMaxRangeHit = (effectiveRangeLevel, rangeStrengthBonus, checkObject, rigour) => {
+  if (rigour) {
+    rangeStrengthBonus = Math.floor(rangeStrengthBonus*1.23);
+  }
   let baseDamage = 1.3 + (effectiveRangeLevel/10) + (rangeStrengthBonus/80) + (effectiveRangeLevel*rangeStrengthBonus)/640;
   let maxHit = Math.floor(baseDamage);
   return maxHit;
