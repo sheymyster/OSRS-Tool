@@ -19,3 +19,8 @@
   height: 90%;
   padding-top: 10px;
 }
+
+.app-background {
+  opacity: 0.5;
+  background-image: url('./assets/rocky_background.jpeg');
+}
