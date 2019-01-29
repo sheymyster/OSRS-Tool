@@ -50,8 +50,8 @@ export const checkVoidSet = (playerGear) => {
     }
   } else {
     checkObject.hasvoid = false;
-    checkObject.set = '';
-    checkObject.settype = '';
+    checkObject.set = 'x';
+    checkObject.settype = 'x';
   }
   return checkObject;
 }
@@ -112,6 +112,9 @@ export const checkBarrows = (playerGear) => {
   ) {
     checkObject.hasbarrows = true;
     checkObject.set = "Ahrim's";
+  } else {
+    checkObject.hasbarrows = false;
+    checkObject.set = 'x';
   }
   if (playerGear.neck === "Amulet of the damned") {
     checkObject.amuletofdamned = true;
@@ -121,8 +124,42 @@ export const checkBarrows = (playerGear) => {
   return checkObject;
 }
 
+export const checkSalve = (playerGear, isundead) => {
+  let checkObject = {};
+  if (isundead) {
+    if (playerGear.neck === "Salve amulet(ei)") {
+      checkObject.melee = 'e';
+      checkObject.range = 'e';
+      checkObject.mage = 'e';
+    } else if (playerGear.neck === "Salve amulet (e)") {
+      checkObject.melee = 'e';
+      checkObject.range = 'x';
+      checkObject.mage = 'x';
+    } else if (playerGear.neck === "Salve amulet(i)") {
+      checkObject.melee = 'n';
+      checkObject.range = 'n';
+      checkObject.mage = 'n';
+    } else if (playerGear.neck === "Salve amulet") {
+      checkObject.melee = 'n';
+      checkObject.range = 'x';
+      checkObject.mage = 'x';
+    } else {
+      checkObject.melee = 'x';
+      checkObject.range = 'x';
+      checkObject.mage = 'x';
+    }
+  }
+  return checkObject;
+}
+
 export const checkDHC = (playerGear, npc) => {
   if (playerGear.weapon === 'Dragon hunter crossbow' && dragonNPCs.indexOf(npc.split("_").join(" ")) > -1 ) {
+    return true;
+  }
+}
+
+export const checkDHL = (playerGear, npc) => {
+  if (playerGear.weapon === 'Dragon hunter lance' && dragonNPCs.indexOf(npc.split("_").join(" ")) > -1 ) {
     return true;
   }
 }

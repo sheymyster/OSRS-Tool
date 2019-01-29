@@ -1,56 +1,99 @@
-export const calculateRangeBonuses = (rangeLvl, activePotions, activePrayers, checkObject, rangeStrBonus, style, equipmentRangeAttack) {
+export const calculateMaxRangeAttack = (rangeLvl, activePotions, activePrayers, checkObject, style, playerGear, equipmentBonus) => {
   let potionLevels = 0;
-  if (activePotions.ranging) {
-    potionLevels += 4 + Math.floor(rangeLvl*0.10);
-  }
-  let prayerAttackBonus = 1;
-  let prayerStrengthBonus = 1;
-  if (activePrayers.rigour) {
-    prayerAttackBonus += 0.2;
-    prayerStrengthBonus += 0.23;
-  } else if (activePrayers.eagleeye) {
-    prayerAttackBonus += 0.15;
-    prayerStrengthBonus += 0.15;
-  } else if (activePrayers.hawkeye) {
-    prayerAttackBonus += 0.10;
-    prayerStrengthBonus += 0.10;
-  } else if (activePrayers.sharpeye) {
-    prayerAttackBonus += 0.05;
-    prayerStrengthBonus += 0.05;
-  }
-  let otherAttackBonus = 1;
-  let otherStrengthBonus = 1;
-  if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
-    otherAttackBonus += 0.2;
-    otherStrengthBonus += 0.2;
-  } else if (playerGear.neck === "Salve amulet(i)" && checkObject.isundead) {
-    otherAttackBonus += 0.15;
-    otherStrengthBonus += 0.15;
-  } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)") {
-    if (checkObject.ontask) {
-      otherAttackBonus += 0.15;
-      otherStrengthBonus += 0.15;
-    }
-  }
-  if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'range') {
-    if (checkObject.voidset.set === 'elite') {
-      otherAttackBonus += 0.1;
-      otherStrengthBonus += 0.125;
-    } else {
-      otherAttackBonus += 0.1;
-      otherStrengthBonus += 0.1;
-    }
-  }
-  if (checkObject.dhc) {
-    otherAttackBonus += 0.3;
-    otherStrengthBonus += 0.3;
-  }
+  let prayerMultiplier = 1;
+  let otherMultiplier = 1;
   let styleBonus = 8;
+
+  if (activePotions.ranging) {
+    potionLevels += 4 + Math.floor(rangeLvl*0.1);
+  }
+
+  if (activePrayers.rigour) {
+    prayerMutliplier += 0.2;
+  } else if (activePrayers.eagleeye) {
+    prayerMutliplier += 0.15;
+  } else if (activePrayers.hawkeye) {
+    prayerMutliplier += 0.10;
+  } else if (activePrayers.sharpeye) {
+    prayerMutliplier += 0.05;
+  }
+
+  if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'range') {
+    otherMultiplier += 0.1;
+  }
+
   if (style === 'accurate') {
     styleBonus += 3
   }
-  let effectiveRangeLevel = Math.floor(((+rangeLvl + potionLevels)*prayerAttackBonus)+styleBonus)*otherAttackBonus
+
+  let effectiveLevel = Math.floor((Math.floor((+rangeLvl + potionLevels)*prayerMultiplier)+styleBonus)*otherMultiplier);
+  let maxAttackRoll = Math.floor(effectiveLevel*(64+equipmentBonus));
+
+  if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
+    maxAttackRoll *= 1.2;
+  } else if (playerGear.neck === "Salve amulet(i)" && checkObject.isundead) {
+    maxAttackRoll *= 1.15;
+  } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)") {
+    if (checkObject.ontask) {
+      maxAttackRoll *= 1.15;
+    }
+  }
+
+  if (checkObject.dhc) {
+    maxAttackRoll *= 1.3;
+  }
+
+  return maxAttackRoll;
 }
+
+export const calculateMaxRangeHit = (rangeLvl, activePotions, activePrayers, checkObject, playerGear, equipmentBonus) => {
+  let potionLevels = 0;
+  let prayerMultiplier = 1;
+  let otherMultiplier = 1;
+  let styleBonus = 8;
+
+  if (activePotions.ranging) {
+    potionLevels += 4 + Math.floor(rangeLvl*0.1);
+  }
+
+  if (activePrayers.rigour) {
+    prayerMutliplier += 0.2;
+  } else if (activePrayers.eagleeye) {
+    prayerMutliplier += 0.15;
+  } else if (activePrayers.hawkeye) {
+    prayerMutliplier += 0.10;
+  } else if (activePrayers.sharpeye) {
+    prayerMutliplier += 0.05;
+  }
+
+  if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'range') {
+    if (checkObject.voidset.set === 'elite') {
+      otherMultiplier += 0.125;
+    } else {
+      otherMultiplier += 0.1;
+    }
+  }
+
+  let effectiveLevel = Math.floor((Math.floor((+rangeLvl + potionLevels)*prayerMultiplier)+styleBonus)*otherMultiplier);
+  let maxRangeHit = Math.floor(0.5+effectiveLevel*(64+equipmentBonus)/640);
+
+  if (playerGear.neck === "Salve amulet(ei)" && checkObject.isundead) {
+    maxRangeHit *= 1.2;
+  } else if (playerGear.neck === "Salve amulet(i)" && checkObject.isundead) {
+    maxRangeHit *= 1.15;
+  } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)") {
+    if (checkObject.ontask) {
+      maxRangeHit *= 1.15;
+    }
+  }
+
+  if (checkObject.dhc) {
+    maxRangeHit *= 1.3;
+  }
+
+  return maxRangeHit
+}
+
 
 export const calculateRangePotionBonus = (activePotions, rangeLvl) => {
   let addedLevels;
@@ -132,13 +175,4 @@ export const calculateEffectiveRangeLevel = (style, rangeLvl, rangePotionBonus, 
 
 export const calculateEffectiveRangeStrength = (rangeLvl, rangePotionBonus, rangePrayerBonus, rangeOtherBonus) => {
   let effectiveRangeStrength =
-}
-
-export const calculateMaxRangeHit = (effectiveRangeLevel, rangeStrengthBonus, checkObject, rigour) => {
-  if (rigour) {
-    rangeStrengthBonus = Math.floor(rangeStrengthBonus*1.23);
-  }
-  let baseDamage = 1.3 + (effectiveRangeLevel/10) + (rangeStrengthBonus/80) + (effectiveRangeLevel*rangeStrengthBonus)/640;
-  let maxHit = Math.floor(baseDamage);
-  return maxHit;
 }

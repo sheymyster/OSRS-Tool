@@ -1,3 +1,58 @@
+export const calculateMaxMeleeAttack = (attLvl, activePotion, activePrayers, checkObject, style, playerGear, equipmentBonus) => {
+  let potionLevels = 0;
+  let prayerMultiplier = 1;
+  let otherMultiplier = 1;
+  let styleBonus = 8;
+
+  if (activePotions.superattack || activePotions.supercombat) {
+    potionLevels += 5 + Math.floor(attLvl*0.15)
+  } else if (activePotions.attack || activePotions.combat) {
+    potionLevels += 3 + Math.floor(attLvl*0.10)
+  }
+
+  if (activePrayers.piety) {
+    prayerMultiplier += 0.20
+  } else if (activePrayers.chivalry) {
+    prayerMultiplier += 0.15
+  } else if (activePrayers.incrediblereflexes) {
+    prayerMultiplier += 0.15
+  } else if (activePrayers.improvedreflexes) {
+    prayerMultiplier += 0.1
+  } else if (activePrayers.clarityofthought) {
+    prayerMultiplier += 0.05
+  }
+
+  if (checkObject.voidset.hasvoid === true && checkObject.voidset.settype === 'melee') {
+    otherMultiplier += 0.1;
+  }
+
+  if (style === 'accurate') {
+    styleBonus += 3
+  } else if (stance === 'controlled') {
+    styleBonus += 1
+  }
+
+  let effectiveLevel = Math.floor((Math.floor((+attLvl + potionLevels)*prayerMultiplier)+styleBonus)*otherMultiplier);
+  let maxAttackRoll = Math.floor(effectiveLevel*(64+equipmentBonus));
+
+  if (checkObject.salve.melee === 'e') {
+    maxAttackRoll *= 1.2;
+  } else if (checkObject.salve.melee === 'n') {
+    maxAttackRoll *= 1.15;
+  } else if (playerGear.head === "Slayer helmet (i)" || playerGear.head === "Black mask (i)" || playerGear.head === "Slayer Helmet" || playerGear.head === "Black mask") {
+    if (checkObject.ontask) {
+      maxAttackRoll *= 1.16666667;
+    }
+  }
+
+  if (checkObject.dhl) {
+    maxAttackRoll *= 1.2;
+  }
+
+  return maxAttackRoll;
+}
+
+
 export const calculateStrengthPotionBonus = (activePotions, strLvl) => {
   let addedLevels;
   if (activePotions.superstrength || activePotions.supercombat) {

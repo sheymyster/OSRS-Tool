@@ -8,8 +8,8 @@ import allEquipmentData from '../../JSONraw/allEquipmentData.json'; // Equipment
 import allMonsterData from '../../JSONraw/allNPCdata.json';  // Monster Data //
 import magicSpellList from '../../JSONraw/magicSpellList.json'; // Spell Data //
 
-import {toggleLock, lockAllSelections} from './outputInformationActions';  /////////////////////////////////////
-import {changePrayer, changePotion, changeOtherBoost} from '../boostSelectionScreen/boostSelectionActions'; /////////////////////
+import {toggleLock, lockAllSelections} from './outputInformationActions';  ////////////////////////////////////
+import {changePrayer, changePotion, changeOtherBoost} from '../boostSelectionScreen/boostSelectionActions'; ///
 import {changePlayerGear, changeSpell} from '../gearSelectionScreen/gearSelectionActions'; // Redux Actions //
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; /////////////////////////
 import {changePlayerStat} from '../playerStatScreen/playerStatActions'; //////////////////////////////////////
@@ -22,7 +22,7 @@ import {
 
 import {
   calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
-  calculateRangeOtherBonus, calculateMaxRangeHit} from './rangeCalculations'; // functions for range //
+  calculateRangeOtherBonus, calculateMaxRangeHit, calculateMaxRangeAttack} from './rangeCalculations'; // functions for range //
 
 import {
   calculateMagicPotionBonus, calculateMagicPrayerBonus, calculateEffectiveMagicLevel,
@@ -39,7 +39,9 @@ import {
   checkVoidSet,
   checkUndead,
   checkBarrows,
-  checkDHC
+  checkDHC,
+  checkDHL,
+  checkSalve
 } from './specialChecks'; // functions for checking special conditions like sets //
 
 import './output.css'; // Styling //
@@ -213,6 +215,8 @@ class OutputInformationBox extends Component {
     checkObject.isundead = checkUndead(monsterName);
     checkObject.ontask = this.props.otherActiveBoosts.ontask;
     checkObject.dhc = checkDHC(playerGear, monsterName);
+    checkObject.dhl = checkDHL(playerGear, monsterName);
+    checkObject.salve = checkSalve(playerGear, checkUndead(monsterName));
     return checkObject;
   }
 
@@ -345,25 +349,53 @@ class OutputInformationBox extends Component {
 
      // check for various extra bonuses to pass to bonus calcs below //
      let specialCheckObject = this.checkSpecialConditions(this.props.playerGear, this.props.chosenMonster.name);
-
-     // precalculate other bonuses such as void sets or damage boosting gear //
-     let attOtherBonus = calculateAttackOtherBonus(this.props.playerGear, specialCheckObject);
-     let strOtherBonus = calculateStrengthOtherBonus(this.props.playerGear, specialCheckObject);
-     let rangeOtherBonus = calculateRangeOtherBonus(this.props.playerGear, specialCheckObject);
-     let magicOtherBonus = calculateMagicOtherBonus(this.props.playerGear, specialCheckObject);
-
-     // add up equipment attack, defense, and other bonuses and store as object //
      let playerBonuses = this.calculatePlayerBonuses();
+
+     let rangeMaxAttackRoll = calculateMaxRangeAttack(
+       this.props.playerStats.range,
+       this.props.activePotions,
+       this.props.activePrayers,
+       specialCheckObject,
+       chosenAttack.style.toLowerCase(),
+       this.props.playerGear,
+       playerBonuses.rangestrength
+     );
+
+     let rangeMaxHit = calculateMaxRangeHit(
+       this.props.playerStats.range,
+       this.props.activePotions,
+       this.props.activePrayers,
+       specialCheckObject,
+       chosenAttack.style.toLowerCase(),
+       this.props.playerGear,
+       playerBonuses.rangestrength
+     );
+
+     let meleeMaxAttackRoll = calculateMaxMeleeAttack(
+
+     );
+
+     let meleeMaxHit = calculateMaxMeleeHit(
+
+     );
+
+     let magicMaxAttackRoll = calculateMaxMagicAttack(
+
+     );
+
+     let magicMaxHit = calculateMaxMagicHit(
+
+     );
+
+
 
      // precalculate effects of potions, prayers, and stance //
      let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus, strOtherBonus);
      let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus, attOtherBonus);
-     let effectiveRange = calculateEffectiveRangeLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.range, rangePotionBonus, rangePrayerBonus, rangeOtherBonus);
      let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus, magicOtherBonus);
 
      // precalculate max hit of all 3 styles, only the one the player is using will be used of course
      let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
-     let rangeMaxHit = calculateMaxRangeHit(effectiveRange, playerBonuses.rangestrength, specialCheckObject, this.props.activePrayers.rigour);
      let magicMaxHit;
      if (this.props.playerMagic.chosenspell !== '') {
        magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, this.props.playerGear, specialCheckObject, (this.props.playerStats.magic + magicPotionBonus));
