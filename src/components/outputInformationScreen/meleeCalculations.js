@@ -52,7 +52,7 @@ export const calculateMaxMeleeAttack = (attLvl, activePotions, activePrayers, ch
   return maxAttackRoll;
 };
 
-export const calculateMaxMeleeHit = (strLvl, activePotions, activePrayers, checkObject, style, playerGear, equipmentBonus) => {
+export const calculateMaxMeleeHit = (strLvl, activePotions, activePrayers, checkObject, style, playerGear, equipmentBonus, npc) => {
   let potionLevels = 0;
   let prayerMultiplier = 1;
   let otherMultiplier = 1;
@@ -102,6 +102,18 @@ export const calculateMaxMeleeHit = (strLvl, activePotions, activePrayers, check
   if (checkObject.dhl) {
     maxMeleeHit = Math.floor(maxMeleeHit * 1.2);
   }
+
+  if (npc === "Turoth" || npc === "Kurask" || npc === "King kurask") {
+    if (playerGear.weapon === "Leaf-bladed battleaxe") {
+      maxMeleeHit = Math.floor(maxMeleeHit * 1.175);
+    } else if (playerGear.weapon === "Leaf-bladed spear" || playerGear.weapon === "Leaf-bladed sword") {
+      maxMeleeHit = Math.floor(maxMeleeHit * 1);
+    } else {
+      maxMeleeHit = Math.floor(maxMeleeHit * 0);
+    }
+  }
+
+  
 
   return maxMeleeHit;
 };

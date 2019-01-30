@@ -1,6 +1,7 @@
 const initialState = {
  locked: false,
- lockedSelections: {}
+ lockedSelections: {},
+ savedSelections: []
 };
 
 export default function (state = initialState, action) {
@@ -11,6 +12,11 @@ export default function (state = initialState, action) {
         ...action.payload
       };
     case "SELECTIONS_LOCKED":
+      return {
+        ...state,
+        ...action.payload
+      };
+    case "SELECTIONS_SAVED":
       return {
         ...state,
         ...action.payload

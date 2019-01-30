@@ -8,7 +8,7 @@ import allEquipmentData from '../../JSONraw/allEquipmentData.json'; // Equipment
 import allMonsterData from '../../JSONraw/allNPCdata.json';  // Monster Data //
 import magicSpellList from '../../JSONraw/magicSpellList.json'; // Spell Data //
 
-import {toggleLock, lockAllSelections} from './outputInformationActions';  ////////////////////////////////////
+import {toggleLock, lockAllSelections, saveSelections} from './outputInformationActions';  ////////////////////////////////////
 import {changePrayer, changePotion, changeOtherBoost} from '../boostSelectionScreen/boostSelectionActions'; ///
 import {changePlayerGear, changeSpell} from '../gearSelectionScreen/gearSelectionActions'; // Redux Actions //
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; /////////////////////////
@@ -143,7 +143,7 @@ class OutputInformationBox extends Component {
     return maxAttackRoll;
   }
 
-  getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses) {
+  getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses, npc) {
     let maxHit;
     if (combatType === "melee") {
       maxHit = calculateMaxMeleeHit(
@@ -153,7 +153,8 @@ class OutputInformationBox extends Component {
         specialCheckObject,
         chosenAttack.style.toLowerCase(),
         this.props.playerGear,
-        playerBonuses.strength
+        playerBonuses.strength,
+        npc
       );
     } else if (combatType === "ranged") {
       maxHit = calculateMaxRangeHit(
@@ -163,14 +164,15 @@ class OutputInformationBox extends Component {
         specialCheckObject,
         chosenAttack.style.toLowerCase(),
         this.props.playerGear,
-        playerBonuses.rangestrength
+        playerBonuses.rangestrength,
+        npc
       );
     } else {
       maxHit = calculateMaxMagicHit(
         this.props.playerStats.magic,
         this.props.activePotions,
         this.props.otherActiveBoosts,
-        magicSpellList[this.props.playerMagic.chosenspell].maxhit,
+        magicSpellList[this.props.playerMagic.chosenspell],
         playerBonuses.magicdamage,
         specialCheckObject,
         this.props.playerGear
@@ -349,6 +351,18 @@ class OutputInformationBox extends Component {
     }
   }
 
+  handleSaveClick() {
+    let selectionsObject = {};
+    let selectionsArray = JSON.parse(JSON.stringify(this.props.lockStatus.savedSelections));
+    selectionsObject.boosts = Object.assign({}, this.props.activeBoosts);
+    selectionsObject.equipment = Object.assign({}, this.props.playerGear);
+    selectionsObject.monster = Object.assign({}, this.props.chosenMonster);
+    selectionsObject.stats = Object.assign({}, this.props.playerStats);
+    selectionsObject.magic = Object.assign({}, this.props.playerMagic);
+    selectionsArray.push(selectionsObject);
+    this.props.saveSelections({savedSelections: selectionsArray});
+  }
+
   generatePopupContent() {
     return (
       <div>
@@ -375,6 +389,12 @@ class OutputInformationBox extends Component {
     }
   }
 
+  generateSaveButton() {
+    return (
+      <button className="Save-Button" onClick={() => this.handleSaveClick()}>SAVE</button>
+    )
+  }
+
    render() {
      // formula getting long so chose to save chosen attack object in new object //
      let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
@@ -387,7 +407,7 @@ class OutputInformationBox extends Component {
      let playerBonuses = this.calculatePlayerBonuses();
 
      // calculate max hit based on weapons, gear,  and bonuses //
-     let maxHit = this.getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses);
+     let maxHit = this.getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses, this.props.chosenMonster.name);
 
      // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
      let maxAttackRoll = this.getMaxAttackRoll(combatType, specialCheckObject, chosenAttack, playerBonuses);
@@ -419,8 +439,11 @@ class OutputInformationBox extends Component {
      return (
        <div className="Output-Screen">
         <div className="Lock-Button">
-          <div className="Lock-Div" >
+          <div className="Lock-Div">
             {this.generateLockButton(playerBonuses, calculatedValues)}
+          </div>
+          <div className="Save-Div">
+            {this.generateSaveButton()}
           </div>
         </div>
         <div className="Player-Stats">
@@ -456,6 +479,7 @@ class OutputInformationBox extends Component {
 
 function mapStateToProps(state) {
   return {
+    activeBoosts: state.currentBoosts,
     activePotions: state.currentBoosts.potions,
     activePrayers: state.currentBoosts.prayers,
     otherActiveBoosts: state.currentBoosts.other,
@@ -478,7 +502,8 @@ function mapDispatchToProps(dispatch){
     changeMonster: changeMonster,
     changeMonsterVersion: changeMonsterVersion,
     changePlayerStat: changePlayerStat,
-    changeSpell: changeSpell
+    changeSpell: changeSpell,
+    saveSelections: saveSelections
   }, dispatch)
 }
 

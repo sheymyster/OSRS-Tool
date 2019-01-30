@@ -3,6 +3,8 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import './navigation.css';
 
+import {navigateToScreen} from './navigationMenuActions';
+
 class NavigationMenu extends Component {
 
    render() {
@@ -10,11 +12,11 @@ class NavigationMenu extends Component {
        <div className="Navigation-Component">
           <div
             className="Navigation-Button-Div"
-            onClick={() => console.log('dps')}>DPS
+            onClick={() => this.props.navigateToScreen({currentscreen: 'dps'})}>DPS
           </div>
           <div
             className="Navigation-Button-Div"
-            onClick={() => console.log('compare')}>Compare
+            onClick={() => this.props.navigateToScreen({currentscreen: 'compare'})}>Compare
           </div>
           <div
             className="Navigation-Button-Div"
@@ -37,7 +39,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-
+    navigateToScreen: navigateToScreen
   }, dispatch)
 }
 

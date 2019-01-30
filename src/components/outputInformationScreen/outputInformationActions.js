@@ -11,3 +11,10 @@ export const lockAllSelections = (allSelections) => {
     payload: allSelections
   }
 };
+
+export const saveSelections = (selectionsObject) => {
+  return {
+    type: "SELECTIONS_SAVED",
+    payload: selectionsObject
+  }
+};

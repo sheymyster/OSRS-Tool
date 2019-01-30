@@ -55,6 +55,9 @@
 }
 
 .Lock-Button {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
   background-color: rgba(0, 0, 0, 0.0);
   border: none;
   outline: none;

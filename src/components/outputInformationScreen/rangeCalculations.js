@@ -47,7 +47,7 @@ export const calculateMaxRangeAttack = (rangeLvl, activePotions, activePrayers, 
   return maxAttackRoll;
 };
 
-export const calculateMaxRangeHit = (rangeLvl, activePotions, activePrayers, checkObject, style, playerGear, equipmentBonus) => {
+export const calculateMaxRangeHit = (rangeLvl, activePotions, activePrayers, checkObject, style, playerGear, equipmentBonus, npc) => {
   let potionLevels = 0;
   let prayerMultiplier = 1;
   let otherMultiplier = 1;
@@ -94,6 +94,14 @@ export const calculateMaxRangeHit = (rangeLvl, activePotions, activePrayers, che
 
   if (checkObject.dhc) {
     maxRangeHit = Math.floor(maxRangeHit * 1.3);
+  }
+
+  if (npc === "Turoth" || npc === "Kurask" || npc === "King kurask") {
+    if (playerGear.ammo === "Broad bolts" || playerGear.ammo === "Broad arrows" || playerGear.ammo === "Amethyst broad bolts") {
+      maxRangeHit = Math.floor(maxRangeHit * 1);
+    } else {
+      maxRangeHit = Math.floor(maxRangeHit * 0);
+    }
   }
 
   return maxRangeHit;

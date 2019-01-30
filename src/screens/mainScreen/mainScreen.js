@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import DPSscreen from '../DPSscreen/DPSscreen.js';
+import CompareScreen from '../compareScreen/compareScreen.js';
 import './mainScreen.css';
 
 
@@ -10,6 +11,8 @@ class MainScreen extends Component {
   showScreen() {
     if (this.props.navigation.currentscreen === 'dps') {
       return (<DPSscreen />);
+    } else if (this.props.navigation.currentscreen === 'compare') {
+      return (<CompareScreen />);
     }
   }
 

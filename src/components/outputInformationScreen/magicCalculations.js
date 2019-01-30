@@ -40,12 +40,13 @@ export const calculateMaxMagicAttack = (magicLvl, activePotions, activePrayers, 
   return maxAttackRoll;
 };
 
-export const calculateMaxMagicHit = (magicLvl, activePotions, activeOtherBoosts, spellBase, equipmentBonus, checkObject, playerGear) => {
+export const calculateMaxMagicHit = (magicLvl, activePotions, activeOtherBoosts, spell, equipmentBonus, checkObject, playerGear) => {
   let potionLevels = 0;
   let otherMultiplier = 1;
   let slayerDamageMultiplier = 1;
   let styleBonus = 8;
   let magicDamageMultiplier = 1+(equipmentBonus/100);
+  let spellBase = spell.maxhit;
 
   if (activeOtherBoosts.imbuedheart) {
     potionLevels += 1 + Math.floor(magicLvl*0.1);
@@ -55,8 +56,8 @@ export const calculateMaxMagicHit = (magicLvl, activePotions, activeOtherBoosts,
 
   if (playerGear.weapon === "Trident of the seas" || playerGear.weapon === "Trident of the swamp" ||
       playerGear.weapon === "Sanguinesti staff") {
-    let boostedBase = spellBase + Math.floor(((magicLvl + potionLevels) - 75)/3);
-    if (boostedBase >= spellBase) {
+    let boostedBase = spell.maxhit + Math.floor(((magicLvl + potionLevels) - 75)/3);
+    if (boostedBase >= spell.maxHit) {
       spellBase = boostedBase;
     }
     if (playerGear.weapon === "Trident of the swamp" && spellBase === 34) {
@@ -66,7 +67,19 @@ export const calculateMaxMagicHit = (magicLvl, activePotions, activeOtherBoosts,
     }
   }
 
-  let maxMagicHit = spellBase;
+  if (spell.name === "Magic dart") {
+    if (playerGear.weapon === "Slayer's staff (e)" && activeOtherBoosts.ontask) {
+      spellBase = Math.floor(((magicLvl + potionLevels)/6) + 13);
+    } else if (playerGear.weapon === "Slayer's staff (e)" || playerGear.weapon === "Slayer's staff" ||
+      playerGear.weapon === "Staff of the dead" || playerGear.weapon === "Toxic staff of the dead" ||
+      playerGear.weapon === "Staff of light") {
+        spellBase = Math.floor(((magicLvl + potionLevels)/10) + 10);
+    } else {
+      spellBase = 0;
+    }
+  }
+
+  console.log(spellBase);
 
   if (checkObject.voidset.hasvoid && checkObject.voidset.settype === 'magic') {
     if (checkObject.voidset.set === 'elite') {
@@ -84,7 +97,7 @@ export const calculateMaxMagicHit = (magicLvl, activePotions, activeOtherBoosts,
     }
   }
 
-  maxMagicHit = Math.floor(maxMagicHit * magicDamageMultiplier);
+  let maxMagicHit = Math.floor(spellBase * magicDamageMultiplier);
   maxMagicHit = Math.floor(maxMagicHit * slayerDamageMultiplier);
 
   return maxMagicHit;
