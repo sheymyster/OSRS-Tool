@@ -14,19 +14,11 @@ import {changePlayerGear, changeSpell} from '../gearSelectionScreen/gearSelectio
 import {changeMonster, changeMonsterVersion} from '../npcInfoScreen/npcInfoActions'; /////////////////////////
 import {changePlayerStat} from '../playerStatScreen/playerStatActions'; //////////////////////////////////////
 
-import {
-  calculateStrengthPotionBonus, calculateStrengthPrayerBonus, calculateEffectiveStrengthLevel,
-  calculateAttackPotionBonus, calculateAttackPrayerBonus, calculateEffectiveAttackLevel,
-  calculateMaxMeleeHit, calculateMaxAttackRoll, calculateStrengthOtherBonus,
-  calculateAttackOtherBonus} from './meleeCalculations'; // functions for melee //
+import {calculateMaxMeleeHit, calculateMaxMeleeAttack} from './meleeCalculations.js'; // functions for melee //
 
-import {
-  calculateRangePotionBonus, calculateRangePrayerBonus, calculateEffectiveRangeLevel,
-  calculateRangeOtherBonus, calculateMaxRangeHit, calculateMaxRangeAttack} from './rangeCalculations'; // functions for range //
+import {calculateMaxRangeAttack, calculateMaxRangeHit} from './rangeCalculations.js'; // functions for range //
 
-import {
-  calculateMagicPotionBonus, calculateMagicPrayerBonus, calculateEffectiveMagicLevel,
-  calculateMagicOtherBonus, calculateMaxMagicHit} from './magicCalculations'; // functions for magic //
+import {calculateMaxMagicAttack, calculateMaxMagicHit} from './magicCalculations.js'; // functions for magic //
 
 import {
   getFinalRatios,
@@ -114,26 +106,77 @@ class OutputInformationBox extends Component {
     return attackType;
   }
 
-  getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic) {
-    let combatType = this.determineCombatType();
+  getMaxAttackRoll(combatType, specialCheckObject, chosenAttack, playerBonuses) {
+    let maxAttackRoll;
     if (combatType === "melee") {
-      return effectiveMeleeAttack;
+      maxAttackRoll = calculateMaxMeleeAttack(
+        this.props.playerStats.attack,
+        this.props.activePotions,
+        this.props.activePrayers,
+        specialCheckObject,
+        chosenAttack.style.toLowerCase(),
+        this.props.playerGear,
+        playerBonuses[("a"+this.determineAttackType())]
+      );
     } else if (combatType === "ranged") {
-      return effectiveRange;
+      maxAttackRoll = calculateMaxRangeAttack(
+        this.props.playerStats.range,
+        this.props.activePotions,
+        this.props.activePrayers,
+        specialCheckObject,
+        chosenAttack.style.toLowerCase(),
+        this.props.playerGear,
+        playerBonuses.aranged
+      );
     } else {
-      return effectiveMagic;
+      maxAttackRoll = calculateMaxMagicAttack(
+        this.props.playerStats.magic,
+        this.props.activePotions,
+        this.props.activePrayers,
+        this.props.otherActiveBoosts,
+        specialCheckObject,
+        chosenAttack.style.toLowerCase(),
+        this.props.playerGear,
+        playerBonuses.amagic
+      );
     }
+    return maxAttackRoll;
   }
 
-  getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit) {
-    let combatType = this.determineCombatType();
+  getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses) {
+    let maxHit;
     if (combatType === "melee") {
-      return meleeMaxHit;
+      maxHit = calculateMaxMeleeHit(
+        this.props.playerStats.strength,
+        this.props.activePotions,
+        this.props.activePrayers,
+        specialCheckObject,
+        chosenAttack.style.toLowerCase(),
+        this.props.playerGear,
+        playerBonuses.strength
+      );
     } else if (combatType === "ranged") {
-      return rangeMaxHit;
+      maxHit = calculateMaxRangeHit(
+        this.props.playerStats.range,
+        this.props.activePotions,
+        this.props.activePrayers,
+        specialCheckObject,
+        chosenAttack.style.toLowerCase(),
+        this.props.playerGear,
+        playerBonuses.rangestrength
+      );
     } else {
-      return magicMaxHit;
+      maxHit = calculateMaxMagicHit(
+        this.props.playerStats.magic,
+        this.props.activePotions,
+        this.props.otherActiveBoosts,
+        magicSpellList[this.props.playerMagic.chosenspell].maxhit,
+        playerBonuses.magicdamage,
+        specialCheckObject,
+        this.props.playerGear
+      );
     }
+    return maxHit;
   }
 
   calculatePlayerStat(statName) {
@@ -150,9 +193,8 @@ class OutputInformationBox extends Component {
     return statValue;
   }
 
-  calculateAttackSpeed () {
+  calculateAttackSpeed (combatType) {
     let attackspeed;
-    let combatType = this.determineCombatType();
     if (this.props.playerMagic.chosenspell !== '') {
       attackspeed = 5;
     } else {
@@ -337,87 +379,41 @@ class OutputInformationBox extends Component {
      // formula getting long so chose to save chosen attack object in new object //
      let chosenAttack = allEquipmentData.weapon[this.props.playerGear.weapon].attackoptions[this.props.playerGear.chosenattack];
 
-     // precalculate potion and prayer bonuses for 4 combat stats //
-     let strPotionBonus = calculateStrengthPotionBonus(this.props.activePotions, this.props.playerStats.strength);
-     let strPrayerBonus = calculateStrengthPrayerBonus(this.props.activePrayers);
-     let attPotionBonus = calculateAttackPotionBonus(this.props.activePotions, this.props.playerStats.attack);
-     let attPrayerBonus = calculateAttackPrayerBonus(this.props.activePrayers);
-     let rangePotionBonus = calculateRangePotionBonus(this.props.activePotions, this.props.playerStats.range);
-     let rangePrayerBonus = calculateRangePrayerBonus(this.props.activePrayers);
-     let magicPotionBonus = calculateMagicPotionBonus(this.props.activePotions, this.props.otherActiveBoosts, this.props.playerStats.magic);
-     let magicPrayerBonus = calculateMagicPrayerBonus(this.props.activePrayers);
+     // figure out which combat type (magic, melee, range) to use for other formulas //
+     let combatType = this.determineCombatType();
 
      // check for various extra bonuses to pass to bonus calcs below //
      let specialCheckObject = this.checkSpecialConditions(this.props.playerGear, this.props.chosenMonster.name);
      let playerBonuses = this.calculatePlayerBonuses();
 
-     let rangeMaxAttackRoll = calculateMaxRangeAttack(
-       this.props.playerStats.range,
-       this.props.activePotions,
-       this.props.activePrayers,
-       specialCheckObject,
-       chosenAttack.style.toLowerCase(),
-       this.props.playerGear,
-       playerBonuses.rangestrength
-     );
-
-     let rangeMaxHit = calculateMaxRangeHit(
-       this.props.playerStats.range,
-       this.props.activePotions,
-       this.props.activePrayers,
-       specialCheckObject,
-       chosenAttack.style.toLowerCase(),
-       this.props.playerGear,
-       playerBonuses.rangestrength
-     );
-
-     let meleeMaxAttackRoll = calculateMaxMeleeAttack(
-
-     );
-
-     let meleeMaxHit = calculateMaxMeleeHit(
-
-     );
-
-     let magicMaxAttackRoll = calculateMaxMagicAttack(
-
-     );
-
-     let magicMaxHit = calculateMaxMagicHit(
-
-     );
-
-
-
-     // precalculate effects of potions, prayers, and stance //
-     let effectiveStrength = calculateEffectiveStrengthLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.strength, strPotionBonus, strPrayerBonus, strOtherBonus);
-     let effectiveMeleeAttack = calculateEffectiveAttackLevel(chosenAttack.style.toLowerCase(), this.props.playerStats.attack, attPotionBonus, attPrayerBonus, attOtherBonus);
-     let effectiveMagic = calculateEffectiveMagicLevel(this.props.playerStats.magic, magicPotionBonus, magicPrayerBonus, magicOtherBonus);
-
-     // precalculate max hit of all 3 styles, only the one the player is using will be used of course
-     let meleeMaxHit = calculateMaxMeleeHit(effectiveStrength, playerBonuses.strength);
-     let magicMaxHit;
-     if (this.props.playerMagic.chosenspell !== '') {
-       magicMaxHit = calculateMaxMagicHit(magicSpellList[this.props.playerMagic.chosenspell].maxhit, playerBonuses.magicdamage, this.props.playerGear, specialCheckObject, (this.props.playerStats.magic + magicPotionBonus));
-     };
-
-     // choose which effective attack to use based on what user has selected (weapon type or spell) //
-     let effectiveAttack = this.getEffectiveAttack(effectiveMeleeAttack, effectiveRange, effectiveMagic);
-
-     // choose which maxHit to use based on what the user has selected (weapon type or spell) //
-     let maxHit = this.getMaxHit(meleeMaxHit, rangeMaxHit, magicMaxHit);
+     // calculate max hit based on weapons, gear,  and bonuses //
+     let maxHit = this.getMaxHit(combatType, specialCheckObject, chosenAttack, playerBonuses);
 
      // use effective attack and equipment bonuses for chosen attack style to determine player max attack roll //
-     let maxAttackRoll = calculateMaxAttackRoll(effectiveAttack, playerBonuses[("a"+this.determineAttackType())]);
+     let maxAttackRoll = this.getMaxAttackRoll(combatType, specialCheckObject, chosenAttack, playerBonuses);
+
      // use chosen monster stats and player attack style to determine enemy max defense roll //
      let maxDefenseRoll = this.calculateEnemyDefenseRoll();
 
+     // determine monster HP from npc data JSON //
      let monsterHP = allMonsterData[this.props.chosenMonster.name].versions[this.props.chosenMonster.version].hitpoints;
+
+     // calculate accuracy using max attack and enemy defense roll //
      let accuracy = this.calculateChanceToHit(maxAttackRoll, maxDefenseRoll);
-     let weaponAttackSpeed = this.calculateAttackSpeed();
+
+     // determine attack speed in seconds //
+     let weaponAttackSpeed = this.calculateAttackSpeed(combatType);
+
+     // use max hit, accuracy, weapon attack speed, and monster hp to determine damage per second accounting for overkill //
      let dps = this.calculateDPS(maxHit, monsterHP, accuracy, weaponAttackSpeed);
+
+     // use damage per second to determine kills per hour //
      let killsPerHour = this.calculateKillsPerHour(dps, monsterHP);
+
+     // very simple for now, just takes kills per hour and figures up xp, isn't accurate for mage yet //
      let xpPerHour = this.calculateXpPerHour(killsPerHour, monsterHP);
+
+     // format some of the values for display //
      let calculatedValues = {maxHit: maxHit, accuracy: (100*accuracy), dps: dps, killsPerHour: killsPerHour, xp:xpPerHour};
 
      return (
