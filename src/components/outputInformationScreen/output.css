@@ -15,7 +15,7 @@
   align-items: flex-start;
   padding: 10px;
   width: 100%;
-  height: 90%;
+  height: 75%;
 }
 
 .Player-Stats-Title {
@@ -56,6 +56,7 @@
 
 .Lock-Button {
   width: 100%;
+  height: 12%;
   display: flex;
   flex-direction: row;
   background-color: rgba(0, 0, 0, 0.0);
