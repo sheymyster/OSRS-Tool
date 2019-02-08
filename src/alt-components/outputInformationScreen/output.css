@@ -1,0 +1,69 @@
+.Output-Screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.Player-Stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+  height: 75%;
+}
+
+.Player-Stats-Title {
+  color: #DA8D2D;
+  text-shadow: 2px 2px 2px #3f2a14;
+  font-weight: bold;
+}
+
+.Player-Stats-Row {
+  padding-left: 10px;
+}
+
+.Player-Stats-Value {
+  color: #DA8D2D;
+}
+
+.Calculated-Output {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  width: 100%;
+  height: 50%;
+}
+
+.Calculated-Row {
+  line-height: 1.5em;
+  font-size: 20px;
+  padding: 5px;
+}
+
+.Calculated-Label {
+  color: #DA8D2D;
+  text-shadow: 2px 2px 2px #3f2a14;
+  font-weight: bold;
+}
+
+.Lock-Button {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  flex-direction: row;
+  background-color: rgba(0, 0, 0, 0.0);
+  border: none;
+  outline: none;
+}
+
+.Lock-Div {
+  padding-top: 10px;
+}

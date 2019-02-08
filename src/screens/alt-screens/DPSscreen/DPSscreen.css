@@ -1,0 +1,26 @@
+.Main-Container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.NPC-Info-Container {
+  height: 100%;
+  width: 15%;
+}
+
+.Stat-Gear-Container {
+  height: 100%;
+  width: 30%;
+}
+
+.Boost-Container {
+  height: 100%;
+  width: 30%;
+}
+
+.Output-Container {
+  height: 100%;
+  width: 20%;
+}

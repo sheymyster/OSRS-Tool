@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import NavigationMenu from './components/navigationMenu/navigationMenu.js';
+import NavigationMenu from './alt-components/navigationMenu/navigationMenu.js';
 import MainScreen from './screens/mainScreen/mainScreen.js';
-import DPSscreen from './screens/bulma-screens/bulma-dps-screen.js';
 import './App.css';
 
 
@@ -11,10 +10,8 @@ import './App.css';
 */
 /*
 <div class="hero hero.header hero.footer app-background">
-  <div class="hero-body">
-    <nav class="nav is-fixed-top"><NavigationMenu /></nav>
-    <div ><DPSscreen /></div>
-  </div>
+  <nav class="nav is-fixed-top"><NavigationMenu /></nav>
+  <div ><DPSscreen /></div>
 </div>
 */
 

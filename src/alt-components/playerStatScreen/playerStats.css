@@ -1,0 +1,35 @@
+.Player-Stat-Screen {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  padding-left: 5px;
+  width: 100%;
+}
+
+.Mock-Gear-Button {
+  width: 50%;
+}
+
+.Player-Stat-Row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+
+.Player-Stat-Input {
+  padding-left: 5px;
+  width: 100px;
+  line-height: 2em;
+  font-size: 1.5em;
+  border: none;
+}
+
+.Mock-Gear-Button-Div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
